@@ -1,0 +1,6 @@
+apelido,url,bloco
+anthropic_paises,www.anthropic.com/supported-countries,A
+aws_modelos_regiao,docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html,A
+aws_modelos_suportados,docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html,A
+google_vertex_locations,cloud.google.com/vertex-ai/generative-ai/docs/learn/locations,A
+azure_foundry_modelos,learn.microsoft.com/en-us/azure/ai-foundry/concepts/models-featured,A
