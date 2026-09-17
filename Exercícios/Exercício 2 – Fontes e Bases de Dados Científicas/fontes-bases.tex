@@ -31,7 +31,7 @@
 
 \vspace{3.5cm}
 
-{\Large\bfseries ESTRATÉGIA DE BUSCA BIBLIOGRÁFICA RASTREÁVEL\par}
+{\Large\bfseries ESTRATÉGIA DE BUSCA\\BIBLIOGRÁFICA RASTREÁVEL\par}
 \vspace{0.6cm}
 {\large Construção, calibração e registro de uma expressão de busca\\
 para o projeto de pesquisa da disciplina\par}
@@ -134,20 +134,29 @@ etapa anterior do projeto. Nenhum foi obtido por sugestão de modelo de linguage
 \centering\footnotesize
 \caption{Conjunto-controle --- versão final}
 \label{tab:ctrl}
-\begin{tabularx}{\textwidth}{l Y l l}
+\begin{tabularx}{\textwidth}{@{}l Y@{}}
 \toprule
-\textbf{Referência} & \textbf{Título} & \textbf{Veículo} & \textbf{DOI} \\
+\textbf{Referência} & \textbf{Título, veículo e identificador verificado} \\
 \midrule
-Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data &
-\textit{Human Behavior and Emerging Technologies} & \texttt{10.1002/hbe2.140} \\
-Ahmed \& Wahed (2020) & The de-democratization of AI: deep learning and the compute divide
-in AI research & arXiv (preprint, cs.CY) & \texttt{10.48550/arXiv.2010.15581} \\
+Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data.
+\textit{Human Behavior and Emerging Technologies}.
+DOI \texttt{10.1002/hbe2.140} \\
+\addlinespace
+Ahmed \& Wahed (2020) & The de-democratization of AI: deep learning and the compute
+divide in AI research. arXiv, \textit{preprint} cs.CY.
+DOI \texttt{10.48550/arXiv.2010.15581} \\
+\addlinespace
 Mannuru et al.\ (2023) & Artificial intelligence in developing countries: the impact of
-generative AI & \textit{Information Development} & \texttt{10.1177/02666669231200628} \\
-Wang et al.\ (2024) & The artificial intelligence divide: who is the most vulnerable? &
-\textit{New Media \& Society} & \texttt{10.1177/14614448241232345} \\
-Sastry et al.\ (2024) & Computing power and the governance of artificial intelligence &
-arXiv (preprint, cs.CY) & \texttt{10.48550/arXiv.2402.08797} \\
+generative AI. \textit{Information Development}.
+DOI \texttt{10.1177/02666669231200628} \\
+\addlinespace
+Wang et al.\ (2024) & The artificial intelligence divide: who is the most vulnerable?
+\textit{New Media \& Society}.
+DOI \texttt{10.1177/14614448241232345} \\
+\addlinespace
+Sastry et al.\ (2024) & Computing power and the governance of artificial intelligence.
+arXiv, \textit{preprint} cs.CY.
+DOI \texttt{10.48550/arXiv.2402.08797} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -211,9 +220,9 @@ como referência terminológica.
 Aplicando a regra dos blocos --- \texttt{OR} dentro, \texttt{AND} entre, tudo entre
 parênteses --- e traduzindo a pergunta literalmente:
 
-\begin{quote}\footnotesize\ttfamily
-("generative AI" OR "generative artificial intelligence" OR "large language model"\\
- OR "foundation model")\\
+\begin{quote}\scriptsize\ttfamily
+("generative AI" OR "generative artificial intelligence"\\
+ OR "large language model" OR "foundation model")\\
 AND ("regional availability" OR "deployment delay" OR "adoption lag")\\
 AND ("cloud region" OR "data residency" OR "digital sovereignty")
 \end{quote}
@@ -296,11 +305,13 @@ direta, e a causa é identificável: Mannuru e Sastry só são alcançados por t
 território e governança, ao passo que Lutz, Ahmed e Wang só o são por termos da família
 \textit{divide}. Essas duas famílias pertencem a literaturas diferentes.
 
+\begin{sloppypar}
 Antes de aceitar esse resultado, verificou-se se o volume não seria artefato de sintaxe.
 A base foi testada quanto ao tratamento de frase exata: \texttt{"artificial intelligence"}
-devolve 327.044 registros no título contra 154 da frase invertida, e \texttt{"compute
-divide"} devolve 11 contra 1 --- a base respeita aspas. O volume reflete o tamanho real da
+devolve 327.044 registros no título contra 154 da frase invertida, e \texttt{"compute divide"}
+devolve 11 contra 1 --- a base respeita aspas. O volume reflete o tamanho real da
 literatura, não erro de construção.
+\end{sloppypar}
 
 \medskip
 \noindent A resolução adotada é \textbf{declarar duas linhas de busca}, cada uma triável e
@@ -356,10 +367,12 @@ base a que se destina.
 
 Prefixos de campo próprios (\texttt{ti:}, \texttt{abs:}, \texttt{cat:}).
 
-\begin{quote}\footnotesize\ttfamily
-(abs:"artificial intelligence" OR abs:"generative AI" OR abs:"computing power")\\
-AND (abs:"digital divide" OR abs:"compute divide" OR abs:"unequal access"\\
- OR abs:"digital sovereignty" OR abs:"developing countries")
+\begin{quote}\scriptsize\ttfamily
+(abs:"artificial intelligence" OR abs:"generative AI"\\
+ OR abs:"computing power")\\
+AND (abs:"digital divide" OR abs:"compute divide"\\
+ OR abs:"unequal access" OR abs:"digital sovereignty"\\
+ OR abs:"developing countries")
 \end{quote}
 
 \noindent\textbf{100 registros} em 17/09/2026. A v1 estreita, traduzida para a mesma base,

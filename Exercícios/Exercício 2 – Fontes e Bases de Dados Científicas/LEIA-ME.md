@@ -12,11 +12,13 @@ Estado: **rascunho completo, pendente de três ações do Pedro.**
 
 ## O que falta
 
-### 1. Criar o projeto no Overleaf, compilar e inserir o link
+### 1. Criar o projeto no Overleaf e inserir o link
 
-Não há LaTeX instalado nesta máquina, então **o `.tex` nunca foi compilado**. Ele passou
-por validação estática (ambientes e chaves balanceados, pacotes declarados, nenhuma label
-órfã, nenhum comando frágil em título), mas isso não substitui uma compilação.
+**O documento compila.** Foi gerado localmente com `tectonic` (instalado via Homebrew,
+sem sudo), em 9 páginas, sem nenhum erro e sem nenhuma caixa vazando a margem. O
+`fontes-bases.pdf` no repositório é essa compilação.
+
+Falta apenas o link, que é o critério de entrega:
 
 1. Criar projeto em branco no Overleaf e subir `fontes-bases.tex`.
 2. Menu → Compiler → **pdfLaTeX**. Não precisa de biber: o documento não usa `biblatex`.
@@ -24,12 +26,21 @@ por validação estática (ambientes e chaves balanceados, pacotes declarados, n
 4. Substituir `[INSERIR AQUI O LINK DO OVERLEAF]` pelo endereço real e recompilar.
 5. Configurar o link como **"Anyone with this link can view"**.
 
+Para recompilar aqui depois de editar:
+
+```
+tectonic -X compile fontes-bases.tex
+```
+
+O Overleaf usa pdfLaTeX e o tectonic usa XeTeX. O documento foi escrito para funcionar nos
+dois, mas conferir no PDF do Overleaf se o sumário e as tabelas saíram iguais.
+
 O placeholder está dentro de uma caixa vermelha com o título "PREENCHER ANTES DE ENTREGAR",
 justamente porque no Exercício 1 ele passou batido e foi parar no PDF entregue.
 
 ### 2. Rodar Scopus, ACM DL e IEEE Xplore com o acesso CAFe
 
-As expressões já estão traduzidas para a sintaxe de cada uma, na seção 7 do documento.
+As expressões já estão traduzidas para a sintaxe de cada uma, na seção 8 do documento.
 Basta colar, rodar e anotar. Depois, preencher as três linhas `PENDENTE` do `log-busca.csv`
 e acrescentar os números à seção 7.
 
