@@ -114,16 +114,20 @@ O material da disciplina estabelece que, sem saber apontar onde estão os dados,
 
 ### 3.1 Cobertura histórica das fontes
 
-Contagem de dias distintos com registro arquivado, por trimestre, obtida pela API CDX do Internet Archive.
+Contagem de dias distintos com registro arquivado, obtida pela API CDX do Internet Archive em 28 de agosto de 2026.
 
-| Fonte | Primeiro registro | Dias arquivados | 2024 | 2025 | 2026 | Situação |
-|---|---|---|---|---|---|---|
-| Anthropic, países atendidos | 12/05/2023 | 274 | 53 | 143 | 51 | Adequada |
-| AWS Bedrock, modelos por região | 05/03/2024 | 206 | 15 | 97 | 82 | Adequada |
-| AWS Bedrock, modelos suportados | 07/03/2024 | 208 | 33 | 94 | 67 | Adequada |
-| Google Vertex AI, localizações | 22/04/2024 | 44 | 11 | 27 | 5 | Limitada |
-| Microsoft Foundry, modelos | 13/03/2025 | 20 | 0 | 19 | 1 | Insuficiente |
-| Microsoft, histórico do repositório | 08/05/2026 | 14 registros | 0 | 0 | 14 | Insuficiente |
+| Fonte | Primeiro registro | Dias arquivados | 2023 | 2024 | 2025 | 2026 † | Situação |
+|---|---|---|---|---|---|---|---|
+| Anthropic, países atendidos | 12/05/2023 | 274 | 6 | 53 | 143 | 51 | Adequada |
+| AWS Bedrock, modelos por região | 05/03/2024 | 206 | — | 15 | 97 | 82 | Adequada |
+| AWS Bedrock, modelos suportados | 07/03/2024 | 208 | — | 33 | 94 | 67 | Adequada |
+| Google Vertex AI, localizações | 22/04/2024 | 44 | — | 11 | 27 | 5 | Limitada |
+| Microsoft Foundry, modelos | 13/03/2025 | 20 | — | — | 19 | 1 | Insuficiente |
+| Microsoft, histórico do repositório | 08/05/2026 | 14 registros | — | — | — | 14 | Insuficiente |
+
+† As colunas anuais contam apenas até 30 de junho de 2026, limite da janela de observação do estudo. A coluna **Dias arquivados** traz o histórico completo até a data da consulta e por isso é maior que a soma das colunas anuais: a diferença corresponde ao terceiro trimestre de 2026, que está fora do recorte. O travessão indica ano anterior ao primeiro registro arquivado daquela fonte. Os valores por trimestre estão em `dados/intermediario/cobertura_wayback_2026-08-28.csv`.
+
+A coluna de 2023 existe por ser ela que sustenta a janela da pergunta co-primária: a lista de países atendidos da Anthropic é a única fonte com registro anterior a 2024, e é o seu primeiro arquivamento, em 12 de maio de 2023, que define o início daquele recorte.
 
 Essa medição produziu três decisões de desenho.
 
@@ -135,16 +139,21 @@ Essa medição produziu três decisões de desenho.
 
 O índice público de disponibilidade de serviços da AWS foi obtido em formato JSON, com 1,3 MB, contendo 5.836 pares de serviço e região, distribuídos em 37 regiões. Confirmou-se que o Amazon Bedrock consta na região de São Paulo.
 
+Extrato de 9 das 37 regiões, escolhidas como pontos de referência: o topo do ordenamento, a região brasileira e a base. O ordenamento completo está em `dados/intermediario/aws_servicos_por_regiao.csv`.
+
 | Região | Serviços disponíveis |
 |---|---|
 | us-east-1 (Norte da Virgínia) | 195 |
 | us-west-2 (Oregon) | 192 |
+| eu-central-1 (Frankfurt) | 190 |
 | ap-southeast-2 (Sydney) | 190 |
 | eu-west-1 (Irlanda) | 189 |
 | sa-east-1 (São Paulo) | 170 |
 | ap-southeast-6 | 119 |
 | ap-east-2 | 115 |
 | eusc-de-east-1 | 105 |
+
+Há empates no topo que o extrato não mostra por inteiro: `eu-central-1` e `ap-southeast-2` têm 190 serviços cada, e `ap-southeast-1` (Singapura) tem os mesmos 189 de `eu-west-1`. Nenhuma região do extrato está fora de ordem; o que foi omitido são as 28 posições intermediárias.
 
 São Paulo dispõe de 170 dos 195 serviços presentes na região de referência nos Estados Unidos, cerca de 87%. A região brasileira já é estruturalmente defasada para o conjunto dos serviços da plataforma, e não apenas para inteligência artificial.
 
