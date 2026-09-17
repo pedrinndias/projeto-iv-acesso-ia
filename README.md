@@ -30,9 +30,9 @@ O documento completo está em [`docs/Ficha-Inicial-Projeto-IV.md`](docs/Ficha-In
 | Problema | Concluída |
 | Pergunta | Concluída — sujeita a refinamento após retorno do professor |
 | Objetivos | Rascunho |
-| Revisão bibliográfica | Não iniciada |
+| Revisão bibliográfica | Em andamento — 10 trabalhos levantados e verificados no Exercício 1; leitura integral pendente |
 | Metodologia | Rascunho |
-| Coleta de dados | Não iniciada |
+| Coleta de dados | Viabilidade das fontes verificada (seção 3 da Ficha); coleta principal não iniciada |
 | Análise | Não iniciada |
 | Resultados | Não iniciada |
 | Apresentação | Não iniciada |
