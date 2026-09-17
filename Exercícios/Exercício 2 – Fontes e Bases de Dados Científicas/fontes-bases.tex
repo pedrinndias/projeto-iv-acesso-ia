@@ -1,0 +1,464 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.4em}
+\renewcommand{\arraystretch}{1.15}
+
+\begin{document}
+
+%======================= CAPA =======================
+\begin{titlepage}
+\centering
+\vspace*{0.5cm}
+
+{\large PONTIFÍCIA UNIVERSIDADE CATÓLICA DE MINAS GERAIS\par}
+{\normalsize Instituto de Ciências Exatas e Informática --- ICEI\par}
+{\normalsize Curso de Ciência de Dados e Inteligência Artificial\par}
+
+\vspace{3.5cm}
+
+{\Large\bfseries ESTRATÉGIA DE BUSCA BIBLIOGRÁFICA RASTREÁVEL\par}
+\vspace{0.6cm}
+{\large Construção, calibração e registro de uma expressão de busca\\
+para o projeto de pesquisa da disciplina\par}
+
+\vspace{3.5cm}
+
+{\large\bfseries Pedro Dias Soares\par}
+\vspace{0.3em}
+{\large\bfseries Eduardo Velloso Landeiro\par}
+
+\vspace{3.5cm}
+
+\begin{flushright}
+\begin{minipage}{0.52\textwidth}
+\RaggedRight\normalsize
+Exercício apresentado à disciplina Projeto em Ciência de Dados IV do curso de
+Ciência de Dados e Inteligência Artificial da Pontifícia Universidade Católica
+de Minas Gerais.
+
+\vspace{0.8em}
+Professor: Rodrigo Richard Gomes
+\end{minipage}
+\end{flushright}
+
+\vfill
+{\normalsize Belo Horizonte\par}
+{\normalsize 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%======================= 1 =======================
+\section{Objeto deste exercício}
+
+Este documento registra a construção de uma estratégia de busca bibliográfica para o
+projeto de pesquisa da disciplina, seguindo o procedimento da oficina: decomposição da
+pergunta em blocos conceituais, montagem de um conjunto-controle, iteração da expressão
+com diagnóstico documentado a cada ajuste, tradução para mais de uma base e registro
+rastreável de todas as consultas.
+
+Todas as consultas relatadas foram \textbf{efetivamente executadas} em 17 de setembro de
+2026. Nenhum número apresentado neste documento foi estimado. O registro completo, com a
+expressão exata de cada consulta, está no arquivo \texttt{log-busca.csv}, versionado no
+repositório do projeto, e o código que reproduz as consultas está em \texttt{buscas.py}.
+
+\begin{tcolorbox}[colback=yellow!8,colframe=yellow!55!black,title=\textbf{Consultas ainda não executadas}]
+As bases \textbf{Scopus}, \textbf{ACM Digital Library} e \textbf{IEEE Xplore} exigem
+assinatura institucional pelo Portal CAPES (CAFe). Suas expressões estão traduzidas na
+Seção~\ref{sec:traducao}, mas \textbf{ainda não foram executadas}, e as linhas
+correspondentes do registro estão marcadas como \texttt{PENDENTE}. Nenhum número foi
+atribuído a elas.
+\end{tcolorbox}
+
+%======================= 2 =======================
+\section{Passo 1 --- Pergunta de pesquisa}
+
+A pergunta é a do projeto em curso, registrada na Ficha Inicial:
+
+\begin{quote}
+\itshape
+Quais fatores estão associados à defasagem de disponibilidade regional de modelos de IA
+generativa comercial de provedores estadunidenses (Anthropic, OpenAI e Google), nas
+plataformas AWS Bedrock, Google Vertex AI e Microsoft Foundry, entre abril de 2024 e
+junho de 2026?
+\end{quote}
+
+O desfecho é a defasagem em dias até um modelo ficar disponível em uma região de nuvem,
+tratada como tempo até evento com censura à direita.
+
+%======================= 3 =======================
+\section{Passo 2 --- Decomposição em blocos conceituais}
+
+A pergunta foi decomposta em três conceitos. A apostila adverte que mais de quatro blocos
+quase sempre zera a busca; três é o limite adotado.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Blocos conceituais}
+\begin{tabularx}{\textwidth}{l l Y}
+\toprule
+\textbf{Bloco} & \textbf{Conceito} & \textbf{Papel na pergunta} \\
+\midrule
+B1 & Técnica & A tecnologia cujo acesso se mede: IA generativa e capacidade computacional \\
+B2 & Desfecho & A grandeza medida: defasagem, desigualdade ou lacuna de acesso \\
+B3 & Recorte & A dimensão comparativa: entre países, blocos ou regimes regulatórios \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%======================= 4 =======================
+\section{Passo 3 --- Conjunto-controle}
+
+O conjunto-controle (Tabela~\ref{tab:ctrl}) é composto por cinco trabalhos cuja existência
+foi verificada contra o
+registro da agência mantenedora do identificador (Crossref, DataCite e API do arXiv) em
+etapa anterior do projeto. Nenhum foi obtido por sugestão de modelo de linguagem.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Conjunto-controle --- versão final}
+\label{tab:ctrl}
+\begin{tabularx}{\textwidth}{l Y l l}
+\toprule
+\textbf{Referência} & \textbf{Título} & \textbf{Veículo} & \textbf{DOI} \\
+\midrule
+Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data &
+\textit{Human Behavior and Emerging Technologies} & \texttt{10.1002/hbe2.140} \\
+Ahmed \& Wahed (2020) & The de-democratization of AI: deep learning and the compute divide
+in AI research & arXiv (preprint, cs.CY) & \texttt{10.48550/arXiv.2010.15581} \\
+Mannuru et al.\ (2023) & Artificial intelligence in developing countries: the impact of
+generative AI & \textit{Information Development} & \texttt{10.1177/02666669231200628} \\
+Wang et al.\ (2024) & The artificial intelligence divide: who is the most vulnerable? &
+\textit{New Media \& Society} & \texttt{10.1177/14614448241232345} \\
+Sastry et al.\ (2024) & Computing power and the governance of artificial intelligence &
+arXiv (preprint, cs.CY) & \texttt{10.48550/arXiv.2402.08797} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Revisão do conjunto-controle durante a execução}
+
+O conjunto-controle inicial incluía Knez (2023), \textit{Technology diffusion and uneven
+development}. O diagnóstico da Seção~\ref{sec:diag} mostrou que esse trabalho não é
+recuperável por nenhuma expressão que contenha um bloco de IA, porque ele trata de difusão
+de tecnologias industriais e de diferenças salariais entre países, sem mencionar
+inteligência artificial. Exigir sua recuperação obrigava a incluir o termo genérico
+\texttt{technology} no bloco B1, o que elevou o retorno a 186.169 registros.
+
+Knez (2023) foi portanto \textbf{removido do conjunto-controle} --- ele não deveria
+aparecer nesta busca --- e substituído por Lutz (2019). O trabalho permanece na
+fundamentação do projeto como âncora da literatura de difusão, recuperado por uma linha de
+busca distinta e declarada.
+
+%======================= 5 =======================
+\section{Passo 4 --- Sinônimos por bloco}
+
+Os sinônimos não foram inventados. Foram extraídos dos \textbf{resumos efetivamente
+recuperados} dos cinco trabalhos do conjunto-controle, conforme instrui a apostila.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Termo-âncora e variantes por bloco, com a origem de cada termo}
+\begin{tabularx}{\textwidth}{l l Y}
+\toprule
+\textbf{Bloco} & \textbf{Termo-âncora} & \textbf{Variantes, siglas e origem} \\
+\midrule
+B1 & \texttt{artificial intelligence} &
+\texttt{generative AI}, \texttt{generative artificial intelligence} (Mannuru);
+\texttt{computing power}, \texttt{compute} (Sastry);
+\texttt{large language model} (LLM), \texttt{foundation model};
+\texttt{cloud computing} \\
+\addlinespace
+B2 & \texttt{digital divide} &
+\texttt{digital inequality} / \texttt{inequalities} (Lutz);
+\texttt{compute divide}, \texttt{de-democratization} (Ahmed \& Wahed);
+\texttt{artificial intelligence divide} (Wang);
+\texttt{unequal access} (Ahmed \& Wahed); \texttt{access gap};
+\texttt{technology adoption}, \texttt{technology diffusion}, \texttt{adoption lag} \\
+\addlinespace
+B3 & \texttt{developing countries} &
+\texttt{global south}; \texttt{cross-country}, \texttt{country differences} (Knez);
+\texttt{digital sovereignty}; \texttt{AI governance}, \texttt{compute governance},
+\texttt{governance of artificial intelligence} (Sastry) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent\textbf{Vocabulário controlado.} Os vocabulários citados na literatura de origem
+do método (MeSH, DeCS, EMTREE) pertencem à área da saúde. Os equivalentes em Computação
+são o \textit{ACM Computing Classification System} e o \textit{IEEE Thesaurus}, adotados
+como referência terminológica.
+
+%======================= 6 =======================
+\section{Passo 5 --- Versão 1 da expressão}
+
+Aplicando a regra dos blocos --- \texttt{OR} dentro, \texttt{AND} entre, tudo entre
+parênteses --- e traduzindo a pergunta literalmente:
+
+\begin{quote}\footnotesize\ttfamily
+("generative AI" OR "generative artificial intelligence" OR "large language model"\\
+ OR "foundation model")\\
+AND ("regional availability" OR "deployment delay" OR "adoption lag")\\
+AND ("cloud region" OR "data residency" OR "digital sovereignty")
+\end{quote}
+
+\noindent\textbf{Resultado: zero registros.} A apostila classifica o retorno nulo como
+sinal de alerta grave. Seguindo a orientação, a expressão foi verificada isolando um bloco
+por vez: cada bloco isoladamente devolve resultados, o que descarta erro de sintaxe. O
+diagnóstico é que os blocos são específicos demais, e que a interseção exata do objeto do
+projeto é inédita na literatura indexada.
+
+%======================= 7 =======================
+\section{Passo 6 --- Iteração, diagnóstico e calibração}
+\label{sec:diag}
+
+A base de calibração foi a \textbf{OpenAlex}, escolhida por ser a única base indexadora de
+acesso irrestrito disponível ao grupo. A calibração nas bases assinadas está pendente,
+conforme declarado na abertura.
+
+\subsection{Diagnóstico bloco a bloco}
+
+Diante de três versões consecutivas sem recuperar nenhum artigo-controle, cada bloco foi
+testado isoladamente contra cada artigo, em quinze consultas. Este é o diagnóstico que
+reorientou todo o restante do trabalho.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Recuperação de cada artigo-controle por bloco isolado}
+\begin{tabularx}{\textwidth}{Y c c c Y}
+\toprule
+\textbf{Artigo} & \textbf{B1} & \textbf{B2} & \textbf{B3} & \textbf{Por que falha} \\
+\midrule
+Ahmed \& Wahed (2020) & sim & sim & \textbf{não} & Unidade é a firma e a universidade, não o país \\
+Knez (2023)           & \textbf{não} & sim & sim & Difusão de tecnologia em geral; não menciona IA \\
+Wang et al.\ (2024)   & sim & sim & \textbf{não} & Survey com cidadãos holandeses; sem eixo entre países \\
+Mannuru et al.\ (2023)& sim & \textbf{não} & sim & Trata de \textit{impacto}, sem termo de defasagem \\
+Sastry et al.\ (2024) & sim & \textbf{não} & \textbf{não} & Governança de \textit{compute}; vocabulário próprio \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent Nenhum bloco está errado. O que a tabela mostra é que a estrutura de três blocos
+em \texttt{AND} é estrita demais para um conjunto-controle que atravessa três literaturas
+distintas. Duas consequências foram tiradas: a revisão do conjunto-controle descrita na
+Seção~4.1, e o abandono da expressão única.
+
+\subsection{Versões executadas}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Iteração da expressão na OpenAlex, 17 de setembro de 2026}
+\begin{tabularx}{\textwidth}{l Y r c}
+\toprule
+\textbf{Versão} & \textbf{Ajuste aplicado e motivo} & \textbf{Result.} & \textbf{Controle} \\
+\midrule
+\multicolumn{4}{l}{\textit{Conjunto-controle inicial}}\\
+v1 & Tradução literal da pergunta, três blocos estreitos & 0 & 0/5 \\
+v2 & Sinônimos dos resumos acrescentados aos três blocos & 619 & 0/5 \\
+v3 & B2 e B3 ampliados & 706 & 0/5 \\
+\midrule
+\multicolumn{4}{l}{\textit{Após o diagnóstico e a revisão do conjunto-controle}}\\
+v4 & Dois blocos; \texttt{technology} genérico em B1 & 186.169 & 4/5 \\
+v5 & Dois blocos; B1 restrito a IA & 31.285 & 4/5 \\
+v6 & B1 \texttt{AND} B2 (família \textit{divide}) & 7.638 & 3/5 \\
+v7 & v6 mais duas variantes de B2 & 7.642 & 3/5 \\
+v8 & B1 \texttt{AND} (B2 \texttt{OR} B3) & 31.857 & \textbf{5/5} \\
+v9 & B1 \texttt{AND} B2 \texttt{AND} B3 & 681 & 0/5 \\
+v10 & v8 com filtro de ano ($\geq$ 2019) & 25.501 & \textbf{5/5} \\
+v11 & v10 restrito a artigo e \textit{preprint} & 18.219 & \textbf{5/5} \\
+v12 & Bloco de desfecho restrito ao título & 14.385 & \textbf{5/5} \\
+v13 & Ambos os conceitos exigidos no título & 18.419 & \textbf{5/5} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{O impasse e sua resolução}
+
+As versões v8 a v13 recuperam o conjunto-controle completo, mas nenhuma devolve volume
+triável. A v9, que é triável, não recupera nada. Precisão e revocação estão em oposição
+direta, e a causa é identificável: Mannuru e Sastry só são alcançados por termos de
+território e governança, ao passo que Lutz, Ahmed e Wang só o são por termos da família
+\textit{divide}. Essas duas famílias pertencem a literaturas diferentes.
+
+Antes de aceitar esse resultado, verificou-se se o volume não seria artefato de sintaxe.
+A base foi testada quanto ao tratamento de frase exata: \texttt{"artificial intelligence"}
+devolve 327.044 registros no título contra 154 da frase invertida, e \texttt{"compute
+divide"} devolve 11 contra 1 --- a base respeita aspas. O volume reflete o tamanho real da
+literatura, não erro de construção.
+
+\medskip
+\noindent A resolução adotada é \textbf{declarar duas linhas de busca}, cada uma triável e
+cada uma correspondendo a uma literatura, cuja união satisfaz o critério de aceitação.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Expressões finais --- OpenAlex, 17/09/2026, publicações a partir de 2019, artigos e \textit{preprints}}
+\begin{tabularx}{\textwidth}{l Y r c}
+\toprule
+\textbf{Linha} & \textbf{Bloco combinado com B1} & \textbf{Result.} & \textbf{Controle} \\
+\midrule
+A & Desigualdade de acesso (família \textit{divide}) & 5.219 & 3/5 \\
+B & Território e governança & 14.107 & 2/5 \\
+\midrule
+\multicolumn{2}{l}{\textbf{União de A e B}} & --- & \textbf{5/5} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent\textbf{Deriva entre medições.} As duas linhas foram medidas duas vezes no mesmo
+dia, com algumas horas de intervalo: a Linha A passou de 5.214 para 5.219 registros e a
+Linha B de 14.082 para 14.107. A recuperação do conjunto-controle não mudou. A variação é
+pequena, mas confirma em medição própria a advertência da apostila de que bases crescem e
+de que um número sem data não significa nada. Os valores da tabela são os da segunda
+medição.
+
+\begin{quote}\footnotesize\ttfamily
+LINHA A =\\
+("artificial intelligence" OR "generative AI" OR "large language model"\\
+ OR "foundation model" OR "computing power")\\
+AND ("digital divide" OR "digital inequality" OR "digital inequalities"\\
+ OR "compute divide" OR "AI divide" OR "artificial intelligence divide"\\
+ OR "unequal access" OR "access gap")
+
+\vspace{0.6em}
+LINHA B =\\
+("artificial intelligence" OR "generative AI" OR "large language model"\\
+ OR "foundation model" OR "computing power")\\
+AND ("developing countries" OR "global south" OR "digital sovereignty"\\
+ OR "AI governance" OR "compute governance"\\
+ OR "governance of artificial intelligence")
+\end{quote}
+
+%======================= 8 =======================
+\section{Passo 7 --- Tradução para as demais bases}
+\label{sec:traducao}
+
+A estrutura conceitual se mantém; a escrita muda. Cada expressão abaixo está na sintaxe da
+base a que se destina.
+
+\subsection{arXiv --- executada}
+
+Prefixos de campo próprios (\texttt{ti:}, \texttt{abs:}, \texttt{cat:}).
+
+\begin{quote}\footnotesize\ttfamily
+(abs:"artificial intelligence" OR abs:"generative AI" OR abs:"computing power")\\
+AND (abs:"digital divide" OR abs:"compute divide" OR abs:"unequal access"\\
+ OR abs:"digital sovereignty" OR abs:"developing countries")
+\end{quote}
+
+\noindent\textbf{100 registros} em 17/09/2026. A v1 estreita, traduzida para a mesma base,
+devolveu \textbf{zero} --- confirmação independente do diagnóstico da Seção~6.
+
+\subsection{SBC OpenLib --- executada}
+
+Biblioteca digital da Sociedade Brasileira de Computação. A busca integrada não aceita
+operadores booleanos, de modo que a tradução é por termos em português.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabularx}{\textwidth}{Y r}
+\toprule
+\textbf{Termos (busca integrada)} & \textbf{Result.} \\
+\midrule
+soberania digital inteligência artificial & 6 \\
+desigualdade digital inteligência artificial & 5 \\
+computação em nuvem disponibilidade região & 1 \\
+difusão tecnológica inteligência artificial & 1 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent O retorno de um único registro para o recorte mais próximo do objeto do projeto
+é, em si, um resultado: a interseção exata praticamente não existe na produção brasileira
+indexada pela SBC.
+
+\subsection{Scopus --- a executar}
+
+\begin{quote}\footnotesize\ttfamily
+TITLE-ABS-KEY(\\
+ ("artificial intelligence" OR "generative AI" OR "large language model"\\
+  OR "foundation model" OR "computing power")\\
+ AND ("digital divide" OR "digital inequality" OR "compute divide"\\
+  OR "unequal access" OR "access gap")\\
+) AND PUBYEAR > 2018
+\end{quote}
+
+\noindent Agrupar sempre com parênteses: a Elsevier alterou a precedência dos operadores
+booleanos, com implantação concluída no início de 2026, e expressões antigas sem
+parênteses podem retornar resultado diferente.
+
+\subsection{ACM Digital Library --- a executar}
+
+\begin{quote}\footnotesize\ttfamily
+Title:("artificial intelligence" OR "generative AI" OR "computing power")\\
+AND Abstract:("digital divide" OR "compute divide" OR "unequal access")
+\end{quote}
+
+\noindent Na busca avançada, termos na mesma linha são combinados com \texttt{OR} por
+padrão e linhas diferentes com \texttt{AND}. Escrever os operadores explicitamente e
+conferir em \textit{View Query Syntax} antes de anotar o número.
+
+\subsection{IEEE Xplore --- a executar}
+
+\begin{quote}\footnotesize\ttfamily
+("Abstract":"artificial intelligence" OR "Abstract":"computing power")\\
+AND ("Abstract":"digital divide" OR "Abstract":"compute divide")
+\end{quote}
+
+\noindent \textit{Command Search}. Truncamento exige no mínimo três caracteres; limite de
+25 termos por cláusula; por padrão busca apenas metadados.
+
+%======================= 9 =======================
+\section{Passo 8 --- Registro consolidado}
+
+O registro completo está em \texttt{log-busca.csv}, versionado no repositório do projeto,
+com 27 linhas cobrindo base, data, expressão exata, campos, filtros, número de resultados,
+recuperação do conjunto-controle e observação. As três linhas de bases assinadas estão
+marcadas \texttt{PENDENTE}, sem número atribuído.
+
+%======================= 10 =======================
+\section{Limitações declaradas}
+
+\textbf{Bases assinadas não consultadas.} Scopus, Web of Science, ACM Digital Library e
+IEEE Xplore exigem acesso institucional e não foram executadas. A calibração foi feita na
+OpenAlex, cujo escopo é mais amplo e menos curado, o que explica em parte o volume elevado.
+A repetição na Scopus deve reduzir os números e é a próxima etapa.
+
+\textbf{SciELO.} A busca direta não respondeu a partir do ambiente utilizado.
+
+\textbf{Google Scholar.} Não foi usado como base de busca. A consulta é cortada em cerca de
+256 caracteres sem aviso, o teto de exibição é de aproximadamente mil resultados e o escopo
+não é declarado --- não é reprodutível, e portanto não serve a um registro rastreável.
+
+\textbf{Uso de IA generativa.} Modelo de linguagem foi usado para sugerir variantes de
+termo, uso previsto na apostila. Nenhuma referência foi obtida por sugestão de modelo: os
+cinco trabalhos do conjunto-controle têm DOI verificado contra Crossref, DataCite e a API
+do arXiv.
+
+%======================= 11 =======================
+\section{Link do projeto \texorpdfstring{\LaTeX}{LaTeX}}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!60!black,title=\textbf{PREENCHER ANTES DE ENTREGAR}]
+\centering\large\ttfamily
+[INSERIR AQUI O LINK DO OVERLEAF]
+\end{tcolorbox}
+
+\noindent O projeto deve estar configurado como \textit{Anyone with this link can view}.
+
+\end{document}
