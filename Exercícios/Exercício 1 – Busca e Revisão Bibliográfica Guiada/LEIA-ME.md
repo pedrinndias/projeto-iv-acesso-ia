@@ -2,6 +2,15 @@
 
 Estado: **texto completo, mas a entrega ainda não cumpre o critério 8.**
 
+## Autoria
+
+O trabalho e assinado por **Pedro Dias Soares e Eduardo Velloso Landeiro**.
+
+Registro de divergencia: o `PROMPT-execucao.md`, que originou este exercicio,
+afirma na linha 14 que se trata de atividade individual. A decisao de assinar em
+dupla foi tomada depois, em 20/09/2026. Se o enunciado do professor exigir
+entrega individual, e o `\author` do `.tex` que precisa voltar atras.
+
 ## Arquivos
 
 | Arquivo | O que é |
