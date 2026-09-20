@@ -1,1 +1,6 @@
-pandas>=2.2
+# Os tres scripts de coleta usam apenas a biblioteca padrao do Python.
+# Nenhuma dependencia externa e necessaria para reproduzir a base.
+#
+# pandas entra quando os scripts de analise chegarem (semanas 12 a 14 do
+# cronograma). Ate la, declarar a dependencia so obriga a instalar o que
+# nao se usa.

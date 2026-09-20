@@ -63,9 +63,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-python src/coleta/servicos_por_regiao_aws.py    # variável de controle de maturidade
-python src/coleta/cobertura_wayback.py          # cobertura histórica das fontes
+python src/coleta/servicos_por_regiao_aws.py     # variável de controle de maturidade
+python src/coleta/cobertura_wayback.py           # cobertura histórica das fontes
+python src/coleta/historico_repo_microsoft.py    # histórico do repositório da Microsoft
 ```
+
+Os scripts não têm dependência externa: usam apenas a biblioteca padrão. O passo do
+`pip install` só será necessário quando os scripts de análise entrarem.
 
 ## Combinados do grupo
 
