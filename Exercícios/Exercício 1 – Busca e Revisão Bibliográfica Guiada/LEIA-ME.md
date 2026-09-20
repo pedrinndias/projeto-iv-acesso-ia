@@ -81,7 +81,7 @@ citações ABNT) — 11 páginas, 3 apaisadas, tabelas íntegras.
    é cumprido.
 
 **Conferir no PDF antes de exportar:** nenhuma citação saindo como `[?]`; a lista de
-referências preenchida; as duas tabelas comparativas em páginas apaisadas e legíveis.
+referências preenchida; as três tabelas comparativas em retrato, com as sete colunas exigidas distribuídas entre elas.
 
 ### 2. Ler os dez textos integralmente
 

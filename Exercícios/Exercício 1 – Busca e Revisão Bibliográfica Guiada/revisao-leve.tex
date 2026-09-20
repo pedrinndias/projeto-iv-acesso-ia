@@ -6,7 +6,7 @@
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{pdflscape}
+\usepackage{longtable}
 \usepackage{ragged2e}
 \usepackage[hidelinks]{hyperref}
 
@@ -176,7 +176,7 @@ mantenedora do identificador. O procedimento e suas ocorrências estão em
 
 \subsection{Limitação da leitura}
 
-A caracterização dos trabalhos registrada nas Tabelas~\ref{tab:compA} e~\ref{tab:compB} foi
+A caracterização dos trabalhos registrada nas Tabelas~\ref{tab:compA} a~\ref{tab:compC} foi
 construída a partir dos resumos e metadados obtidos nas APIs consultadas. As colunas
 \emph{Principais resultados} e \emph{Limitações observadas} refletem, portanto, o que
 os autores declaram em resumo, e não o que a leitura integral permitiria apurar. Onde
@@ -213,143 +213,131 @@ Os dez trabalhos distribuem-se em três correntes e uma vertente metodológica.
   \item Amos \textit{et al.} (2021) --- \emph{Proceedings of the Web Conference} (ACM)
 \end{enumerate}
 
-\begin{landscape}
+\clearpage
 \section{Tabela comparativa}
 
-A comparação está distribuída em duas tabelas por razão de largura de página. Juntas,
-elas contêm as sete colunas exigidas: a Tabela~\ref{tab:compA} traz autoria e ano,
-título, problema investigado e método; a Tabela~\ref{tab:compB} traz base de dados,
-principais resultados e limitações observadas. A coluna de autoria e ano se repete nas
-duas como chave de leitura.
+A comparação está distribuída em três tabelas por razão de largura de página. Juntas,
+elas contêm as sete colunas exigidas pelo enunciado: a Tabela~\ref{tab:compA} traz
+autoria e ano, título e problema investigado; a Tabela~\ref{tab:compB} traz método e
+base de dados; a Tabela~\ref{tab:compC} traz principais resultados e limitações
+observadas. A coluna de autoria e ano se repete nas três como chave de leitura, e a
+ordem dos trabalhos é a mesma em todas.
 
-\begin{table}[htbp]
-\centering
-\scriptsize
-\caption{Comparação dos trabalhos selecionados --- identificação e desenho}
-\label{tab:compA}
-\begin{tabularx}{\linewidth}{p{2.4cm} p{3.5cm} Y Y}
+\footnotesize
+\begin{longtable}{@{}p{2.4cm} p{6.0cm} p{6.0cm}@{}}
+\caption{Comparação dos trabalhos selecionados --- identificação e problema}\label{tab:compA}\\
 \toprule
-\textbf{Autor(es) / Ano} & \textbf{Título} & \textbf{Problema investigado} &
-\textbf{Método ou abordagem} \\
+\textbf{Autor(es) / Ano} & \textbf{Título} & \textbf{Problema investigado} \\
 \midrule
-
-Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data &
-Como o campo de desigualdades digitais deve se reposicionar diante de \emph{big data} e inteligência artificial &
-Revisão de literatura; ensaio conceitual \\
-\addlinespace
-
-Amos, Acar, Lucherini \emph{et al.} (2021) & Privacy policies over time: curation and analysis of a million-document dataset &
-A ausência de base longitudinal impede analisar como documentos publicados na web evoluem ao longo do tempo &
-Construção de \emph{crawler} sobre a Wayback Machine, com etapas de validação e controle de qualidade \\
-\addlinespace
-
-Knez (2023) & Technology diffusion and uneven development &
-Modelos de difusão não consideram que o custo relativo de implementar uma tecnologia difere entre países &
-Modelo macroeconômico dinâmico de difusão, calibrado por aproximação não linear entre países e tecnologias \\
-\addlinespace
-
-Mannuru, Shahriar, Teel \emph{et al.} (2023) & Artificial intelligence in developing countries &
-Qual o impacto da inteligência artificial generativa sobre países em desenvolvimento &
-Revisão exploratória multiautoral \\
-\addlinespace
-
-Wang, Boerman, Kroon \emph{et al.} (2024) & The artificial intelligence divide: who is the most vulnerable? &
-Quais grupos são mais vulneráveis em um ambiente digital moldado por inteligência artificial &
-Survey com análise de classes latentes \\
-\addlinespace
-
-McElheran, Li, Brynjolfsson \emph{et al.} (2024) & AI adoption in America: who, what, and where &
-Quem adota inteligência artificial nos Estados Unidos, quais tecnologias e em que locais &
-Análise empírica descritiva sobre levantamento censitário de firmas \\
-\addlinespace
-
-Ahmed e Wahed (2020) & The de-democratization of AI: deep learning and the compute divide &
-O acesso desigual a poder computacional concentra a produção de pesquisa em inteligência artificial &
-Análise bibliométrica com estimador de controle sintético generalizado \\
-\addlinespace
-
-Sastry, Heim, Belfield \emph{et al.} (2024) & Computing power and the governance of artificial intelligence &
-De que modo o poder computacional pode operar como instrumento de governança de inteligência artificial &
-Análise conceitual de instrumentos de política \\
-\addlinespace
-
-Mügge (2024) & EU AI sovereignty: for whom, to what end, and to whose benefit? &
-A noção de soberania de inteligência artificial da União Europeia serve a objetivos diversos e conflitantes &
-Análise conceitual com mapeamento documental \\
-\addlinespace
-
-Furtado e Cunha (2024) & Inteligência artificial, data centers e colonialismo digital &
-A dimensão ecológica está ausente do debate sobre soberania digital &
-Revisão bibliográfica e pesquisa documental \\
-
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\scriptsize
-\caption{Comparação dos trabalhos selecionados --- dados, resultados e limitações}
-\label{tab:compB}
-\begin{tabularx}{\linewidth}{p{2.4cm} Y Y Y}
+\endfirsthead
+\multicolumn{3}{@{}l}{\footnotesize\itshape continuação da Tabela \thetable}\\
 \toprule
-\textbf{Autor(es) / Ano} & \textbf{Base de dados utilizada} &
-\textbf{Principais resultados} & \textbf{Limitações observadas} \\
+\textbf{Autor(es) / Ano} & \textbf{Título} & \textbf{Problema investigado} \\
 \midrule
-
-Lutz (2019) & Estudo conceitual, sem dados primários &
-Organiza o campo em três níveis --- acesso, habilidades de uso e resultados --- e estende o primeiro nível a sistemas dotados de inteligência artificial &
-Revisão sem protocolo de busca declarado; a unidade de análise é o indivíduo, o que não permite inferência sobre territórios \emph{(inferida)} \\
-\addlinespace
-
-Amos, Acar, Lucherini \emph{et al.} (2021) & 1.071.488 políticas de privacidade em inglês, de mais de 130.000 sites, cobrindo cerca de vinte anos, extraídas do Internet Archive &
-Os documentos dobraram de extensão e tornaram-se menos legíveis ao longo de vinte anos; falham de forma consistente em divulgar tecnologias de rastreamento &
-Restrito ao inglês; a cobertura do Internet Archive é desigual entre sites, o que condiciona a série reconstruída \\
-\addlinespace
-
-Knez (2023) & CHAT (\emph{Cross-country Historical Adoption of Technology}) e Penn World Table &
-O modelo calibrado explica cerca de 50\% da variabilidade da densidade tecnológica; as curvas de adoção são específicas por país e dependem do nível de desenvolvimento e do nível salarial &
-Cerca de metade da variabilidade permanece não explicada; as tecnologias do CHAT são majoritariamente industriais e anteriores à computação em nuvem \emph{(inferida)} \\
-\addlinespace
-
-Mannuru, Shahriar, Teel \emph{et al.} (2023) & Estudo conceitual, sem dados primários &
-Os benefícios da inteligência artificial generativa não são igualmente acessíveis; o acesso limitado a tecnologias de ponta e a infraestrutura inadequada são as barreiras apontadas &
-Não apresenta medição empírica; não distingue barreira de infraestrutura de barreira de oferta \emph{(inferida)} \\
-\addlinespace
-
-Wang, Boerman, Kroon \emph{et al.} (2024) & 1.088 cidadãos neerlandeses com 16 anos ou mais &
-Identifica cinco perfis de usuário; os mais vulneráveis são mais velhos, menos escolarizados e com menor habilidade de proteção de privacidade, o que evidencia uma \emph{AI divide} emergente &
-Restrito a um único país; competências medidas por autorrelato; nível individual de análise \\
-\addlinespace
-
-McElheran, Li, Brynjolfsson \emph{et al.} (2024) & \emph{Annual Business Survey} de 2018, com cerca de 850.000 firmas dos Estados Unidos &
-Menos de 6\% das firmas usavam alguma das cinco tecnologias medidas, ou 18\% quando ponderado por emprego; a adoção aparece agrupada com nuvem e robótica e concentrada em poucas cidades &
-Restrito aos Estados Unidos; os dados são de 2018 e antecedem a difusão da inteligência artificial generativa; adoção autorrelatada pela firma \\
-\addlinespace
-
-Ahmed e Wahed (2020) & 171.394 artigos de 57 conferências de ciência da computação &
-Grandes empresas e universidades de elite ampliaram participação após 2012, deslocando universidades de médio e baixo escalão &
-Mede produção de pesquisa, não acesso comercial; o acesso a computação é inferido pela participação em conferências, não observado diretamente \emph{(inferida)} \\
-\addlinespace
-
-Sastry, Heim, Belfield \emph{et al.} (2024) & Estudo conceitual, sem dados primários &
-A computação é ponto de intervenção eficaz por ser detectável, excluível e quantificável, e por ser produzida em cadeia de suprimento concentrada &
-Preprint sem revisão por pares; propõe instrumentos de política sem avaliação empírica de efeito \emph{(inferida)} \\
-\addlinespace
-
-Mügge (2024) & Corpus documental: estratégia da Comissão Europeia desde 2018 e negociações do AI Act &
-A política prioriza independência jurisdicional sobre soberania do cidadão, adota a lógica de corrida tecnológica e negligencia efeitos sobre pessoas fora da União Europeia &
-Restrito a uma jurisdição; análise documental que não mede efeito sobre disponibilidade de serviço \emph{(inferida)} \\
-\addlinespace
-
-Furtado e Cunha (2024) & Corpus documental sobre a expansão de data centers no Brasil entre 2013 e 2023 &
-A expansão pressiona consumo de energia e água; a articulação entre discurso tecno-otimista e extração de recursos naturais pode aprofundar práticas coloniais &
-Não apresenta dado quantitativo de capacidade instalada; foco ambiental, sem tratar da disponibilidade de serviços \emph{(inferida)} \\
-
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\itshape continua na próxima página}\\
+\endfoot
 \bottomrule
-\end{tabularx}
-\end{table}
-\end{landscape}
+\endlastfoot
+Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data & Como o campo de desigualdades digitais deve se reposicionar diante de \emph{big data} e inteligência artificial \\
+\addlinespace
+Amos, Acar, Lucherini \emph{et al.} (2021) & Privacy policies over time: curation and analysis of a million-document dataset & A ausência de base longitudinal impede analisar como documentos publicados na web evoluem ao longo do tempo \\
+\addlinespace
+Knez (2023) & Technology diffusion and uneven development & Modelos de difusão não consideram que o custo relativo de implementar uma tecnologia difere entre países \\
+\addlinespace
+Mannuru, Shahriar, Teel \emph{et al.} (2023) & Artificial intelligence in developing countries & Qual o impacto da inteligência artificial generativa sobre países em desenvolvimento \\
+\addlinespace
+Wang, Boerman, Kroon \emph{et al.} (2024) & The artificial intelligence divide: who is the most vulnerable? & Quais grupos são mais vulneráveis em um ambiente digital moldado por inteligência artificial \\
+\addlinespace
+McElheran, Li, Brynjolfsson \emph{et al.} (2024) & AI adoption in America: who, what, and where & Quem adota inteligência artificial nos Estados Unidos, quais tecnologias e em que locais \\
+\addlinespace
+Ahmed e Wahed (2020) & The de-democratization of AI: deep learning and the compute divide & O acesso desigual a poder computacional concentra a produção de pesquisa em inteligência artificial \\
+\addlinespace
+Sastry, Heim, Belfield \emph{et al.} (2024) & Computing power and the governance of artificial intelligence & De que modo o poder computacional pode operar como instrumento de governança de inteligência artificial \\
+\addlinespace
+Mügge (2024) & EU AI sovereignty: for whom, to what end, and to whose benefit? & A noção de soberania de inteligência artificial da União Europeia serve a objetivos diversos e conflitantes \\
+\addlinespace
+Furtado e Cunha (2024) & Inteligência artificial, data centers e colonialismo digital & A dimensão ecológica está ausente do debate sobre soberania digital \\
+\addlinespace
+\end{longtable}
+
+\begin{longtable}{@{}p{2.4cm} p{6.0cm} p{6.0cm}@{}}
+\caption{Comparação dos trabalhos selecionados --- método e base de dados}\label{tab:compB}\\
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Método ou abordagem} & \textbf{Base de dados utilizada} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\footnotesize\itshape continuação da Tabela \thetable}\\
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Método ou abordagem} & \textbf{Base de dados utilizada} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\itshape continua na próxima página}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Lutz (2019) & Revisão de literatura; ensaio conceitual & Estudo conceitual, sem dados primários \\
+\addlinespace
+Amos, Acar, Lucherini \emph{et al.} (2021) & Construção de \emph{crawler} sobre a Wayback Machine, com etapas de validação e controle de qualidade & 1.071.488 políticas de privacidade em inglês, de mais de 130.000 sites, cobrindo cerca de vinte anos, extraídas do Internet Archive \\
+\addlinespace
+Knez (2023) & Modelo macroeconômico dinâmico de difusão, calibrado por aproximação não linear entre países e tecnologias & CHAT (\emph{Cross-country Historical Adoption of Technology}) e Penn World Table \\
+\addlinespace
+Mannuru, Shahriar, Teel \emph{et al.} (2023) & Revisão exploratória multiautoral & Estudo conceitual, sem dados primários \\
+\addlinespace
+Wang, Boerman, Kroon \emph{et al.} (2024) & Survey com análise de classes latentes & 1.088 cidadãos neerlandeses com 16 anos ou mais \\
+\addlinespace
+McElheran, Li, Brynjolfsson \emph{et al.} (2024) & Análise empírica descritiva sobre levantamento censitário de firmas & \emph{Annual Business Survey} de 2018, com cerca de 850.000 firmas dos Estados Unidos \\
+\addlinespace
+Ahmed e Wahed (2020) & Análise bibliométrica com estimador de controle sintético generalizado & 171.394 artigos de 57 conferências de ciência da computação \\
+\addlinespace
+Sastry, Heim, Belfield \emph{et al.} (2024) & Análise conceitual de instrumentos de política & Estudo conceitual, sem dados primários \\
+\addlinespace
+Mügge (2024) & Análise conceitual com mapeamento documental & Corpus documental: estratégia da Comissão Europeia desde 2018 e negociações do AI Act \\
+\addlinespace
+Furtado e Cunha (2024) & Revisão bibliográfica e pesquisa documental & Corpus documental sobre a expansão de data centers no Brasil entre 2013 e 2023 \\
+\addlinespace
+\end{longtable}
+
+\begin{longtable}{@{}p{2.4cm} p{6.0cm} p{6.0cm}@{}}
+\caption{Comparação dos trabalhos selecionados --- resultados e limitações}\label{tab:compC}\\
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Principais resultados} & \textbf{Limitações observadas} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\footnotesize\itshape continuação da Tabela \thetable}\\
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Principais resultados} & \textbf{Limitações observadas} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\itshape continua na próxima página}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Lutz (2019) & Organiza o campo em três níveis --- acesso, habilidades de uso e resultados --- e estende o primeiro nível a sistemas dotados de inteligência artificial & Revisão sem protocolo de busca declarado; a unidade de análise é o indivíduo, o que não permite inferência sobre territórios \emph{(inferida)} \\
+\addlinespace
+Amos, Acar, Lucherini \emph{et al.} (2021) & Os documentos dobraram de extensão e tornaram-se menos legíveis ao longo de vinte anos; falham de forma consistente em divulgar tecnologias de rastreamento & Restrito ao inglês; a cobertura do Internet Archive é desigual entre sites, o que condiciona a série reconstruída \\
+\addlinespace
+Knez (2023) & O modelo calibrado explica cerca de 50\% da variabilidade da densidade tecnológica; as curvas de adoção são específicas por país e dependem do nível de desenvolvimento e do nível salarial & Cerca de metade da variabilidade permanece não explicada; as tecnologias do CHAT são majoritariamente industriais e anteriores à computação em nuvem \emph{(inferida)} \\
+\addlinespace
+Mannuru, Shahriar, Teel \emph{et al.} (2023) & Os benefícios da inteligência artificial generativa não são igualmente acessíveis; o acesso limitado a tecnologias de ponta e a infraestrutura inadequada são as barreiras apontadas & Não apresenta medição empírica; não distingue barreira de infraestrutura de barreira de oferta \emph{(inferida)} \\
+\addlinespace
+Wang, Boerman, Kroon \emph{et al.} (2024) & Identifica cinco perfis de usuário; os mais vulneráveis são mais velhos, menos escolarizados e com menor habilidade de proteção de privacidade, o que evidencia uma \emph{AI divide} emergente & Restrito a um único país; competências medidas por autorrelato; nível individual de análise \\
+\addlinespace
+McElheran, Li, Brynjolfsson \emph{et al.} (2024) & Menos de 6\% das firmas usavam alguma das cinco tecnologias medidas, ou 18\% quando ponderado por emprego; a adoção aparece agrupada com nuvem e robótica e concentrada em poucas cidades & Restrito aos Estados Unidos; os dados são de 2018 e antecedem a difusão da inteligência artificial generativa; adoção autorrelatada pela firma \\
+\addlinespace
+Ahmed e Wahed (2020) & Grandes empresas e universidades de elite ampliaram participação após 2012, deslocando universidades de médio e baixo escalão & Mede produção de pesquisa, não acesso comercial; o acesso a computação é inferido pela participação em conferências, não observado diretamente \emph{(inferida)} \\
+\addlinespace
+Sastry, Heim, Belfield \emph{et al.} (2024) & A computação é ponto de intervenção eficaz por ser detectável, excluível e quantificável, e por ser produzida em cadeia de suprimento concentrada & Preprint sem revisão por pares; propõe instrumentos de política sem avaliação empírica de efeito \emph{(inferida)} \\
+\addlinespace
+Mügge (2024) & A política prioriza independência jurisdicional sobre soberania do cidadão, adota a lógica de corrida tecnológica e negligencia efeitos sobre pessoas fora da União Europeia & Restrito a uma jurisdição; análise documental que não mede efeito sobre disponibilidade de serviço \emph{(inferida)} \\
+\addlinespace
+Furtado e Cunha (2024) & A expansão pressiona consumo de energia e água; a articulação entre discurso tecno-otimista e extração de recursos naturais pode aprofundar práticas coloniais & Não apresenta dado quantitativo de capacidade instalada; foco ambiental, sem tratar da disponibilidade de serviços \emph{(inferida)} \\
+\addlinespace
+\end{longtable}
+\normalsize
 
 \section{Síntese crítica}
 
