@@ -1,0 +1,504 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=abnt]{biblatex}
+
+\addbibresource{referencias.bib}
+
+\setlength{\parindent}{1.25cm}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+\title{\textbf{Desigualdade geográfica no acesso a serviços de inteligência
+artificial em nuvem:}\\[0.3em]
+\large como a literatura mede defasagem de adoção e assimetria de acesso entre países}
+\author{Pedro Dias Soares}
+\date{Projeto em Ciência de Dados IV --- PUC Minas\\
+Prof. Rodrigo Richard Gomes --- 2\textsuperscript{o} semestre de 2026\\[0.5em]
+\today}
+
+\begin{document}
+\maketitle
+
+\section{Tema}
+
+Esta revisão trata da \textbf{desigualdade geográfica no acesso a serviços de
+inteligência artificial em nuvem}, com foco em como a literatura mede a defasagem de
+adoção e a assimetria de acesso entre países.
+
+O recorte é deliberadamente metodológico. O objeto não é a desigualdade em si, já
+amplamente descrita, mas o \emph{instrumento} com que ela é medida: que unidade de
+análise se adota, de que fonte de dados se extrai a evidência e que método se aplica
+para transformar acesso desigual em quantidade comparável entre países.
+
+\section{Introdução}
+
+Modelos de inteligência artificial generativa passaram, em poucos anos, de objeto de
+pesquisa a insumo produtivo. Sistemas de saúde, universidades, empresas e órgãos
+públicos constroem aplicações sobre modelos ofertados por um número reduzido de
+empresas, concentradas em um único país, e disponibilizados por meio de plataformas de
+computação em nuvem. Esse insumo não chega a todos os territórios ao mesmo tempo, pelo
+mesmo preço nem com os mesmos recursos.
+
+A literatura sobre desigualdade digital tem tradição consolidada. Desde a formulação
+dos níveis do \emph{digital divide}, o campo documentou que a assimetria não se esgota
+no acesso físico à rede, mas se estende à qualidade do equipamento, às habilidades de
+uso e aos resultados obtidos \cite{vandeursen2018,lutz2019}. Ocorre que essa tradição
+foi construída sobre um objeto --- o indivíduo conectado --- que não coincide com a camada
+em que a assimetria de inteligência artificial parece operar hoje: a disponibilidade
+de capacidade computacional de fronteira em um território.
+
+Esta revisão examina dez trabalhos que, de ângulos distintos, enfrentam o problema de
+medir acesso desigual à tecnologia. O objetivo não é resumi-los, mas confrontar seus
+instrumentos de medição, identificar o que cada um consegue e o que não consegue
+observar, e localizar a lacuna que resulta desse confronto.
+
+\section{Estratégia de busca bibliográfica}
+
+\subsection{Procedimento}
+
+A busca seguiu o procedimento de \textcite{santos2007}: seleção de descritores por
+componente da pergunta, combinação com operadores booleanos --- \texttt{OR} aditivo
+dentro do componente, \texttt{AND} restritivo entre componentes --- e composição da
+estratégia final pelo encadeamento dos componentes.
+
+Uma adaptação foi necessária e é declarada aqui. Os vocabulários controlados citados
+por \citeauthor{santos2007} --- MeSH, DeCS e EMTREE --- pertencem à área da saúde e não
+se aplicam. Os equivalentes em Computação são o \emph{ACM Computing Classification
+System} e o \emph{IEEE Thesaurus}, adotados como referência terminológica.
+
+Registra-se também o tratamento dado ao componente de comparação. Em revisão
+exploratória sobre tema emergente, incluí-lo na expressão de busca reduz
+excessivamente a recuperação. O componente foi mantido \emph{implícito} na busca e
+explícito no desenho da análise, conforme a própria ressalva de
+\citeauthor{santos2007} de que a comparação pode ser nula.
+
+\subsection{Bases consultadas}
+
+A recuperação foi conduzida principalmente pela API da \textbf{OpenAlex}, base
+bibliográfica aberta que indexa periódicos, atas de conferência e repositórios de
+preprints, incluindo títulos SciELO. A verificação de existência das referências
+recuperadas usou as APIs da \textbf{Crossref}, da \textbf{DataCite} e do
+\textbf{arXiv}. Buscas em português foram executadas com filtro de idioma.
+
+Duas limitações de acesso devem ser declaradas. Primeiro, \textbf{Scopus} e
+\textbf{Web of Science} exigem assinatura institucional e não foram consultadas
+diretamente; sua cobertura foi aproximada pela OpenAlex, que indexa em larga medida os
+mesmos periódicos, mas a substituição não é equivalente e a busca deve ser repetida
+com acesso institucional. Segundo, a busca direta no \textbf{SciELO} não respondeu a
+partir do ambiente utilizado, e a cobertura em português foi suprida pelo filtro de
+idioma da OpenAlex.
+
+\subsection{Expressões de busca}
+
+Os descritores foram organizados em três componentes:
+
+\begin{quote}
+\small
+\texttt{P = ("digital divide" OR "digital inequality" OR "technology adoption"\\
+\phantom{P = (}OR "cloud computing" OR "generative AI" OR "large language model")}
+
+\vspace{0.4em}
+\texttt{E = ("digital sovereignty" OR "AI sovereignty" OR "data residency"\\
+\phantom{E = (}OR "export control" OR "compute governance" OR "global south")}
+
+\vspace{0.4em}
+\texttt{O = ("adoption lag" OR "diffusion" OR "access gap" OR "compute divide"\\
+\phantom{O = (}OR "uneven development" OR "availability")}
+\end{quote}
+
+\noindent Expressão final: \texttt{(P) AND (E) AND (O)}, com exclusão de
+\texttt{("federated learning" OR "edge computing" OR "network topology")}.
+
+\noindent Em português:
+\texttt{("soberania digital" OR "desigualdade digital" OR "dependência tecnológica")
+AND ("inteligência artificial" OR "computação em nuvem")}.
+
+\noindent Filtros aplicados: publicações a partir de 2018; artigos, atas de
+conferência, preprints e relatórios institucionais.
+
+\subsection{Registro da busca}
+
+Foram executadas 17 expressões de recuperação e 13 consultas de verificação, todas em
+11 de setembro de 2026. O registro completo --- base, data, expressão exata, número de
+retornos, número após triagem e observações --- está no arquivo \texttt{log-busca.csv}
+que acompanha este trabalho. A Tabela~\ref{tab:busca} resume as expressões que
+efetivamente produziram trabalhos selecionados.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Expressões de busca que resultaram em seleção}
+\label{tab:busca}
+\begin{tabularx}{\textwidth}{Y r r}
+\toprule
+\textbf{Expressão (campo título e resumo)} & \textbf{Retornos} & \textbf{Selec.} \\
+\midrule
+\texttt{"compute divide"} & 45 & 1 \\
+\texttt{"AI divide" OR "artificial intelligence divide"} & 268 & 2 \\
+\texttt{"cross-country" AND "technology adoption" AND diffusion} & 22 & 1 \\
+\texttt{"digital divide" AND ("artificial intelligence" OR "machine learning")} & 4.537 & 1 \\
+\texttt{compute governance AI export controls semiconductors} & 1.638 & 1 \\
+\texttt{"AI sovereignty" OR "sovereign AI" OR "digital sovereignty"} & 846 & 1 \\
+\texttt{("large language model" OR "generative AI") AND (inequality OR "global south")} & 2.303 & 1 \\
+\texttt{"Internet Archive" OR "Wayback Machine" AND (longitudinal OR measurement)} & 61 & 1 \\
+\texttt{"soberania digital"} (idioma: português) & 98 & 1 \\
+\midrule
+\multicolumn{2}{l}{\textbf{Total selecionado}} & \textbf{10} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Critérios de seleção}
+
+Foram incluídos trabalhos acadêmicos --- artigos em periódico, atas de conferência,
+preprints em repositório reconhecido --- diretamente relacionados à medição de acesso
+desigual à tecnologia. Foram excluídos trabalhos sobre aprendizado federado,
+computação de borda e topologia de rede, recorrentes nas expressões de busca mas
+alheios ao objeto, e trabalhos sobre aplicações setoriais de IA sem tratamento da
+questão distributiva.
+
+Dos dez trabalhos selecionados, \textbf{oito foram publicados a partir de 2021},
+satisfazendo o critério de que a maioria tenha no máximo cinco anos. Os dois
+anteriores --- \textcite{lutz2019} e \textcite{ahmed2020} --- foram mantidos por
+função específica: o primeiro estrutura o campo de desigualdades digitais e o segundo
+é o trabalho que introduz a noção de \emph{compute divide}.
+
+\begin{sloppypar}
+Todas as referências tiveram existência verificada contra o registro da agência
+mantenedora do identificador. O procedimento e suas ocorrências estão em
+\texttt{verificacao-referencias.md}.
+\end{sloppypar}
+
+\subsection{Limitação da leitura}
+
+A caracterização dos trabalhos registrada nas Tabelas~\ref{tab:compA} e~\ref{tab:compB} foi
+construída a partir dos resumos e metadados obtidos nas APIs consultadas. As colunas
+\emph{Principais resultados} e \emph{Limitações observadas} refletem, portanto, o que
+os autores declaram em resumo, e não o que a leitura integral permitiria apurar. Onde
+a limitação foi inferida do desenho do estudo, e não declarada pelos autores, isso
+está assinalado.
+
+\section{Trabalhos selecionados}
+
+Os dez trabalhos distribuem-se em três correntes e uma vertente metodológica.
+
+\paragraph{Corrente 1 --- Desigualdade digital.}
+\begin{enumerate}
+  \item \textcite{lutz2019} --- \emph{Human Behavior and Emerging Technologies}
+  \item \textcite{mannuru2023} --- \emph{Information Development}
+  \item \textcite{wang2024} --- \emph{New Media \& Society}
+\end{enumerate}
+
+\paragraph{Corrente 2 --- Difusão de tecnologia e defasagem de adoção.}
+\begin{enumerate}\setcounter{enumi}{3}
+  \item \textcite{knez2023} --- \emph{Journal of Evolutionary Economics}
+  \item \textcite{mcelheran2024} --- \emph{Journal of Economics \& Management Strategy}
+\end{enumerate}
+
+\paragraph{Corrente 3 --- Governança de computação e soberania digital.}
+\begin{enumerate}\setcounter{enumi}{5}
+  \item \textcite{ahmed2020} --- arXiv, cs.CY
+  \item \textcite{sastry2024} --- arXiv, cs.CY
+  \item \textcite{mugge2024} --- \emph{Journal of European Public Policy}
+  \item \textcite{furtado2024} --- \emph{Liinc em Revista}
+\end{enumerate}
+
+\paragraph{Vertente metodológica --- Arquivos da web como série temporal.}
+\begin{enumerate}\setcounter{enumi}{9}
+  \item \textcite{amos2021} --- \emph{Proceedings of the Web Conference} (ACM)
+\end{enumerate}
+
+\begin{landscape}
+\section{Tabela comparativa}
+
+A comparação está distribuída em duas tabelas por razão de largura de página. Juntas,
+elas contêm as sete colunas exigidas: a Tabela~\ref{tab:compA} traz autoria e ano,
+título, problema investigado e método; a Tabela~\ref{tab:compB} traz base de dados,
+principais resultados e limitações observadas. A coluna de autoria e ano se repete nas
+duas como chave de leitura.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Comparação dos trabalhos selecionados --- identificação e desenho}
+\label{tab:compA}
+\begin{tabularx}{\linewidth}{p{2.4cm} p{3.5cm} Y Y}
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Título} & \textbf{Problema investigado} &
+\textbf{Método ou abordagem} \\
+\midrule
+
+Lutz (2019) & Digital inequalities in the age of artificial intelligence and big data &
+Como o campo de desigualdades digitais deve se reposicionar diante de \emph{big data} e inteligência artificial &
+Revisão de literatura; ensaio conceitual \\
+\addlinespace
+
+Amos, Acar, Lucherini \emph{et al.} (2021) & Privacy policies over time: curation and analysis of a million-document dataset &
+A ausência de base longitudinal impede analisar como documentos publicados na web evoluem ao longo do tempo &
+Construção de \emph{crawler} sobre a Wayback Machine, com etapas de validação e controle de qualidade \\
+\addlinespace
+
+Knez (2023) & Technology diffusion and uneven development &
+Modelos de difusão não consideram que o custo relativo de implementar uma tecnologia difere entre países &
+Modelo macroeconômico dinâmico de difusão, calibrado por aproximação não linear entre países e tecnologias \\
+\addlinespace
+
+Mannuru, Shahriar, Teel \emph{et al.} (2023) & Artificial intelligence in developing countries &
+Qual o impacto da inteligência artificial generativa sobre países em desenvolvimento &
+Revisão exploratória multiautoral \\
+\addlinespace
+
+Wang, Boerman, Kroon \emph{et al.} (2024) & The artificial intelligence divide: who is the most vulnerable? &
+Quais grupos são mais vulneráveis em um ambiente digital moldado por inteligência artificial &
+Survey com análise de classes latentes \\
+\addlinespace
+
+McElheran, Li, Brynjolfsson \emph{et al.} (2024) & AI adoption in America: who, what, and where &
+Quem adota inteligência artificial nos Estados Unidos, quais tecnologias e em que locais &
+Análise empírica descritiva sobre levantamento censitário de firmas \\
+\addlinespace
+
+Ahmed e Wahed (2020) & The de-democratization of AI: deep learning and the compute divide &
+O acesso desigual a poder computacional concentra a produção de pesquisa em inteligência artificial &
+Análise bibliométrica com estimador de controle sintético generalizado \\
+\addlinespace
+
+Sastry, Heim, Belfield \emph{et al.} (2024) & Computing power and the governance of artificial intelligence &
+De que modo o poder computacional pode operar como instrumento de governança de inteligência artificial &
+Análise conceitual de instrumentos de política \\
+\addlinespace
+
+Mügge (2024) & EU AI sovereignty: for whom, to what end, and to whose benefit? &
+A noção de soberania de inteligência artificial da União Europeia serve a objetivos diversos e conflitantes &
+Análise conceitual com mapeamento documental \\
+\addlinespace
+
+Furtado e Cunha (2024) & Inteligência artificial, data centers e colonialismo digital &
+A dimensão ecológica está ausente do debate sobre soberania digital &
+Revisão bibliográfica e pesquisa documental \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Comparação dos trabalhos selecionados --- dados, resultados e limitações}
+\label{tab:compB}
+\begin{tabularx}{\linewidth}{p{2.4cm} Y Y Y}
+\toprule
+\textbf{Autor(es) / Ano} & \textbf{Base de dados utilizada} &
+\textbf{Principais resultados} & \textbf{Limitações observadas} \\
+\midrule
+
+Lutz (2019) & Estudo conceitual, sem dados primários &
+Organiza o campo em três níveis --- acesso, habilidades de uso e resultados --- e estende o primeiro nível a sistemas dotados de inteligência artificial &
+Revisão sem protocolo de busca declarado; a unidade de análise é o indivíduo, o que não permite inferência sobre territórios \emph{(inferida)} \\
+\addlinespace
+
+Amos, Acar, Lucherini \emph{et al.} (2021) & 1.071.488 políticas de privacidade em inglês, de mais de 130.000 sites, cobrindo cerca de vinte anos, extraídas do Internet Archive &
+Os documentos dobraram de extensão e tornaram-se menos legíveis ao longo de vinte anos; falham de forma consistente em divulgar tecnologias de rastreamento &
+Restrito ao inglês; a cobertura do Internet Archive é desigual entre sites, o que condiciona a série reconstruída \\
+\addlinespace
+
+Knez (2023) & CHAT (\emph{Cross-country Historical Adoption of Technology}) e Penn World Table &
+O modelo calibrado explica cerca de 50\% da variabilidade da densidade tecnológica; as curvas de adoção são específicas por país e dependem do nível de desenvolvimento e do nível salarial &
+Cerca de metade da variabilidade permanece não explicada; as tecnologias do CHAT são majoritariamente industriais e anteriores à computação em nuvem \emph{(inferida)} \\
+\addlinespace
+
+Mannuru, Shahriar, Teel \emph{et al.} (2023) & Estudo conceitual, sem dados primários &
+Os benefícios da inteligência artificial generativa não são igualmente acessíveis; o acesso limitado a tecnologias de ponta e a infraestrutura inadequada são as barreiras apontadas &
+Não apresenta medição empírica; não distingue barreira de infraestrutura de barreira de oferta \emph{(inferida)} \\
+\addlinespace
+
+Wang, Boerman, Kroon \emph{et al.} (2024) & 1.088 cidadãos neerlandeses com 16 anos ou mais &
+Identifica cinco perfis de usuário; os mais vulneráveis são mais velhos, menos escolarizados e com menor habilidade de proteção de privacidade, o que evidencia uma \emph{AI divide} emergente &
+Restrito a um único país; competências medidas por autorrelato; nível individual de análise \\
+\addlinespace
+
+McElheran, Li, Brynjolfsson \emph{et al.} (2024) & \emph{Annual Business Survey} de 2018, com cerca de 850.000 firmas dos Estados Unidos &
+Menos de 6\% das firmas usavam alguma das cinco tecnologias medidas, ou 18\% quando ponderado por emprego; a adoção aparece agrupada com nuvem e robótica e concentrada em poucas cidades &
+Restrito aos Estados Unidos; os dados são de 2018 e antecedem a difusão da inteligência artificial generativa; adoção autorrelatada pela firma \\
+\addlinespace
+
+Ahmed e Wahed (2020) & 171.394 artigos de 57 conferências de ciência da computação &
+Grandes empresas e universidades de elite ampliaram participação após 2012, deslocando universidades de médio e baixo escalão &
+Mede produção de pesquisa, não acesso comercial; o acesso a computação é inferido pela participação em conferências, não observado diretamente \emph{(inferida)} \\
+\addlinespace
+
+Sastry, Heim, Belfield \emph{et al.} (2024) & Estudo conceitual, sem dados primários &
+A computação é ponto de intervenção eficaz por ser detectável, excluível e quantificável, e por ser produzida em cadeia de suprimento concentrada &
+Preprint sem revisão por pares; propõe instrumentos de política sem avaliação empírica de efeito \emph{(inferida)} \\
+\addlinespace
+
+Mügge (2024) & Corpus documental: estratégia da Comissão Europeia desde 2018 e negociações do AI Act &
+A política prioriza independência jurisdicional sobre soberania do cidadão, adota a lógica de corrida tecnológica e negligencia efeitos sobre pessoas fora da União Europeia &
+Restrito a uma jurisdição; análise documental que não mede efeito sobre disponibilidade de serviço \emph{(inferida)} \\
+\addlinespace
+
+Furtado e Cunha (2024) & Corpus documental sobre a expansão de data centers no Brasil entre 2013 e 2023 &
+A expansão pressiona consumo de energia e água; a articulação entre discurso tecno-otimista e extração de recursos naturais pode aprofundar práticas coloniais &
+Não apresenta dado quantitativo de capacidade instalada; foco ambiental, sem tratar da disponibilidade de serviços \emph{(inferida)} \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{landscape}
+
+\section{Síntese crítica}
+
+\subsection{O que os trabalhos têm em comum}
+
+Os dez trabalhos compartilham um pressuposto que nenhum deles enuncia explicitamente:
+o de que o acesso desigual à tecnologia é um fenômeno \emph{mensurável}, e não apenas
+uma condição a ser denunciada. Todos, inclusive os de natureza conceitual, organizam
+sua argumentação em torno de uma quantidade --- nível de habilidade, densidade
+tecnológica, taxa de adoção, participação em conferências, capacidade instalada --- que
+poderia, em princípio, ser comparada entre unidades.
+
+Há um segundo ponto comum, mais consequente. Todos localizam a desigualdade em uma
+camada \emph{anterior} ao uso. Seja o equipamento \cite{vandeursen2018}, a habilidade
+\cite{wang2024}, a infraestrutura nacional \cite{mannuru2023,furtado2024} ou o poder
+computacional \cite{ahmed2020,sastry2024}, o argumento recorrente é que a diferença de
+resultado observada decorre de uma diferença de dotação prévia. Essa convergência
+importa porque define onde a medição deve incidir: não em quanto se usa, mas em quanto
+está disponível para ser usado.
+
+\subsection{Diferenças entre abordagens}
+
+As diferenças, organizadas por eixo, são mais reveladoras do que as semelhanças.
+
+\paragraph{Unidade de análise.} É o eixo de maior dispersão, e o que mais limita a
+comparabilidade entre os trabalhos. \textcite{wang2024} e \textcite{lutz2019} operam
+sobre o indivíduo; \textcite{mcelheran2024} e \textcite{ahmed2020} sobre a organização
+--- firma e instituição de pesquisa; \textcite{knez2023} e \textcite{mannuru2023}
+sobre o país; \textcite{mugge2024} sobre o bloco regulatório. Nenhum adota como unidade
+o \emph{serviço em um território}, que é onde a disponibilidade de um modelo de IA
+efetivamente se decide.
+
+\begin{sloppypar}
+\paragraph{Fonte de dados.} Quatro trabalhos são conceituais ou documentais
+\cite{lutz2019,mannuru2023,sastry2024,mugge2024}; dois usam painéis macroeconômicos ou
+censitários \cite{knez2023,mcelheran2024}; um usa survey \cite{wang2024}; um usa
+bibliometria \cite{ahmed2020}; um usa corpus documental temático \cite{furtado2024}.
+Apenas \textcite{amos2021} constrói sua própria série temporal a partir de documentos
+arquivados na web. Essa distribuição revela uma dependência pesada de fontes que ou já
+vêm agregadas por país, ou não são temporais.
+\end{sloppypar}
+
+\paragraph{Método.} O contraste mais nítido é entre a robustez causal e a proximidade
+do objeto. \textcite{ahmed2020} aplicam controle sintético generalizado, o desenho
+mais exigente do conjunto, mas sobre um objeto substituto: participação em
+conferências como \emph{proxy} de acesso a computação. \textcite{mcelheran2024}
+trabalham com o dado mais próximo da adoção real, mas apenas descritivamente e em um
+único país. Nenhum trabalho combina desenho longitudinal com observação direta da
+disponibilidade.
+
+\subsection{Tendências observadas}
+
+Três movimentos se desenham no conjunto.
+
+O primeiro é o \textbf{deslocamento do objeto da desigualdade}. A literatura migrou do
+acesso físico à rede para a qualidade do acesso material \cite{vandeursen2018}, daí
+para habilidades e resultados \cite{lutz2019}, e mais recentemente para a capacidade
+computacional \cite{ahmed2020,sastry2024}. Cada deslocamento acompanhou a mudança
+daquilo que era escasso.
+
+O segundo é a \textbf{entrada do Estado como ator de medição}. Nos trabalhos mais
+recentes da terceira corrente \cite{sastry2024,mugge2024}, a desigualdade de acesso
+deixa de ser efeito colateral do mercado e passa a ser instrumento e objeto de
+política pública deliberada. Isso muda a natureza das variáveis explicativas
+plausíveis: regime regulatório e alinhamento geopolítico tornam-se candidatos, ao lado
+de renda e infraestrutura.
+
+O terceiro é a \textbf{materialização do debate}. \textcite{furtado2024} recolocam a
+infraestrutura física --- energia, água, território --- no centro de uma discussão que
+vinha sendo conduzida em termos abstratos de soberania. A perspectiva é relevante
+porque reintroduz o argumento concorrente mais forte: parte da assimetria observada
+pode ser efeito de restrição material, e não de decisão política.
+
+\subsection{Lacunas identificadas}
+
+Do confronto entre as tabelas e os eixos acima resultam três lacunas.
+
+\textbf{Primeira: a camada de computação de IA não é medida diretamente.} Os trabalhos
+que tratam de poder computacional o fazem por substituição --- participação em
+conferências \cite{ahmed2020} ou análise conceitual de instrumentos
+\cite{sastry2024}. Os que medem adoção com dado empírico sólido
+\cite{mcelheran2024,knez2023} não tratam de IA em nuvem. Não há, no conjunto revisado,
+medição direta de \emph{quais modelos estão disponíveis em quais territórios e a
+partir de quando}.
+
+\textbf{Segunda: falta série temporal construída sobre documentação oficial.} A
+disponibilidade de um serviço em uma região é informação publicada e datada, mas
+volátil: a documentação é sobrescrita a cada atualização. \textcite{amos2021}
+demonstram que arquivos da web podem ser convertidos em série longitudinal auditável
+em escala de mais de um milhão de documentos, com validação e controle de qualidade.
+O procedimento, contudo, foi aplicado a políticas de privacidade, e não a documentação
+técnica de disponibilidade de serviço. A transposição não foi tentada.
+
+\textbf{Terceira, e a mais consequente: nenhum trabalho separa atraso específico de
+atraso geral.} Quando um serviço de IA demora a chegar a um território, a literatura
+revisada não oferece instrumento para distinguir duas explicações concorrentes --- se o
+atraso decorre da maturidade da infraestrutura local, caso em que todos os serviços da
+mesma plataforma chegariam com atraso semelhante, ou se há tratamento diferenciado à
+inteligência artificial. \textcite{knez2023} chegam perto ao modelar custo relativo de
+implementação, mas sobre tecnologias industriais e sem controle por serviço.
+Sem essa separação, qualquer associação encontrada entre atraso e característica de
+país permanece ambígua.
+
+\subsection{Investigação futura}
+
+As três lacunas convergem para um desenho de pesquisa viável.
+
+Propõe-se tratar a defasagem como \textbf{tempo até evento}: a variável de interesse
+seria o número de dias entre a primeira disponibilidade documentada de um modelo em
+qualquer região e sua disponibilidade em uma região específica. A unidade de análise
+passaria a ser o par formado por modelo e região --- unidade ausente de todos os
+trabalhos revisados e que corresponde ao nível em que a decisão de disponibilização
+efetivamente ocorre.
+
+A formulação tem consequência metodológica direta. Regiões que nunca receberam
+determinado modelo até o fim da janela de observação constituem observações
+\emph{censuradas à direita}, e descartá-las enviesaria o resultado na direção de
+subestimar a desigualdade, justamente nos casos extremos. O desenho apropriado é o de
+análise de sobrevivência --- estimador de Kaplan-Meier estratificado, com modelo de
+riscos proporcionais para o componente multivariado.
+
+A fonte de dados seria a documentação técnica oficial das plataformas de nuvem,
+recuperada retrospectivamente por meio de arquivos da web, aplicando a
+documentação de disponibilidade o procedimento que \textcite{amos2021} aplicaram a
+políticas de privacidade.
+
+Por fim, a terceira lacuna exige uma variável de controle específica: o número total
+de serviços da mesma plataforma disponíveis naquela região, como medida de maturidade
+da infraestrutura local. Com ela, torna-se possível verificar se o atraso dos serviços
+de inteligência artificial excede o atraso geral da região. Se exceder, há efeito
+específico a explicar; se não exceder, o fenômeno é atribuível à maturidade da
+infraestrutura. Essa separação é a contribuição que a literatura revisada não oferece
+e é condição para que os resultados sejam interpretáveis.
+
+\section{Link do projeto LaTeX}
+
+O arquivo-fonte em \LaTeX{} utilizado na elaboração deste trabalho está disponível em:
+
+\begin{center}
+\large\texttt{[INSERIR AQUI O LINK DO OVERLEAF]}
+\end{center}
+
+\noindent O projeto está configurado com permissão de leitura para qualquer pessoa que
+possua o endereço.
+
+\printbibliography[title={Referências}]
+
+\end{document}

@@ -24,3 +24,11 @@ Thumbs.db
 .env
 *.pem
 credentials*.json
+
+# Exercicios
+# Enunciados do professor: material de terceiro, mesma questao de direitos
+# autorais anotada em referencias/README.md. Ficam no disco, fora do repo.
+Exercícios/**/Exercicio_PCD_IV*.pdf
+# Pacotes .zip para o Overleaf: derivados do .tex, regeraveis, e ficam
+# desatualizados assim que o .tex muda.
+Exercícios/**/overleaf-*.zip
