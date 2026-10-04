@@ -1,0 +1,53 @@
+\section{Quadro comparativo}
+
+{\footnotesize
+\begin{longtable}{@{}L{2.1cm}L{4.2cm}L{4.2cm}L{4.2cm}@{}}
+\toprule
+& \textbf{Ahmed e Wahed (2020)} & \textbf{McElheran et al. (2024)} & \textbf{Knez (2023)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Problema} &
+A pesquisa de ponta em IA se concentrou em poucas organizações depois de 2012? Por falta de
+acesso a computação? &
+Quem usa IA nas empresas dos EUA, que tecnologias e onde? Faltava uma medida representativa. &
+Por que tecnologias chegam tarde aos países pobres? Os modelos de adoção ignoram o
+desenvolvimento desigual. \\ \addlinespace
+\textbf{Dados} &
+171.394 artigos de 57 conferências de computação, 2000--2019 (Scopus). Afiliações classificadas
+por Fortune 500 e QS. &
+ABS 2018 (ano-base 2017) ligado à LBD: 447 mil empresas (4 milhões ponderadas); 75 mil
+\emph{startups}. &
+CHAT (36 tecnologias, mais de 161 países, cerca de 200 anos) e Penn World Table (salários);
+32.552 observações. \\ \addlinespace
+\textbf{Método} &
+Controle sintético generalizado, com o ImageNet 2012 como choque. Regressão de efeitos fixos com
+série de \emph{compute}. TF-IDF dos resumos. &
+Descritivas ponderadas e modelos de probabilidade linear (MQO) com controles de estado por
+indústria. Corte transversal. &
+Modelo de difusão (equação de Fick) no espaço de custo relativo. Calibração por MQ não lineares e
+efeitos mistos. \\ \addlinespace
+\textbf{Baseline} &
+Contrafactual sintético a partir de 47 conferências de fora da IA. Placebos de área e de data. &
+Empresas que não usam IA. Não há modelo só com controles. &
+Nenhum modelo concorrente. A logística é citada, mas não estimada. \\ \addlinespace
+\textbf{Métrica} &
+ATT em artigos por conferência por ano, com IC por \emph{bootstrap}. &
+Probabilidade de uso (pontos percentuais), taxas ponderadas por empresa e por emprego, $R^2$. &
+Parâmetros $D$ e $\alpha$, $R^2$ (só no MQ não linear), curvas simuladas. \\ \addlinespace
+\textbf{Resultado} &
+Grandes empresas de tecnologia +44,5 e QS 1--50 +40,2; QS 201--300 $-$14,3 e QS 301--500 $-$5,6
+(Tabelas~2 e~4). &
+5,8\% das empresas usam IA (18,2\% por emprego). Associação com capital de risco, inovação de
+processo e propriedade intelectual. Efeito do local some com controles. &
+$R^2 = 0{,}474$. Países com 25\% do salário médio ficam décadas perto de zero na densidade
+relativa. \\ \addlinespace
+\textbf{Limitação} &
+\emph{Compute} não é medido por organização. Talento, dados e \emph{compute} não são separados.
+\emph{Preprint}. &
+Uma única fotografia de 2017, antes da IA generativa. Uso autodeclarado com limiar baixo. Só os
+EUA. &
+Salário confunde custo com desenvolvimento. Figuras simuladas, sem dados. Sem código. \\
+\end{longtable}
+}

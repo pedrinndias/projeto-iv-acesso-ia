@@ -1,0 +1,57 @@
+\section{Síntese comparativa}
+
+\subsection*{Convergência}
+Os três trabalhos concordam que a adoção de tecnologia de fronteira começa concentrada em quem já
+tem vantagem e tende a se reforçar. Em \textcite{ahmed2020}, grandes empresas de tecnologia e
+universidades de elite ganham espaço nas conferências de IA, enquanto as universidades de médio e
+baixo escalão perdem. Em \textcite{mcelheran2024}, a IA aparece sobretudo em empresas grandes,
+financiadas por capital de risco e inovadoras, e em alguns polos urbanos. Em \textcite{knez2023},
+países de salário alto adotam logo após a invenção e os de salário baixo ficam décadas para trás.
+Os três também explicam a concentração por complementos, e não pela tecnologia em si:
+\emph{compute}, dados e talento em Ahmed e Wahed; dados digitalizados e nuvem em McElheran
+\emph{et al.}; a relação entre salário e preço do capital em Knez. E chegam à mesma preocupação: a
+desigualdade inicial pode virar desigualdade persistente.
+
+\subsection*{Divergência}
+Os três divergem sobre o mecanismo, e a diferença vem sobretudo de método e de unidade de análise.
+Para Ahmed e Wahed, pesa a falta de acesso a um insumo, a computação. Para McElheran \emph{et al.},
+pesam características da empresa e do dono, como escolaridade, financiamento e estratégia de
+inovação. Para Knez, pesam preços relativos definidos pelo mercado, em especial o salário.
+
+A discordância mais clara é sobre o papel do lugar. Em Knez, a posição do país, dada pelo salário
+relativo, é o determinante principal da chegada da tecnologia. Em McElheran \emph{et al.}, a
+vantagem das grandes áreas metropolitanas some quando se controlam as características das
+empresas (Tabela~7, colunas~4 e~5), o que sugere uma desigualdade geográfica composicional:
+empresas inovadoras se juntam nos mesmos lugares. Isso não é necessariamente um desacordo de fato.
+Knez usa um único regressor e não testa variáveis concorrentes, McElheran \emph{et al.} controlam
+dezenas de características, e as escalas são muito diferentes, metrópoles de um mesmo país, com a
+mesma regulação e a mesma moeda, contra países de renda muito distinta. As recomendações também
+divergem: Ahmed e Wahed pedem oferta pública de computação, Knez defende política industrial de
+transferência de tecnologia e McElheran \emph{et al.} pedem dados melhores.
+
+\subsection*{Comparabilidade}
+Os resultados não são comparáveis em magnitude. Os desfechos diferem: artigos por conferência por
+ano em relação a um contrafactual, em Ahmed e Wahed; probabilidade de uma empresa declarar uso, em
+McElheran \emph{et al.}; densidade de uso relativa à média mundial, em Knez. As unidades e os
+períodos não se sobrepõem: conferências entre 2000 e 2019, empresas americanas em 2017 e países ao
+longo de dois séculos, com tecnologias como o trator e a internet. As métricas também têm naturezas
+distintas, porque o ATT de Ahmed e Wahed é uma diferença de contagens, os coeficientes de McElheran
+\emph{et al.} são pontos percentuais e o $R^2$ de Knez mede o ajuste de um modelo. Um ganho de 44
+artigos e um aumento de 8,6 pontos percentuais não estão na mesma escala.
+
+O que dá para comparar é o sinal e a forma: nos três casos, quem tem mais recurso chega antes ou
+chega mais. Uma comparação quantitativa exigiria um desfecho comum, como o tempo entre o lançamento
+de uma tecnologia e seu uso ou disponibilidade em cada unidade, e nenhum dos três mede isso
+diretamente. Knez chega mais perto, mas com curvas simuladas e sem dados sobrepostos (Fig.~2).
+
+\subsection*{Lacuna}
+Somados, os três deixam sem resposta uma pergunta do lado da oferta: quanto tempo um modelo
+comercial de IA generativa leva para ficar disponível em cada país ou região, e do que depende
+esse atraso. Ahmed e Wahed medem quem produz pesquisa, não quem consegue usar o produto. McElheran
+\emph{et al.} medem a demanda das empresas de um único país, antes da IA generativa. Knez trata de
+tecnologias com instalação física local, em que o custo de implantar depende do salário; num
+modelo entregue pela nuvem, a chegada a um país depende antes da decisão do provedor de ativar o
+serviço na região e da regulação local, e o mecanismo salarial pode não valer. Medir esse atraso
+por país e por modelo e compará-lo com renda, infraestrutura de nuvem e regulação é o que o nosso
+projeto pretende fazer. A mesma medida serve de teste da predição de Knez e da hipótese
+composicional de McElheran \emph{et al.}

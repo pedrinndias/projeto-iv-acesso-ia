@@ -1,0 +1,162 @@
+\section{Fichamento 3: Knez (2023)}
+
+\noindent\textbf{Autoria do fichamento:} Pedro Dias Soares
+
+\subsection*{1. Referência bibliográfica}
+\noindent\fullcite{knez2023}
+
+\subsection*{2. Tema do artigo}
+Como tecnologias se espalham entre países com níveis de desenvolvimento muito diferentes. O artigo
+quer saber por que a mesma tecnologia chega cedo a alguns países e tarde, ou quase nunca, a outros,
+e liga isso ao custo relativo de implantá-la em cada lugar, sobretudo ao salário.
+
+\subsection*{3. Problema investigado}
+Há duas literaturas que não se conversam (Seção~2, pp.~1173--1176). Os estudos de curva de adoção,
+de Griliches (1957) a Comin e Hobijn (2010), reproduzem a forma logística da adoção de cada
+tecnologia, mas tratam a economia como fechada e homogênea; explicam o atraso dentro de um país, não
+entre países. As teorias macroeconômicas do desenvolvimento desigual (hiato tecnológico, restrição
+de balanço de pagamentos, neoschumpeterianas) explicam divergência e armadilhas de baixo
+crescimento, mas não geram curvas por tecnologia e tratam a capacidade de absorção como exógena,
+dada por instituições e escolaridade. Falta um modelo em que as curvas de adoção de cada país saiam
+das próprias condições econômicas desiguais.
+
+\subsection*{4. Objetivo do trabalho}
+Propor um modelo macroeconômico dinâmico de difusão em que a distância entre países não é
+geográfica, e sim o custo relativo de implantar a tecnologia, e calibrá-lo com dezenas de
+tecnologias e mais de uma centena de países para testar se o salário relativo aproxima essa
+distância.
+
+\subsection*{5. Hipótese ou pressuposto}
+A hipótese é explícita (Introdução, p.~1172, retomada na p.~1180): ``relative wage level is one of
+the most important endogenous socioeconomic determinants of the relative cost of technology
+implementation'' (p.~1172). Ou seja, quanto menor o salário de um país em relação à média mundial,
+mais cara fica, em termos relativos, a adoção, e mais tarde a tecnologia chega.
+
+Três pressupostos, que reconstruí a partir do texto, sustentam a hipótese sem serem testados: o
+capital tem preço único mundial e o salário é nacional (pp.~1180--1181, eq.~3.9); as tecnologias
+novas poupam sobretudo trabalho, o que torna decisiva a razão entre salário e preço do capital
+(p.~1180); e toda tecnologia começa nos países de menor custo relativo, com a condição inicial
+concentrada em $x=0$ (p.~1179, eqs.~3.5--3.7).
+
+\subsection*{6. Base de dados ou corpus}
+Dois bancos públicos (Seção~4, pp.~1181--1182). O CHAT (\emph{Cross-country Historical Adoption of
+Technology}) é um painel desbalanceado com o uso de tecnologias em mais de 161 países ao longo de
+cerca de 200 anos, com medidas extensivas (parcela da população com acesso) ou intensivas
+(quantidade em uso). A Penn World Table fornece o salário médio de cada país. O autor selecionou 36
+tecnologias de agricultura, infraestrutura, siderurgia, informação, saúde, automóveis e turismo, e
+excluiu algumas, como aço e irrigação, por refletirem especialização ou geografia mais do que
+difusão (nota~4, p.~1181). As estimações usam 32.552 observações (Tabelas~1 e~2). O ano de invenção
+de cada tecnologia é a primeira observação não ausente no banco (p.~1182).
+
+\subsection*{7. Metodologia ou abordagem}
+O artigo é teórico, com calibração empírica. A variável é a densidade tecnológica relativa $\Phi$:
+o uso per capita de uma tecnologia num país dividido pela média mundial no mesmo ano, o que permite
+comparar tecnologias medidas em unidades diferentes (p.~1177). Por analogia com a lei de Fick, o
+fluxo de tecnologia vai das regiões mais densas às menos densas, na proporção do gradiente ao longo
+do eixo $x$ de custo relativo de implementação (eq.~3.1), o que leva à equação clássica de difusão
+(eq.~3.4). Com toda a tecnologia concentrada em $x=0$ na invenção, a solução é uma gaussiana que se
+alarga com o tempo (eq.~3.8, derivada no Apêndice~A).
+
+O custo relativo é aproximado por $x = \alpha \cdot (\textrm{salário médio mundial}/\textrm{salário
+do país})$ (eq.~3.10), e restam dois parâmetros: a constante de difusão $D$ e a escala $\alpha$. A
+estimação é feita por mínimos quadrados não lineares (Tabela~1) e por um modelo não linear de
+efeitos mistos (eq.~4.2, Tabela~2), em que $D$ e $\alpha$ ganham um desvio aleatório por tecnologia;
+na prática, cada tecnologia tem a própria velocidade em torno de uma média comum. A robustez vem de
+2000 reamostragens de 10 tecnologias (Apêndice~B, Figs.~3 e~4, Tabela~3). As Figs.~1 e~2 são
+simulações do modelo com os parâmetros estimados.
+
+\subsection*{8. Principais resultados}
+Por mínimos quadrados não lineares, $D = 0{,}00202$ e $\alpha = 0{,}329$, ambos com $p < 0{,}001$,
+e $R^2 = 0{,}474$ (Tabela~1): dois parâmetros explicam cerca de 50\% da variação da densidade
+relativa. Com efeitos mistos, $D = 0{,}00318$ e $\alpha = 0{,}477$, e as variâncias dos efeitos
+aleatórios são 0,105 para $\alpha$ e 1,26e-05 para $D$ (Tabela~2). O autor lê essas variâncias como
+sinal de que a difusão é ``relatively universal'' (p.~1183) entre as tecnologias. Na reamostragem,
+a estimativa de $D$ por mínimos quadrados é bimodal, o que indica diferença entre tecnologias
+antigas e modernas, e fica mais estável com efeitos mistos (Figs.~3 e~4, Tabela~3).
+
+Na simulação (Fig.~2, p.~1184), a densidade relativa de um país com o dobro do salário médio sobe
+quase logo após a invenção. Com 50\% do salário médio, ela fica perto de zero por mais de 10 anos;
+com 25\%, por muitas décadas. Países perto da subsistência ficam ``practically technologically
+blocked'' (p.~1185). A adoção de cada país continua logística em termos absolutos, mas o
+deslocamento e a inclinação da curva dependem do salário relativo (p.~1185).
+
+\subsection*{9. Conclusões dos autores}
+A difusão de tecnologia é um mecanismo endógeno que perpetua o desenvolvimento desigual: o salário
+relativo determina a adoção, e a adoção desigual reproduz a diferença de salários, num processo
+``dynamically acting in both directions'' (p.~1189). O autor lista quatro contribuições
+(pp.~1188--1189): tratar a difusão por uma equação de difusão de fato, trocar o espaço geográfico
+pelo de custo relativo, derivar curvas de adoção relativas por país e compatibilizar o resultado
+com as teorias evolucionárias e de causação cumulativa. Na discussão, afirma que o modelo gera de
+forma endógena a armadilha da renda média (p.~1187) e que fechar o hiato exige política industrial
+ativa de transferência de tecnologia, comparando a China com os novos membros da União Europeia no
+Leste Europeu (p.~1188).
+
+\subsection*{10. Limitações do estudo}
+O autor reconhece (p.~1189) que o modelo abstrai as particularidades de cada tecnologia e de cada
+país e não explica a curva de uma tecnologia ou de um país específico.
+
+Percebi outras. O canal salarial não fica isolado: na Seção~4.1 (p.~1186) o autor admite que o
+salário também sinaliza capital humano, instituições e desenvolvimento geral, mas nenhuma variável
+concorrente (PIB per capita, escolaridade, índice institucional) entra na eq.~4.1. Por isso o ajuste
+da Tabela~1 não separa custo de implantação de desenvolvimento em sentido amplo. Também falta um
+modelo de comparação: o $R^2$ de 0,474 (Tabela~1) não é confrontado com nenhuma alternativa, como
+uma logística por país ou o modelo de Comin e Hobijn citado na p.~1174, e o modelo misto (Tabela~2)
+não traz medida de ajuste.
+
+A inferência parece otimista. As 32.552 observações formam um painel de país, tecnologia e ano
+tratado como independente, e estatísticas $t$ de 71 e 93 (Tabela~1) sugerem erros-padrão
+subestimados, porque não há agrupamento por país. A data de invenção é a primeira observação
+disponível no CHAT (p.~1182), o que mede o início da cobertura do banco e não a invenção, e desloca
+o eixo do tempo de tecnologias antigas, como ferrovia e telégrafo. A amostra está mal descrita: a
+lista da p.~1182 soma 37 tecnologias (4+7+2+8+12+2+2), não 36, e o grupo de sete de infraestrutura
+nomeia só três. Os cálculos só estão disponíveis a pedido (Declarações, p.~1193).
+
+Para o nosso tema há ainda um limite de alcance. O CHAT termina antes da IA generativa, e todas as
+tecnologias da p.~1182 têm instalação física local. Num modelo de IA oferecido pela nuvem, o custo
+de chegar a um país depende da decisão do provedor de ativar a região, não da troca entre salário e
+máquina pressuposta na eq.~3.9.
+
+\subsection*{11. Contribuições}
+A contribuição é conceitual. O artigo transforma a metáfora da difusão tecnológica numa equação de
+difusão de verdade e troca o espaço geográfico por um espaço de custo relativo. Com dois
+parâmetros, reproduz o padrão de adoção tardia e lenta nos países de baixa renda (Fig.~2). Para o
+nosso projeto, oferece um vocabulário, o atraso de chegada como função de uma distância de custo
+entre países, e uma predição testável: se o mecanismo valer para IA comercial, países de renda
+relativa menor deveriam receber novos modelos mais tarde, com atraso que cresce de forma não linear
+com a distância de renda.
+
+\subsection*{12. Avaliação crítica}
+O artigo saiu numa revista de economia evolucionária com revisão por pares, em acesso aberto, usa
+dados públicos, mostra a derivação completa (Apêndice~A) e responde à heterogeneidade entre
+tecnologias com efeitos mistos (Seção~4, Fig.~3). É o único dos três que trata da dimensão entre
+países, que é a do nosso tema.
+
+\textit{(a) Auditoria da figura principal.} A figura que sustenta a tese central, adoção tardia e
+mais lenta nos países de salário baixo, é a Fig.~2 (p.~1185). O eixo vertical começa em zero. Não
+há dispersão: as curvas usam as estimativas pontuais $D = 0{,}00318$ e $\alpha = 0{,}477$, sem a
+faixa dos intervalos de 95\% que a própria Tabela~2 fornece. Nenhuma observação aparece, porque as
+curvas são simulação e as 32.552 observações das Tabelas~1 e~2 não são sobrepostas a elas. O
+painel~(b) depende ainda de uma relação linear entre salário e renda nacional bruta per capita de
+2021 que é suposta, não estimada (legenda da Fig.~2). As curvas logísticas da literatura citada nas
+pp.~1174 e~1183 não aparecem, e falta uma medida de ajuste do modelo misto (Tabela~2).
+
+As tabelas trazem mais dois problemas. A variância de 1,26e-05 do efeito aleatório de $D$
+(Tabela~2) equivale a um desvio-padrão de cerca de 0,0035, maior que o próprio $D = 0{,}00318$, o
+que contradiz a frase ``the differences in diffusion constants are relatively small'' (p.~1183). E
+na Tabela~3 os rótulos das colunas parecem trocados: 0,0018 aparece sob $\alpha$ e 0,377 sob $D$, o
+inverso da ordem de grandeza da Tabela~1. Eu esperaria ver, para ao menos uma tecnologia, as
+densidades observadas por faixa de salário sobrepostas às curvas da Fig.~2, com a faixa de
+incerteza dos parâmetros.
+
+\textit{(b) Exame de uma afirmação da conclusão.} A conclusão (p.~1189) afirma que a difusão
+perpetua o desenvolvimento desigual nos dois sentidos, do salário para a adoção e da adoção para o
+salário, e que isso explica por que países de renda média continuam de renda média. O sentido
+inverso não está no modelo: na eq.~4.1 o salário entra como dado observado e exógeno, e nenhuma
+equação ou estimativa faz a adoção alterar o salário. A persistência também não decorre da equação.
+Pela eq.~3.8, a razão entre as densidades de dois países é $\exp[-(x_1^2-x_2^2)/(4Dt)]$, que tende a 1
+quando $t$ cresce; o modelo prevê convergência lenta, não estados estacionários múltiplos. Com os
+parâmetros da Tabela~2, um país com 25\% do salário médio tem, cem anos após a invenção, cerca de
+6\% da densidade de um país com o dobro do salário médio, e em mil anos, cerca de 75\%. O bloqueio
+por décadas está sustentado; a perpetuação e a armadilha da renda média (p.~1187) não estão.
+Classificação: conclusão mais ampla que o experimento permite. A parte sobre o efeito da adoção nos
+salários é especulação apresentada como explicação.

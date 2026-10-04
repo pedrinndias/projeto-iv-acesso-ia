@@ -1,0 +1,68 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[shorthands=off,brazilian]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .4ex}{0.6ex}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=abnt,useprefix=true]{biblatex}
+
+\addbibresource{referencias.bib}
+
+\setlength{\parindent}{1.25cm}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% Link do projeto no Overleaf (ou Prism). O enunciado exige que ele apareça no PDF.
+\newcommand{\linkprojeto}{\url{https://www.overleaf.com/read/rpywrfftkqyv\#70ad2e}}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+{\large Pontifícia Universidade Católica de Minas Gerais\\
+Instituto de Ciências Exatas e Informática\\
+Ciência de Dados e Inteligência Artificial\par}
+\vspace{4cm}
+{\LARGE\bfseries Fichamento de artigos científicos\par}
+\vspace{1cm}
+% Tema do grupo (Ficha, seção 1.2) e recorte usado para escolher e comparar os artigos (etapa 1).
+{\large Tema do grupo: desigualdade geográfica no acesso a modelos de inteligência
+artificial generativa comercial\par}
+\vspace{0.5cm}
+{Recorte: como a literatura empírica mede a desigualdade, entre lugares e organizações,
+no acesso à inteligência artificial e na adoção de tecnologias de fronteira\par}
+\vspace{3cm}
+{\large Pedro Dias Soares\\Eduardo Velloso Landeiro\par}
+\vfill
+{Projeto em Ciência de Dados IV, Prof. Rodrigo Richard Gomes\\
+2\textsuperscript{o} semestre de 2026\par}
+\vspace{1cm}
+{\small Link do projeto LaTeX: \linkprojeto\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\input{selecao}
+\clearpage
+\input{fichamento-1}
+\clearpage
+\input{fichamento-2}
+\clearpage
+\input{fichamento-3}
+\clearpage
+\input{quadro}
+\input{sintese}
+\clearpage
+\printbibliography[title={Referências}]
+
+\end{document}

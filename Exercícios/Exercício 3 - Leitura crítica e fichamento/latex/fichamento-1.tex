@@ -1,0 +1,152 @@
+\section{Fichamento 1: Ahmed e Wahed (2020)}
+
+\noindent\textbf{Autoria do fichamento:} Eduardo Velloso Landeiro
+
+\subsection*{1. Referência bibliográfica}
+\noindent\fullcite{ahmed2020}
+
+\subsection*{2. Tema do artigo}
+A concentração da pesquisa em inteligência artificial (IA) em poucas organizações depois que o
+aprendizado profundo ganhou força, e o papel do acesso desigual a poder computacional
+(\emph{compute}) nessa concentração. O artigo compara grandes empresas de tecnologia,
+universidades de elite e universidades de menor prestígio pela presença nas principais
+conferências da área.
+
+\subsection*{3. Problema investigado}
+A suspeita de que a IA moderna, por depender de \emph{hardware} caro, virou um campo de quem tem e
+quem não tem se apoiava sobretudo em relatos e reportagens (pp.~2--3). Faltava testar de forma
+sistemática se a participação na pesquisa de ponta divergiu entre tipos de organização depois de
+2012 e se o acesso a computação explica isso. Os autores fazem três perguntas (p.~3): se a pesquisa
+ficou mais concentrada, quem são os principais contribuintes e o que aconteceu com quem já atuava
+na área.
+
+\subsection*{4. Objetivo do trabalho}
+Estimar o efeito causal da ascensão do aprendizado profundo, marcada pelo concurso ImageNet de
+2012, sobre a participação de empresas e de universidades de diferentes faixas do \emph{ranking} QS
+nas conferências de IA, e mostrar que o acesso a computação é o mecanismo.
+
+\subsection*{5. Hipótese ou pressuposto}
+A hipótese é explícita (pp.~4 e 9--10). Partindo de uma função de produção de conhecimento que
+depende de conhecimento, habilidades, materiais, equipamento e esforço (eq.~1, p.~9), os autores
+preveem que equipamento mais caro reduz a produção de quem não tem acesso a ele: ``we should
+observe a divergence between the two groups'' (p.~10), isto é, grandes empresas e universidades de
+elite de um lado e as demais universidades do outro. O pressuposto de identificação também é
+explícito (pp.~11--12): o sucesso das GPUs no ImageNet 2012 foi inesperado e por isso funciona como
+choque exógeno, ligado ao aumento do \emph{compute} disponível e não ao comportamento anterior das
+organizações.
+
+\subsection*{6. Base de dados ou corpus}
+Artigos de 2000 a 2019 coletados no Scopus, das conferências mais seletivas de computação segundo
+o csrankings.org (pp.~12--15). De 63 conferências e 175.491 artigos, ficaram 171.394 artigos de 57
+conferências, depois de excluir anos com menos de 25 artigos e a conferência NAACL. As 10
+conferências de IA (AAAI, IJCAI, NeurIPS, ICML, KDD, ACL, EMNLP, CVPR, ECCV e ICCV) formam o grupo
+tratado e as outras 47, o controle. As afiliações foram classificadas pela Fortune Global 500 de
+2018 (46 empresas de tecnologia), pelos \emph{rankings} QS e US News de 2018 e pelo QS de 2011, além
+das listas de instituições historicamente negras (HBCU) e hispânicas (HACU). O painel tem 903
+observações de conferência por ano (Tabela~1).
+
+\subsection*{7. Metodologia ou abordagem}
+O desenho é quase-experimental, com controle sintético generalizado (pp.~10--11). Para cada
+conferência de IA, o método usa as conferências de fora da IA para estimar quantos artigos o grupo
+teria publicado se 2012 não tivesse acontecido. O efeito (ATT, efeito médio sobre os tratados) é a
+diferença média entre o observado e esse contrafactual depois de 2012. O modelo (eq.~2) tem fatores
+latentes, efeitos fixos de conferência e de ano e o total de artigos da conferência como controle;
+o número de fatores sai de validação cruzada e os erros-padrão, de 2.000 \emph{bootstraps} por
+conferência. O desfecho é o número de artigos com ao menos um autor do grupo.
+
+A robustez é testada com placebos de área (Engenharia de Software, Fig.~5) e de data (choque
+fictício em 2009, Fig.~6), contagem ponderada pelas afiliações (Tabela~5), \emph{rankings}
+alternativos (Tabelas~6 e~7) e um estimador de completamento de matrizes (p.~29). Para o mecanismo,
+há uma regressão de efeitos fixos que cruza o choque com uma série anual de \emph{compute} estimada
+pela OpenAI (eq.~3, Tabela~8) e uma análise TF-IDF dos resumos, pontuação que mede quanto um termo
+é característico dos textos de um grupo (Fig.~8).
+
+\subsection*{8. Principais resultados}
+Em relação ao contrafactual, o conjunto das empresas ganhou 46,63 artigos por conferência por ano
+(Tabela~2). As 46 grandes empresas de tecnologia ganharam 44,50 (erro-padrão 2,208), contra uma
+média de 23 artigos por conferência (Tabela~1). As grandes empresas de fora da tecnologia não
+tiveram efeito ($-$0,910), e sem as dez maiores empresas de tecnologia o efeito cai para 19,94. A
+Fig.~4 mostra o efeito subindo até cerca de 180 artigos em 2019. Os artigos só de empresas
+cresceram cerca de 8 por conferência por ano, e os feitos com universidades, cerca de 42,
+concentrados nas universidades do topo do QS (p.~22).
+
+Entre as universidades (Tabela~4), as QS 1--50 ganharam 40,18 (4,49). As faixas 51--100 e
+101--200 não tiveram efeito significativo. As 201--300 perderam 14,34 (5,14), e as 301--500
+perderam 5,57 (1,54), cerca de 25\% abaixo do contrafactual. As HBCU não tiveram efeito. Os
+placebos não mostram efeito (Figs.~5 e~6), e os resultados se mantêm com a contagem ponderada e com
+os \emph{rankings} alternativos (Tabelas~5 a~7). Em 20 anos, as HBCU somam 260 artigos e as HACU,
+2913; só a Microsoft tem 3302 (pp.~16--17). No mecanismo, a interação entre \emph{compute} e choque é
+positiva para empresas e elite e negativa para as universidades QS 101 a 500 (Tabela~8), e as
+empresas aparecem mais associadas a termos de aprendizado profundo (Fig.~8).
+
+\subsection*{9. Conclusões dos autores}
+A IA está sendo moldada por poucos atores, sobretudo grandes empresas de tecnologia e
+universidades de elite, e centenas de universidades de médio e baixo escalão foram deslocadas das
+principais conferências (pp.~38--39). Os autores atribuem isso ao acesso desigual a computação, que
+chamam de \emph{compute divide}, e dizem ser o primeiro estudo a mostrar que a necessidade de
+equipamento especializado pode \emph{desdemocratizar} um campo científico. Defendem intervenção
+pública, como uma nuvem nacional de pesquisa e a abertura de dados públicos (p.~38), e afirmam que
+o resultado contraria a literatura segundo a qual as empresas vêm recuando da pesquisa pública
+(pp.~34--35).
+
+\subsection*{10. Limitações do estudo}
+Os autores reconhecem (p.~34) que o estudo cobre só conferências de topo e que o efeito para
+empresas nos anos finais pode estar superestimado, se a entrada na IA mudou a participação delas
+nas conferências de controle.
+
+Percebi outras. A variável de \emph{compute} da Tabela~8 não é medida por organização: é uma série
+anual única, a do maior treinamento conhecido no ano, igual para todos os grupos. A nota~10 (p.~30)
+admite que ela ``does not necessarily mean that all organizations need or have access to that
+level of computing power'' (p.~30). A escala dessa série também não fecha: o texto diz que ela foi
+usada em log (p.~30), mas a Tabela~1 a descreve em escala original, com desvio-padrão de 41.700,14,
+e é esse desvio que a p.~31 usa para interpretar os coeficientes.
+
+O controle de total de artigos da conferência (Tabelas~2 e~4) é afetado pelo próprio choque, já
+que as conferências de IA cresceram depois de 2012, e isso pode distorcer o efeito. O desfecho é uma
+contagem (p.~14), enquanto as Figs.~1 e~2 mostram participações; com conferências de IA maiores,
+parte do ganho absoluto das empresas pode ser só crescimento.
+
+Texto e tabelas divergem em vários pontos. A p.~23 fala em 8 artigos a menos para QS 201--300, e a
+Tabela~4 mostra $-$14,34. A p.~31 diz que QS 51--100 teve efeito positivo significativo, e a
+Tabela~8 mostra $-$0,0003 sem significância. Na mesma p.~31, QS 101--200 aparece primeiro sem
+impacto e depois perdendo espaço, e a Tabela~8 pula a coluna~(5). A robustez com completamento de
+matrizes fica ``available upon request'' (p.~29), e os outros placebos de área aparecem só na
+nota~8 (p.~25). Por fim, o artigo é um \emph{preprint} do arXiv sem revisão por pares na versão de
+2020, compara tipos de organização e não países, e as listas HBCU e HACU (p.~16) só valem para os
+Estados Unidos.
+
+\subsection*{11. Contribuições}
+É a primeira medida sistemática, com desenho contrafactual e placebos, da concentração da pesquisa
+em IA depois de 2012. Separa o ganho das grandes empresas de tecnologia do ganho de outras empresas
+e das universidades por faixa de \emph{ranking}, e popularizou a expressão \emph{compute divide}.
+Para o nosso tema, mostra que o acesso desigual à IA começa antes do produto comercial, já na
+produção do conhecimento.
+
+\subsection*{12. Avaliação crítica}
+A base é grande e cobre 20 anos (Tabela~1), e o desenho é mais crível que uma comparação simples de
+antes e depois: o ajuste antes de 2012 é bom (Fig.~3), há intervalos de confiança (Fig.~4), dois
+placebos (Figs.~5 e~6) e três variações de medida e de \emph{ranking} (Tabelas~5 a~7).
+
+\textit{(a) Auditoria da figura principal.} A afirmação central, de que as grandes empresas ganharam
+espaço por causa do choque de 2012, está na Fig.~3 (p.~21) e na Tabela~2 (p.~19). Na Fig.~3 o eixo
+vertical parte de perto de zero, mas sem o rótulo 0, e não há faixa de incerteza, que só aparece na
+Fig.~4. Cada ponto é a média de 10 conferências tratadas, e o ATT médio de 44,50 da Tabela~2 esconde
+que quase todo o efeito está nos três últimos anos, quando a série observada vai de cerca de 95
+para cerca de 250. O estimador de completamento de matrizes é citado (p.~29), mas não tabulado, e a
+participação percentual usada nas Figs.~1 e~2 não aparece na estimação. A Fig.~8 tem outro
+problema: não sustenta duas frases da p.~33. No termo \emph{computational cost}, a barra das grandes
+empresas é a mais alta e a das QS 301--500, a mais baixa, o contrário do que o texto diz. Em
+\emph{support vector machine} e \emph{bayesian}, quem lidera é a elite (QS 1--50), não as
+universidades fora dela. Eu esperaria ver o efeito também em participação percentual, com faixa de
+confiança, para separar concentração de simples crescimento das conferências de IA.
+
+\textit{(b) Exame de uma afirmação do resumo.} O resumo diz que a divergência entre grandes empresas
+e universidades fora da elite ``is driven by access to computing power or compute'' (p.~1). As
+únicas peças que tratam disso são a Tabela~8 (p.~30) e a Fig.~8 (p.~34). Na Tabela~8, a série de
+\emph{compute} é igual para todos os grupos, então a interação com o choque funciona como uma
+tendência pós-2012 das conferências de IA e capta qualquer coisa que tenha crescido no período. A
+Fig.~8 mostra sobre o que cada grupo escreve, numa única conferência, e não que \emph{hardware} cada
+um tem. Os próprios autores listam três vantagens das empresas que cresceram juntas depois de 2012,
+talento, dados proprietários e \emph{compute} (pp.~7--8), e nenhuma análise separa a última das
+outras duas. Classificação: ganho de origem não identificada. A divergência está documentada
+(Tabelas~2 e~4); a atribuição ao \emph{compute}, e não ao talento ou aos dados, não está.
