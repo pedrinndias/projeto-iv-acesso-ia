@@ -1,0 +1,146 @@
+modelo,regiao,tipo,L,U,largura_dias,data_exata,origem,truncado_esquerda,censurado,conflito,defasagem_dias_ponto_medio,periodo
+Claude 3.5 Sonnet,af-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-east-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-northeast-1,qualquer,2024-06-19,2024-08-29,0,2024-08-07,https://aws.amazon.com/about-aws/whats-new/2024/08/claude-3-5-sonnet-haiku-more-regions,nao,nao,,48,2024
+Claude 3.5 Sonnet,ap-northeast-2,qualquer,2024-06-19,2024-10-05,108,,wayback,nao,nao,,53,2024
+Claude 3.5 Sonnet,ap-northeast-3,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-south-1,qualquer,2024-11-04,2024-11-23,19,,wayback,nao,nao,,146,2024
+Claude 3.5 Sonnet,ap-south-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-southeast-1,qualquer,2024-06-19,2024-08-29,0,2024-08-07,https://aws.amazon.com/about-aws/whats-new/2024/08/claude-3-5-sonnet-haiku-more-regions,nao,nao,,48,2024
+Claude 3.5 Sonnet,ap-southeast-2,qualquer,2024-11-04,2024-11-23,19,,wayback,nao,nao,,146,2024
+Claude 3.5 Sonnet,ap-southeast-3,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-southeast-4,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-southeast-5,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-southeast-6,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ap-southeast-7,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ca-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,ca-west-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,eu-central-1,qualquer,2024-06-19,2024-08-29,0,2024-08-07,https://aws.amazon.com/about-aws/whats-new/2024/08/claude-3-5-sonnet-haiku-more-regions,nao,nao,,48,2024
+Claude 3.5 Sonnet,eu-central-2,qualquer,2024-06-19,2024-11-23,157,,wayback,nao,nao,,77,2024
+Claude 3.5 Sonnet,eu-north-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,eu-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,eu-south-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,eu-west-1,qualquer,2024-08-29,2024-10-05,37,,wayback,nao,nao,,88,2024
+Claude 3.5 Sonnet,eu-west-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,eu-west-3,qualquer,2024-11-04,2024-11-23,19,,wayback,nao,nao,,146,2024
+Claude 3.5 Sonnet,il-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,me-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,me-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,mx-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet,sa-east-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,af-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-east-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-northeast-1,qualquer,2025-02-06,2025-03-03,25,,wayback,nao,nao,,119,2024
+Claude 3.5 Sonnet v2,ap-northeast-2,qualquer,2025-02-06,2025-03-03,25,,wayback,nao,nao,,119,2024
+Claude 3.5 Sonnet v2,ap-northeast-3,qualquer,2024-11-04,2025-03-03,119,,wayback,nao,nao,,72,2024
+Claude 3.5 Sonnet v2,ap-south-1,qualquer,2025-02-06,2025-03-03,25,,wayback,nao,nao,,119,2024
+Claude 3.5 Sonnet v2,ap-south-2,qualquer,2024-11-04,2025-03-03,119,,wayback,nao,nao,,72,2024
+Claude 3.5 Sonnet v2,ap-southeast-1,qualquer,2025-02-06,2025-03-03,25,,wayback,nao,nao,,119,2024
+Claude 3.5 Sonnet v2,ap-southeast-2,qualquer,2025-01-24,2025-02-06,13,,wayback,nao,nao,"2025-02-10 fora de (2025-01-24, 2025-02-06]",100,2024
+Claude 3.5 Sonnet v2,ap-southeast-3,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-southeast-4,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-southeast-5,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-southeast-6,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ap-southeast-7,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ca-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,ca-west-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-central-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-north-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-south-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-west-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-west-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,eu-west-3,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,il-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,me-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,me-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,mx-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.5 Sonnet v2,sa-east-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2024
+Claude 3.7 Sonnet,af-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-east-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-northeast-1,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-northeast-2,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-northeast-3,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-south-1,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-south-2,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-southeast-1,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-southeast-2,qualquer,2025-05-14,2025-05-26,12,,wayback,nao,nao,,85,2025
+Claude 3.7 Sonnet,ap-southeast-3,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-southeast-4,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-southeast-5,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-southeast-6,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ap-southeast-7,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ca-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,ca-west-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,eu-central-1,qualquer,2025-03-23,2025-04-13,0,2025-04-09,https://aws.amazon.com/about-aws/whats-new/2025/04/anthropics-claude-3-7-sonnet-amazon-bedrock-europe,nao,nao,,44,2025
+Claude 3.7 Sonnet,eu-central-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,eu-north-1,qualquer,2025-03-07,2025-04-13,0,2025-04-09,https://aws.amazon.com/about-aws/whats-new/2025/04/anthropics-claude-3-7-sonnet-amazon-bedrock-europe,nao,nao,,44,2025
+Claude 3.7 Sonnet,eu-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,eu-south-2,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,eu-west-1,qualquer,2025-03-23,2025-04-13,0,2025-04-09,https://aws.amazon.com/about-aws/whats-new/2025/04/anthropics-claude-3-7-sonnet-amazon-bedrock-europe,nao,nao,,44,2025
+Claude 3.7 Sonnet,eu-west-2,qualquer,2025-06-03,2025-07-21,0,2025-06-20,https://aws.amazon.com/about-aws/whats-new/2025/06/anthropics-claude-3-7-sonnet-amazon-bedrock-london,nao,nao,,116,2025
+Claude 3.7 Sonnet,eu-west-3,qualquer,2025-03-23,2025-04-13,0,2025-04-09,https://aws.amazon.com/about-aws/whats-new/2025/04/anthropics-claude-3-7-sonnet-amazon-bedrock-europe,nao,nao,,44,2025
+Claude 3.7 Sonnet,il-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,me-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,me-south-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,mx-central-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude 3.7 Sonnet,sa-east-1,qualquer,2026-04-20,,,,wayback,nao,sim,,,2025
+Claude Sonnet 4.5,af-south-1,qualquer,2025-09-29,2025-11-20,52,,wayback,nao,nao,,26,2025
+Claude Sonnet 4.5,ap-east-2,qualquer,2026-02-04,2026-03-02,26,,wayback,nao,nao,,141,2025
+Claude Sonnet 4.5,ap-northeast-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,"2025-10-31 fora de (2025-09-29, 2025-09-30]",0,2025
+Claude Sonnet 4.5,ap-northeast-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,ap-northeast-3,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,"2025-10-31 fora de (2025-09-29, 2025-09-30]",0,2025
+Claude Sonnet 4.5,ap-south-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,ap-south-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,ap-southeast-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,ap-southeast-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,"2025-10-31 fora de (2025-09-29, 2025-09-30]",0,2025
+Claude Sonnet 4.5,ap-southeast-3,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,ap-southeast-4,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,"2025-10-31 fora de (2025-09-29, 2025-09-30]",0,2025
+Claude Sonnet 4.5,ap-southeast-5,qualquer,2026-02-04,2026-03-02,26,,wayback,nao,nao,,141,2025
+Claude Sonnet 4.5,ap-southeast-6,qualquer,2026-03-12,2026-03-17,5,,wayback,nao,nao,"2026-03-26 fora de (2026-03-12, 2026-03-17]",166,2025
+Claude Sonnet 4.5,ap-southeast-7,qualquer,2026-02-04,2026-03-02,26,,wayback,nao,nao,,141,2025
+Claude Sonnet 4.5,ca-central-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,"2025-11-24 fora de (2025-09-29, 2025-09-30]",0,2025
+Claude Sonnet 4.5,ca-west-1,qualquer,2025-09-29,2025-11-20,52,,wayback,nao,nao,"2025-11-24 fora de (2025-09-29, 2025-11-20]",26,2025
+Claude Sonnet 4.5,eu-central-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-central-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-north-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-south-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-south-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-west-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-west-2,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,eu-west-3,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.5,il-central-1,qualquer,2026-02-04,2026-03-02,26,,wayback,nao,nao,,141,2025
+Claude Sonnet 4.5,me-central-1,qualquer,2026-02-04,2026-03-02,0,2026-02-24,https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-global-cross-region-inference-for-anthropics-claude-models-in-the-middle-east-regions/,nao,nao,,148,2025
+Claude Sonnet 4.5,me-south-1,qualquer,2025-09-29,2025-11-20,52,,wayback,nao,nao,"2026-02-24 fora de (2025-09-29, 2025-11-20]",26,2025
+Claude Sonnet 4.5,mx-central-1,qualquer,2025-09-29,2025-11-20,52,,wayback,nao,nao,,26,2025
+Claude Sonnet 4.5,sa-east-1,qualquer,2025-09-29,2025-09-30,1,,wayback,nao,nao,,0,2025
+Claude Sonnet 4.6,af-south-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-east-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-northeast-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-northeast-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-northeast-3,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-south-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-south-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-3,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-4,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-5,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ap-southeast-6,qualquer,2026-03-12,2026-03-17,5,,wayback,nao,nao,"2026-03-26 fora de (2026-03-12, 2026-03-17]",25,2026
+Claude Sonnet 4.6,ap-southeast-7,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ca-central-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,ca-west-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-central-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-central-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-north-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-south-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-south-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-west-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-west-2,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,eu-west-3,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,il-central-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,me-central-1,qualquer,2026-02-16,2026-03-02,0,2026-02-24,https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-global-cross-region-inference-for-anthropics-claude-models-in-the-middle-east-regions/,nao,nao,,7,2026
+Claude Sonnet 4.6,me-south-1,qualquer,2026-02-16,2026-03-02,0,2026-02-24,https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-global-cross-region-inference-for-anthropics-claude-models-in-the-middle-east-regions/,nao,nao,,7,2026
+Claude Sonnet 4.6,mx-central-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
+Claude Sonnet 4.6,sa-east-1,qualquer,2026-02-16,2026-03-02,14,,wayback,nao,nao,,6,2026
