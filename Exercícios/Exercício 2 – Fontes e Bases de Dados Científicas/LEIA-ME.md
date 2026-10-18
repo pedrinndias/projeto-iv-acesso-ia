@@ -7,7 +7,7 @@ Estado: **rascunho completo, pendente de três ações do Pedro.**
 | Arquivo | O que é |
 |---|---|
 | `fontes-bases.tex` | Documento principal. Capa + 11 seções, cobrindo os 8 passos da oficina |
-| `log-busca.csv` | Planilha de registro. 27 linhas, 3 marcadas `PENDENTE` |
+| `log-busca.csv` | Planilha de registro. 30 linhas, 6 marcadas `PENDENTE` (Linha A e Linha B em cada base assinada) |
 | `buscas.py` | Reproduz as consultas das três bases abertas |
 
 ## O que falta
@@ -40,8 +40,10 @@ justamente porque no Exercício 1 ele passou batido e foi parar no PDF entregue.
 
 ### 2. Rodar Scopus, ACM DL e IEEE Xplore com o acesso CAFe
 
-As expressões já estão traduzidas para a sintaxe de cada uma, na seção 8 do documento.
-Basta colar, rodar e anotar. Depois, preencher as três linhas `PENDENTE` do `log-busca.csv`
+As expressões já estão traduzidas para a sintaxe de cada uma, na seção 8 do documento,
+**uma para a Linha A e outra para a Linha B**. Rodar as duas em cada base, conferindo
+quantos dos cinco artigos do conjunto-controle cada uma recupera: só a união das duas
+cobre o controle inteiro. Depois, preencher as seis linhas `PENDENTE` do `log-busca.csv`
 e acrescentar os números à seção 7.
 
 Cuidados que valem ponto:
@@ -62,6 +64,21 @@ A apostila é explícita: *"Todo artigo do seu conjunto-controle precisa ser abe
 por você."* Os cinco têm DOI verificado contra Crossref, DataCite e a API do arXiv, e os
 resumos foram lidos via API — mas isso não é o mesmo que abrir. Todos são de acesso aberto
 ou acessíveis pelo DOI.
+
+## Correções de 03/10/2026
+
+1. **Tabela de versões.** v4 e v5 apareciam como posteriores à revisão do
+   conjunto-controle, mas ainda eram medidas contra o conjunto inicial: o log registra
+   que v4 "recupera Knez" e que v6 é a "primeira versão contra o conjunto-controle
+   revisado". A tabela ganhou um grupo próprio para v4–v5, e a linha `rev` do log foi
+   movida para entre v5 e v6.
+2. **Traduções para as bases assinadas.** Scopus, ACM e IEEE traziam só a Linha A, e com
+   termos a menos, o que recuperaria no máximo 3/5. Agora as duas linhas estão traduzidas,
+   com os mesmos termos das expressões finais da OpenAlex. Na ACM, os dois blocos passaram
+   a ser buscados no resumo, como no arXiv.
+3. **Aspas.** As expressões saíam como `"digital divide"OR`, sem o espaço: o babel em
+   português torna `"` ativo. Corrigido com `shorthands=off` (e `brazil` virou
+   `brazilian`, a forma não obsoleta).
 
 ## O achado central, caso o professor pergunte
 

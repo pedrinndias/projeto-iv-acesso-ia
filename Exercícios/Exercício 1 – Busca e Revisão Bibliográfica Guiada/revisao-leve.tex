@@ -2,7 +2,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[brazilian]{babel}
+\usepackage[shorthands=off,brazilian]{babel}
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -98,7 +98,7 @@ idioma da OpenAlex.
 Os descritores foram organizados em três componentes:
 
 \begin{quote}
-\small
+\footnotesize
 \texttt{P = ("digital divide" OR "digital inequality" OR "technology adoption"\\
 \phantom{P = (}OR "cloud computing" OR "generative AI" OR "large language model")}
 
@@ -115,8 +115,12 @@ Os descritores foram organizados em três componentes:
 \texttt{("federated learning" OR "edge computing" OR "network topology")}.
 
 \noindent Em português:
-\texttt{("soberania digital" OR "desigualdade digital" OR "dependência tecnológica")
-AND ("inteligência artificial" OR "computação em nuvem")}.
+\begin{quote}
+\footnotesize
+\texttt{("soberania digital" OR "desigualdade digital"\\
+\phantom{(}OR "dependência tecnológica")\\
+AND ("inteligência artificial" OR "computação em nuvem")}
+\end{quote}
 
 \noindent Filtros aplicados: publicações a partir de 2018; artigos, atas de
 conferência, preprints e relatórios institucionais.
@@ -205,7 +209,7 @@ Os dez trabalhos distribuem-se em três correntes e uma vertente metodológica.
   \item Ahmed e Wahed (2020) --- arXiv, cs.CY
   \item Sastry \textit{et al.} (2024) --- arXiv, cs.CY
   \item Mügge (2024) --- \emph{Journal of European Public Policy}
-  \item Guimarães Furtado e Evangelista Cunha (2024) --- \emph{Liinc em Revista}
+  \item Furtado e Cunha (2024) --- \emph{Liinc em Revista}
 \end{enumerate}
 
 \paragraph{Vertente metodológica --- Arquivos da web como série temporal.}
@@ -352,7 +356,7 @@ poderia, em princípio, ser comparada entre unidades.
 
 Há um segundo ponto comum, mais consequente. Todos localizam a desigualdade em uma
 camada \emph{anterior} ao uso. Seja o equipamento (VAN DEURSEN; VAN DIJK, 2018), a habilidade
-(WANG \textit{et al.}, 2024), a infraestrutura nacional (MANNURU \textit{et al.}, 2023; GUIMARÃES FURTADO; EVANGELISTA CUNHA, 2024) ou o poder
+(WANG \textit{et al.}, 2024), a infraestrutura nacional (MANNURU \textit{et al.}, 2023; FURTADO; CUNHA, 2024) ou o poder
 computacional (AHMED; WAHED, 2020; SASTRY \textit{et al.}, 2024), o argumento recorrente é que a diferença de
 resultado observada decorre de uma diferença de dotação prévia. Essa convergência
 importa porque define onde a medição deve incidir: não em quanto se usa, mas em quanto
@@ -374,7 +378,7 @@ efetivamente se decide.
 \paragraph{Fonte de dados.} Quatro trabalhos são conceituais ou documentais
 (LUTZ, 2019; MANNURU \textit{et al.}, 2023; SASTRY \textit{et al.}, 2024; MÜGGE, 2024); dois usam painéis macroeconômicos ou
 censitários (KNEZ, 2023; McELHERAN \textit{et al.}, 2024); um usa survey (WANG \textit{et al.}, 2024); um usa
-bibliometria (AHMED; WAHED, 2020); um usa corpus documental temático (GUIMARÃES FURTADO; EVANGELISTA CUNHA, 2024).
+bibliometria (AHMED; WAHED, 2020); um usa corpus documental temático (FURTADO; CUNHA, 2024).
 Apenas Amos \textit{et al.} (2021) constrói sua própria série temporal a partir de documentos
 arquivados na web. Essa distribuição revela uma dependência pesada de fontes que ou já
 vêm agregadas por país, ou não são temporais.
@@ -405,7 +409,7 @@ política pública deliberada. Isso muda a natureza das variáveis explicativas
 plausíveis: regime regulatório e alinhamento geopolítico tornam-se candidatos, ao lado
 de renda e infraestrutura.
 
-O terceiro é a \textbf{materialização do debate}. Guimarães Furtado e Evangelista Cunha (2024) recolocam a
+O terceiro é a \textbf{materialização do debate}. Furtado e Cunha (2024) recolocam a
 infraestrutura física --- energia, água, território --- no centro de uma discussão que
 vinha sendo conduzida em termos abstratos de soberania. A perspectiva é relevante
 porque reintroduz o argumento concorrente mais forte: parte da assimetria observada
@@ -436,7 +440,7 @@ atraso geral.} Quando um serviço de IA demora a chegar a um território, a lite
 revisada não oferece instrumento para distinguir duas explicações concorrentes --- se o
 atraso decorre da maturidade da infraestrutura local, caso em que todos os serviços da
 mesma plataforma chegariam com atraso semelhante, ou se há tratamento diferenciado à
-inteligência artificial. Knez (2023) chegam perto ao modelar custo relativo de
+inteligência artificial. Knez (2023) chega perto ao modelar custo relativo de
 implementação, mas sobre tecnologias industriais e sem controle por serviço.
 Sem essa separação, qualquer associação encontrada entre atraso e característica de
 país permanece ambígua.
@@ -460,7 +464,7 @@ análise de sobrevivência --- estimador de Kaplan-Meier estratificado, com mode
 riscos proporcionais para o componente multivariado.
 
 A fonte de dados seria a documentação técnica oficial das plataformas de nuvem,
-recuperada retrospectivamente por meio de arquivos da web, aplicando a
+recuperada retrospectivamente por meio de arquivos da web, aplicando à
 documentação de disponibilidade o procedimento que Amos \textit{et al.} (2021) aplicaram a
 políticas de privacidade.
 
@@ -494,7 +498,7 @@ AHMED, Nur; WAHED, Muntasir. The de-democratization of AI: deep learning and the
 
 AMOS, Ryan \textit{et al.} Privacy policies over time: curation and analysis of a million-document dataset. \textit{In}: THE WEB CONFERENCE, 2021. \textbf{Proceedings} [...]. New York: ACM, 2021. p. 2165-2176. DOI: 10.1145/3442381.3450048.
 
-GUIMARÃES FURTADO, Renato; EVANGELISTA CUNHA, Simone. Inteligência artificial, data centers e colonialismo digital. \textbf{Liinc em Revista}, Rio de Janeiro, v. 20, n. 2, e7272, 2024. DOI: 10.18617/liinc.v20i2.7272.
+FURTADO, Renato Guimarães; CUNHA, Simone Evangelista. Inteligência artificial, data centers e colonialismo digital. \textbf{Liinc em Revista}, Rio de Janeiro, v. 20, n. 2, e7272, 2024. DOI: 10.18617/liinc.v20i2.7272.
 
 KNEZ, Klemen. Technology diffusion and uneven development. \textbf{Journal of Evolutionary Economics}, v. 33, n. 4, p. 1171-1195, 2023. DOI: 10.1007/s00191-023-00830-w.
 

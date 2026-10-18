@@ -2,7 +2,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
+\usepackage[shorthands=off,brazilian]{babel}
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -282,9 +282,11 @@ v1 & Tradução literal da pergunta, três blocos estreitos & 0 & 0/5 \\
 v2 & Sinônimos dos resumos acrescentados aos três blocos & 619 & 0/5 \\
 v3 & B2 e B3 ampliados & 706 & 0/5 \\
 \midrule
-\multicolumn{4}{l}{\textit{Após o diagnóstico e a revisão do conjunto-controle}}\\
-v4 & Dois blocos; \texttt{technology} genérico em B1 & 186.169 & 4/5 \\
-v5 & Dois blocos; B1 restrito a IA & 31.285 & 4/5 \\
+\multicolumn{4}{l}{\textit{Após o diagnóstico, ainda com o conjunto-controle inicial (com Knez)}}\\
+v4 & Dois blocos; \texttt{technology} genérico em B1. Recupera Knez, perde Sastry & 186.169 & 4/5 \\
+v5 & Dois blocos; B1 restrito a IA. Recupera Sastry, perde Knez & 31.285 & 4/5 \\
+\midrule
+\multicolumn{4}{l}{\textit{Após a revisão do conjunto-controle (Lutz no lugar de Knez)}}\\
 v6 & B1 \texttt{AND} B2 (família \textit{divide}) & 7.638 & 3/5 \\
 v7 & v6 mais duas variantes de B2 & 7.642 & 3/5 \\
 v8 & B1 \texttt{AND} (B2 \texttt{OR} B3) & 31.857 & \textbf{5/5} \\
@@ -401,14 +403,32 @@ difusão tecnológica inteligência artificial & 1 \\
 é, em si, um resultado: a interseção exata praticamente não existe na produção brasileira
 indexada pela SBC.
 
+\noindent Nas três bases assinadas abaixo, cada linha de busca é traduzida e deve ser
+executada e registrada \textbf{separadamente}, com a recuperação do conjunto-controle
+conferida em cada uma. Só a união das duas linhas cobre o conjunto-controle inteiro
+(Seção~\ref{sec:diag}); executar apenas a Linha A recuperaria no máximo três dos cinco
+trabalhos. Os termos são os mesmos das expressões finais da OpenAlex.
+
 \subsection{Scopus --- a executar}
 
-\begin{quote}\footnotesize\ttfamily
+\begin{quote}\scriptsize\ttfamily
+LINHA A =\\
 TITLE-ABS-KEY(\\
  ("artificial intelligence" OR "generative AI" OR "large language model"\\
   OR "foundation model" OR "computing power")\\
- AND ("digital divide" OR "digital inequality" OR "compute divide"\\
+ AND ("digital divide" OR "digital inequality" OR "digital inequalities"\\
+  OR "compute divide" OR "AI divide" OR "artificial intelligence divide"\\
   OR "unequal access" OR "access gap")\\
+) AND PUBYEAR > 2018
+
+\vspace{0.6em}
+LINHA B =\\
+TITLE-ABS-KEY(\\
+ ("artificial intelligence" OR "generative AI" OR "large language model"\\
+  OR "foundation model" OR "computing power")\\
+ AND ("developing countries" OR "global south" OR "digital sovereignty"\\
+  OR "AI governance" OR "compute governance"\\
+  OR "governance of artificial intelligence")\\
 ) AND PUBYEAR > 2018
 \end{quote}
 
@@ -418,10 +438,25 @@ parênteses podem retornar resultado diferente.
 
 \subsection{ACM Digital Library --- a executar}
 
-\begin{quote}\footnotesize\ttfamily
-Title:("artificial intelligence" OR "generative AI" OR "computing power")\\
-AND Abstract:("digital divide" OR "compute divide" OR "unequal access")
+\begin{quote}\scriptsize\ttfamily
+LINHA A =\\
+Abstract:("artificial intelligence" OR "generative AI"\\
+ OR "large language model" OR "foundation model" OR "computing power")\\
+AND Abstract:("digital divide" OR "digital inequality"\\
+ OR "digital inequalities" OR "compute divide" OR "AI divide"\\
+ OR "artificial intelligence divide" OR "unequal access" OR "access gap")
+
+\vspace{0.6em}
+LINHA B =\\
+Abstract:("artificial intelligence" OR "generative AI"\\
+ OR "large language model" OR "foundation model" OR "computing power")\\
+AND Abstract:("developing countries" OR "global south"\\
+ OR "digital sovereignty" OR "AI governance" OR "compute governance"\\
+ OR "governance of artificial intelligence")
 \end{quote}
+
+\noindent Os dois blocos são aplicados ao resumo, e não um ao título e outro ao resumo,
+para manter a mesma lógica de campo usada no arXiv.
 
 \noindent Na busca avançada, termos na mesma linha são combinados com \texttt{OR} por
 padrão e linhas diferentes com \texttt{AND}. Escrever os operadores explicitamente e
@@ -429,9 +464,25 @@ conferir em \textit{View Query Syntax} antes de anotar o número.
 
 \subsection{IEEE Xplore --- a executar}
 
-\begin{quote}\footnotesize\ttfamily
-("Abstract":"artificial intelligence" OR "Abstract":"computing power")\\
-AND ("Abstract":"digital divide" OR "Abstract":"compute divide")
+\begin{quote}\scriptsize\ttfamily
+LINHA A =\\
+("Abstract":"artificial intelligence" OR "Abstract":"generative AI"\\
+ OR "Abstract":"large language model" OR "Abstract":"foundation model"\\
+ OR "Abstract":"computing power")\\
+AND ("Abstract":"digital divide" OR "Abstract":"digital inequality"\\
+ OR "Abstract":"digital inequalities" OR "Abstract":"compute divide"\\
+ OR "Abstract":"AI divide" OR "Abstract":"artificial intelligence divide"\\
+ OR "Abstract":"unequal access" OR "Abstract":"access gap")
+
+\vspace{0.6em}
+LINHA B =\\
+("Abstract":"artificial intelligence" OR "Abstract":"generative AI"\\
+ OR "Abstract":"large language model" OR "Abstract":"foundation model"\\
+ OR "Abstract":"computing power")\\
+AND ("Abstract":"developing countries" OR "Abstract":"global south"\\
+ OR "Abstract":"digital sovereignty" OR "Abstract":"AI governance"\\
+ OR "Abstract":"compute governance"\\
+ OR "Abstract":"governance of artificial intelligence")
 \end{quote}
 
 \noindent \textit{Command Search}. Truncamento exige no mínimo três caracteres; limite de
@@ -441,9 +492,9 @@ AND ("Abstract":"digital divide" OR "Abstract":"compute divide")
 \section{Passo 8 --- Registro consolidado}
 
 O registro completo está em \texttt{log-busca.csv}, versionado no repositório do projeto,
-com 27 linhas cobrindo base, data, expressão exata, campos, filtros, número de resultados,
-recuperação do conjunto-controle e observação. As três linhas de bases assinadas estão
-marcadas \texttt{PENDENTE}, sem número atribuído.
+com 30 linhas cobrindo base, data, expressão exata, campos, filtros, número de resultados,
+recuperação do conjunto-controle e observação. As seis linhas de bases assinadas --- uma
+por linha de busca em cada base --- estão marcadas \texttt{PENDENTE}, sem número atribuído.
 
 %======================= 10 =======================
 \section{Limitações declaradas}

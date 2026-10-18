@@ -1,6 +1,7 @@
 # Exercício 1 — Busca e Revisão Bibliográfica Guiada
 
-Estado: **texto completo, mas a entrega ainda não cumpre o critério 8.**
+Estado: **PDF de entrega gerado com biblatex (03/10/2026). Falta atualizar o Overleaf
+e ler os dez textos integralmente.**
 
 ## Autoria
 
@@ -15,82 +16,53 @@ entrega individual, e o `\author` do `.tex` que precisa voltar atras.
 
 | Arquivo | O que é |
 |---|---|
-| `revisao.tex` | Documento principal. Sete seções na ordem exigida, mais "Link do projeto LaTeX" |
+| `ENTREGAR-Exercicio1-Revisao-Bibliografica.pdf` | **PDF de entrega.** Gerado de `revisao.tex`, com biblatex-abnt e biber |
+| `revisao.tex` | **Fonte da entrega.** Usa `biblatex` com `style=abnt`, como o enunciado exige |
 | `referencias.bib` | 12 entradas, todas com DOI verificado |
+| `revisao-leve.tex` | Reserva sem biblatex, com referências escritas à mão. **Não atende** ao "Use o pacote biblatex" do enunciado; só serve se nada mais compilar |
 | `log-busca.csv` | 21 registros: 17 expressões de recuperação e 4 linhas de outras bases |
 | `verificacao-referencias.md` | Conferência referência a referência |
 | `PROMPT-execucao.md` | Prompt que originou este trabalho |
-| `Revisao-Bibliografica.pdf` | PDF antigo — **não serve para entrega**, ver abaixo |
-| `Revisao-Bibliografica.docx` | Versão em Word, origem do PDF acima |
+| `Revisao-Bibliografica.pdf` / `.docx` | Versão antiga em Word. **Não serve para entrega** (não saiu de LaTeX e tem o link vazio) |
 
-## O problema mais sério
+## Correções de 03/10/2026
 
-**Nenhum dos dois PDFs existentes foi gerado em LaTeX.** Verificado nos metadados
-em 17/09/2026:
+1. **A entrega voltou a usar biblatex.** O PDF anterior (commit 2eaf9d4) saiu do
+   `revisao-leve.tex`, sem biblatex, embora o enunciado diga "Use o pacote biblatex".
+2. **"Knez (2023) chegam perto"** virou "chega perto"; faltava a crase em "aplicando à
+   documentação".
+3. **O artigo da Liinc aparecia de três formas** (Guimarães Furtado e Evangelista Cunha,
+   Furtado e Cunha, Furtado e Evangelista). Padronizado pela ABNT (NBR 6023:2018,
+   8.1.1.1), que entra pelo último sobrenome: FURTADO; CUNHA. A Crossref registra
+   "Guimarães Furtado"/"Evangelista Cunha" como sobrenome; a divergência está anotada
+   no `.bib`.
+4. **As expressões de busca saíam sem o espaço depois das aspas** (`"digital divide"OR`).
+   Causa: o babel em português torna `"` um caractere ativo, e ele engolia o espaço.
+   Corrigido com `shorthands=off`.
+5. `useprefix=true` no biblatex, para sair VAN DEURSEN; VAN DIJK (e não DEURSEN … van),
+   e `location` no Amos, que saía com [S.l.].
 
-| Arquivo | Producer | Páginas apaisadas |
-|---|---|---|
-| `Revisao-Bibliografica.pdf` (nesta pasta) | LibreOffice Writer | nenhuma |
-| `../Revisao-Bibliografica.pdf` (pasta acima) | macOS Quartz (Word/Preview) | nenhuma |
+## Como o PDF foi compilado
 
-O `revisao.tex` usa `\begin{landscape}` para as tabelas comparativas, o que obriga
-páginas com `/Rotate 90`. Nenhum dos dois PDFs tem. É prova de que não saíram deste
-`.tex`.
-
-O critério 8 pede **"entrega do PDF gerado em LaTeX com o respectivo link para o
-arquivo-fonte"**. Como está, não cumpre — e o professor confere isso abrindo as
-propriedades do arquivo.
-
-**A correção é compilar o `revisao.tex` no Overleaf** e entregar aquele PDF. Isso
-resolve o critério 8 e produz o link na mesma operação.
-
-## Por que não dá para compilar localmente
-
-O estilo ABNT exige o biber, e diz isso de forma literal:
-
-```
-abnt.bbx:21: Package biblatex Error: Biber backend is required by style.
-l.21 \RequireBiber[3]
-```
-
-Testado `backend=bibtex` (que o tectonic traz embutido): recusado na linha 21 do
-próprio `abnt.bbx`. E o biber não instala nesta máquina — é um Mac Intel, e o
-Homebrew parou de distribuir binário para x86_64; o build do zero falha num módulo
-Perl XS.
-
-Se quiser resolver local algum dia, o caminho é o BasicTeX, que traz o biber. Precisa
-da sua senha:
+O Overleaf gratuito estourou o tempo três vezes com a versão biblatex (commit 20abc16).
+Por isso o PDF foi compilado nesta máquina: `tectonic` 0.17 (biblatex 3.17) com o
+**biber 2.17**, a única versão compatível, baixada do projeto oficial no SourceForge
+para a pasta temporária da sessão, sem instalação no sistema. Para recompilar, é
+preciso de novo um biber 2.17 no PATH:
 
 ```
-brew install --yes --cask basictex && sudo tlmgr install biber biblatex-abnt
+PATH="/caminho/do/biber-2.17:$PATH" tectonic -X compile revisao.tex
 ```
-
-## Correções já aplicadas no `revisao.tex` (17/09/2026)
-
-Validadas por compilação-proxy (`authoryear`+`bibtex`, que aproxima a largura das
-citações ABNT) — 11 páginas, 3 apaisadas, tabelas íntegras.
-
-1. **7 travessões literais `—` → `---`.** O XeTeX não representa `—` na fonte EC
-   ("Missing character"); o pdfLaTeX representa. Era incompatibilidade latente,
-   invisível no Overleaf. O `---` funciona nos dois, com saída idêntica.
-2. **`\texttt{verificacao-referencias.md}`** vazava 62pt — nome de arquivo
-   monoespaçado inquebrável. Envolvido em `sloppypar`.
-3. **Parágrafo "Fonte de dados"** vazava 33pt, denso de `\cite`. Sob ABNT as citações
-   são mais longas, então pioraria. Também em `sloppypar`.
 
 ## O que falta
 
-### 1. Compilar no Overleaf e inserir o link
+### 1. Atualizar o projeto do Overleaf
 
-1. Criar projeto em branco e subir `revisao.tex` e `referencias.bib`.
-2. Menu → Compiler → **pdfLaTeX**.
-3. Compilar, rodar o **biber**, compilar mais duas vezes.
-4. Substituir `[INSERIR AQUI O LINK DO OVERLEAF]` pelo endereço real e recompilar.
-5. Configurar como **"Anyone with this link can view"** — sem isso o critério 8 não
-   é cumprido.
-
-**Conferir no PDF antes de exportar:** nenhuma citação saindo como `[?]`; a lista de
-referências preenchida; as três tabelas comparativas em retrato, com as sete colunas exigidas distribuídas entre elas.
+O link impresso no PDF é https://www.overleaf.com/read/qbcvqyhkcymy. O projeto ainda deve
+conter a versão leve. Substituir os arquivos pelos do `overleaf-exercicio1.zip`
+(`revisao.tex` + `referencias.bib`), para que o fonte do link seja o mesmo do PDF.
+Se o Overleaf voltar a estourar o tempo, o fonte continua visível pelo link, que é
+o que o critério 8 pede. O enunciado aceita também o **Prism** como plataforma.
 
 ### 2. Ler os dez textos integralmente
 

@@ -2,14 +2,14 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[brazilian]{babel}
+\usepackage[shorthands=off,brazilian]{babel}
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{ragged2e}
 \usepackage[hidelinks]{hyperref}
-\usepackage[backend=biber,style=abnt]{biblatex}
+\usepackage[backend=biber,style=abnt,useprefix=true]{biblatex}
 
 \addbibresource{referencias.bib}
 
@@ -101,7 +101,7 @@ idioma da OpenAlex.
 Os descritores foram organizados em três componentes:
 
 \begin{quote}
-\small
+\footnotesize
 \texttt{P = ("digital divide" OR "digital inequality" OR "technology adoption"\\
 \phantom{P = (}OR "cloud computing" OR "generative AI" OR "large language model")}
 
@@ -118,8 +118,12 @@ Os descritores foram organizados em três componentes:
 \texttt{("federated learning" OR "edge computing" OR "network topology")}.
 
 \noindent Em português:
-\texttt{("soberania digital" OR "desigualdade digital" OR "dependência tecnológica")
-AND ("inteligência artificial" OR "computação em nuvem")}.
+\begin{quote}
+\footnotesize
+\texttt{("soberania digital" OR "desigualdade digital"\\
+\phantom{(}OR "dependência tecnológica")\\
+AND ("inteligência artificial" OR "computação em nuvem")}
+\end{quote}
 
 \noindent Filtros aplicados: publicações a partir de 2018; artigos, atas de
 conferência, preprints e relatórios institucionais.
@@ -439,7 +443,7 @@ atraso geral.} Quando um serviço de IA demora a chegar a um território, a lite
 revisada não oferece instrumento para distinguir duas explicações concorrentes --- se o
 atraso decorre da maturidade da infraestrutura local, caso em que todos os serviços da
 mesma plataforma chegariam com atraso semelhante, ou se há tratamento diferenciado à
-inteligência artificial. \textcite{knez2023} chegam perto ao modelar custo relativo de
+inteligência artificial. \textcite{knez2023} chega perto ao modelar custo relativo de
 implementação, mas sobre tecnologias industriais e sem controle por serviço.
 Sem essa separação, qualquer associação encontrada entre atraso e característica de
 país permanece ambígua.
@@ -463,7 +467,7 @@ análise de sobrevivência --- estimador de Kaplan-Meier estratificado, com mode
 riscos proporcionais para o componente multivariado.
 
 A fonte de dados seria a documentação técnica oficial das plataformas de nuvem,
-recuperada retrospectivamente por meio de arquivos da web, aplicando a
+recuperada retrospectivamente por meio de arquivos da web, aplicando à
 documentação de disponibilidade o procedimento que \textcite{amos2021} aplicaram a
 políticas de privacidade.
 

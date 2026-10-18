@@ -17,7 +17,7 @@ da fonte.
 | 5 | Wang et al. (2024) | `10.1177/14614448241232345` | Crossref | *New Media & Society* |
 | 6 | McElheran et al. (2024) | `10.1111/jems.12576` | Crossref | *Journal of Economics & Management Strategy* |
 | 7 | Mügge (2024) | `10.1080/13501763.2024.2318475` | Crossref | *Journal of European Public Policy* |
-| 8 | Furtado e Evangelista (2024) | `10.18617/liinc.v20i2.7272` | Crossref | *Liinc em Revista*, v. 20, n. 2, 28/11/2024, acesso aberto |
+| 8 | Furtado e Cunha (2024) | `10.18617/liinc.v20i2.7272` | Crossref | *Liinc em Revista*, v. 20, n. 2, 28/11/2024, acesso aberto |
 | 9 | Ahmed e Wahed (2020) | `10.48550/arXiv.2010.15581` | DataCite + arXiv API | `Preprint`, cs.CY, submetido em 22/10/2020, 2 autores; landing page HTTP 200 |
 | 10 | Sastry et al. (2024) | `10.48550/arXiv.2402.08797` | DataCite + arXiv API | `Preprint`, cs.CY, submetido em 13/02/2024, 19 autores; landing page HTTP 200 |
 
