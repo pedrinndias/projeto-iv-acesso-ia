@@ -8,9 +8,11 @@ decisão é do grupo.**
 
 **O piloto passa no critério registrado antes da coleta.** A data de chegada de um
 modelo a uma região foi determinada com **incerteza mediana de 14 dias** (limiar: 30),
-P90 de 37 dias, e nenhum par truncado à esquerda. Dos 145 pares, 86 tiveram chegada
-observada e 59 nunca receberam o modelo até 30/06/2026. Esses 59 são censura à direita,
-o próprio formato do desfecho, e não falta de dado.
+P90 de 37 dias, e nenhum par truncado à esquerda no cálculo do piloto. Dos 145 pares,
+86 tiveram chegada documentada e 59 foram censurados à direita em **20/04/2026**,
+data da última observação negativa explícita de cada par. As capturas posteriores até
+30/06/2026 omitem essas regiões das tabelas dos respectivos modelos e deixam em aberto
+eventuais mudanças no intervalo. Ver a [auditoria no estado do piloto](ESTADO.md#auditoria-de-25112026).
 
 O resultado vale para a **definição A**, escolhida pelo grupo antes da etapa 4:
 disponível = acessível a partir da região de qualquer forma, com Legacy contando. Com a
@@ -23,16 +25,13 @@ Geo/Global na página nova), e a série In-Region só começa em 11/03/2026.
 **Manter a pergunta regional como principal, com o Bedrock como espinha dorsal**, e a
 pergunta de países como co-primária. Três condições:
 
-1. **Fechar o construto antes da coleta completa (semana 8).** Oito dos 10 conflitos
-   são do Sonnet 4.5. A página antiga o mostra acessível no Japão, Austrália, Canadá e
-   Bahrein desde o dia 1, mas o blog da AWS anuncia esse acesso semanas ou meses depois.
-   Se o `Yes` antigo incluía regiões que só **recebem** tráfego do roteamento global, a
-   definição A superestima o acesso dos modelos recentes. **Teste:** baixar do Wayback a
-   página de perfis de inferência (`inference-profiles-support.html`) de out–nov/2025 e
-   conferir se Japão, Canadá e Bahrein constavam como **regiões de origem** do perfil
-   global do Sonnet 4.5. Se constavam, o conflito é só de tipo (o blog anunciou o Geo) e a
-   definição A se sustenta. Se não constavam, usar como data de chegada a primeira
-   aparição como região de origem.
+1. **Documentar as origens do Sonnet 4.5.** A auditoria de 25/11/2026 encontrou
+   correspondência exata entre os 23 `Yes` de 30/09 e as 23 origens do perfil Global
+   em 04/10/2025, e entre os 27 `Yes` de 20/11 e as 27 origens em 25/11/2025. As
+   capturas sustentam a leitura de origem nas datas comparadas e corroboram os limites
+   registrados, com uma defasagem de alguns dias entre as fontes. O total de 10
+   divergências entre documentação e anúncios, oito do Sonnet 4.5, permanece no CSV
+   como trilha de auditoria. A variação regional resultante ainda precisa ser medida.
 2. **Tratar a imprecisão de 2024 no método, não escondê-la.** A coorte de 2024 tem
    mediana de 25 dias e P90 de 119 (capturas ralas); a de 2025, mediana de 1 dia.
    Kaplan-Meier e Cox passam a ter as versões para **censura intervalar** (estimador de
@@ -56,8 +55,8 @@ pergunta de países como co-primária. Três condições:
 - **Método (§5.3):** versões intervalares de Kaplan-Meier e Cox. A comparação
   "atraso de IA × 13% de defasagem geral" (secundária 4) e o desenho de
   diferenças-em-diferenças continuam inviáveis como estão.
-- **Riscos (§6):** acrescentar a ambiguidade do `Yes` antigo (região de origem ou de
-  destino) e a precisão desigual entre coortes.
+- **Riscos (§6):** documentar o alcance da validação do `Yes` para Sonnet 4.5, a
+  precisão desigual entre coortes e a entrada tardia de regiões abertas após a estreia.
 
-**Próximo passo único:** o teste do item 1, uma etapa curta e de baixo custo, antes de
-começar a coleta das semanas 8–10.
+**Próximo passo:** medir a variação regional com a entrada tardia onde houver evidência,
+comparando a base completa com os recortes sem Sonnet 4.5/4.6 e sem a coorte de 2024.

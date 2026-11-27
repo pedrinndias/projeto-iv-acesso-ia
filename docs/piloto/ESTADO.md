@@ -1,7 +1,7 @@
 # Estado do piloto do desfecho
 
-Arquivo de passagem entre sessões. Cada sessão lê **só** este arquivo e o
-`PROMPT-piloto-desfecho.md`, executa a próxima etapa pendente e atualiza esta tabela.
+Arquivo de passagem entre sessões. Comece pela auditoria mais recente e use a tabela
+para localizar as saídas do piloto original.
 
 | Etapa | Situação | Saídas | Números principais |
 |---|---|---|---|
@@ -10,6 +10,57 @@ Arquivo de passagem entre sessões. Cada sessão lê **só** este arquivo e o
 | 3 — Snapshots do Wayback | **Concluída (03/10/2026)** | `src/coleta/piloto_wayback_bedrock.py`, `src/coleta/piloto_parser_bedrock.py`; `dados/intermediario/piloto_cdx.csv`, `piloto_presenca.csv` (13.222 linhas); 84 brutos `dados/bruto/wayback_*.html` (3,7 MB, gzip) | 173 dias de captura na janela, 84 conteúdos distintos, 0 falhas; troca de página em 21–22/04/2026 |
 | 4 — Intervalos e precisão | **Concluída (03/10/2026)** | `src/tratamento/piloto_intervalos.py`; `dados/intermediario/piloto_eventos.csv`; `resultados/tabelas/piloto_precisao.md` | 145 pares, 86 eventos, 59 censurados, 0 truncados; **mediana da largura 14 dias** (P90 37); 13% com data exata; 10 conflitos |
 | 5 — Veredito | **Concluída (03/10/2026)** | `docs/piloto/VEREDITO.md` | Passa no critério (14 d ≤ 30) sob a definição A; recomenda manter a pergunta regional, com 3 condições |
+
+## Auditoria de 25/11/2026
+
+- **Censura:** os 59 pares têm `L=2026-04-20` e `U` vazio em
+  `dados/intermediario/piloto_eventos.csv`. A captura da página antiga
+  `20260420182145` tem duas negativas por par, nas tabelas de suporte e de perfis.
+  Nas capturas posteriores a página antiga só remete à nova. Na nova, as regiões
+  desses pares ficam omitidas das tabelas dos três modelos, inclusive em 30/06.
+  O veredito passa a indicar 20/04 como última negativa explícita.
+- **Anúncio de batch de 02/04/2025:** no `doc-history`, Seul, Osaka, Mumbai,
+  Hyderabad, Singapura e Sydney pertencem ao Claude 3.5 Sonnet v2. Estocolmo, Milão
+  e Espanha pertencem ao **Amazon Titan Text Embeddings V2**. O extrator e o CSV do
+  piloto Claude agora mantêm só as seis regiões do Sonnet v2. A linha continua
+  classificada como recurso (`batch`).
+- **Sonnet 4.5:** os 23 `Yes` da captura `models-regions` de 30/09/2025 coincidem
+  com as 23 origens do [perfil Global de 04/10][perfil-0410]. Os 27 `Yes` de 20/11
+  coincidem com as 27 origens [em 25/11][perfil-2511]. Tóquio, Osaka, Sydney,
+  Melbourne e Canadá Central já constavam em 04/10. Calgary e Bahrein estavam fora
+  da lista [de 18/11][perfil-1811] e aparecem na tabela antiga em 20/11 e no perfil
+  Global em 25/11. O anúncio canadense especifica Canadá Central. O anúncio de
+  fevereiro para Bahrein trata do mesmo perfil Global. O caso Auckland fica
+  separado: a tabela nova lista Geo e Global em 17/03/2026 e o anúncio é de 26/03.
+  Mantêm-se os limites do CSV e as divergências como trilha de auditoria.
+- **Três datas distintas:** abertura da região AWS, disponibilidade do serviço
+  Bedrock na região e primeira evidência de acesso ao modelo a partir da região.
+  Um anúncio do Bedrock pode mostrar que a região já operava naquela data. A
+  estreia do modelo é seu marco zero. Regiões abertas depois exigem entrada tardia
+  na análise. O panorama (p. 104) situa Tailândia (`ap-southeast-7`) e México
+  (`mx-central-1`) em **jan/2025**, com precisão mensal. São quatro pares censurados
+  com abertura posterior à estreia, dois por região, dos Sonnet 3.5 e 3.5 v2.
+  A operação na estreia foi confirmada em 14 pares censurados e fica a confirmar
+  em 41. As datas exatas de abertura dependem de fonte própria.
+- **Retomada:** correções consolidadas. A comparação dos recortes e a proposta de
+  escopo constam da seção de 26/11.
+
+[perfil-0410]: https://web.archive.org/web/20251004063357id_/https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html#cross-region-ip-global.anthropic.claude-sonnet-4-5-20250929-v1:0
+[perfil-1811]: https://web.archive.org/web/20251118155455id_/https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html#cross-region-ip-global.anthropic.claude-sonnet-4-5-20250929-v1:0
+[perfil-2511]: https://web.archive.org/web/20251125143548id_/https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html#cross-region-ip-global.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+## Variação regional e proposta de escopo de 26/11/2026
+
+Comparação e recomendação registradas na [tabela de variação regional][variacao].
+Sem Sonnet 4.5/4.6, há 28 chegadas em 13 regiões e a ordem é distinguível em 61 de
+123 comparações dentro do mesmo modelo. Sem a coorte de 2024, a mediana descritiva
+continua em 6 dias e o P90 da largura cai de 37 para 26 dias. Proposta para o grupo:
+Bedrock como eixo descritivo, atendimento por país como pergunta co-primária, Vertex
+como extensão após teste de viabilidade e Foundry condicionado à validação do seu
+histórico. A versão entregue da Ficha segue como registro. O alinhamento da Ficha de
+trabalho, do escopo e do método depende da decisão de escopo do grupo.
+
+[variacao]: ../../trabalho-final/entregas/piloto/piloto_variacao_regional.md
 
 ## Decisões tomadas antes da coleta
 
@@ -24,9 +75,7 @@ Arquivo de passagem entre sessões. Cada sessão lê **só** este arquivo e o
   infraestrutura local e passa a ser sobre acesso; a definição do §7.3 do escopo v1 e a
   Ficha precisam ser atualizadas.
 
-## Onde parou
-
-Etapa 1 concluída em 03/10/2026, na branch `piloto-desfecho`, sem commit.
+## Registro da etapa 1 (03/10/2026)
 
 Modelos escolhidos (anúncio = dia 1 no Bedrock):
 
@@ -147,19 +196,15 @@ dos EUA × 5 modelos = 145 pares.
 Achados para o veredito (etapa 5):
 
 1. **Pelo critério registrado, o piloto passa:** mediana de 14 dias ≤ 30, nenhum par
-   truncado. Os 59 censurados não são falta de dado: são pares que nunca receberam o
-   modelo até 30/06/2026, que é o próprio desfecho censurado à direita.
+   truncado no cálculo. Os 59 censurados têm última negativa explícita em
+   20/04/2026, como verificado na auditoria posterior.
 2. **A precisão depende do período.** A coorte de 2024 tem mediana de 25 dias e P90 de 119
    (capturas ralas em 2024); a de 2025, mediana de 1 dia. A incerteza alta fica concentrada
    nos modelos de 2024.
-3. **Os 10 conflitos são um problema de construto, não de precisão.** Em 8 deles, a página
-   antiga mostra o Sonnet 4.5 acessível no Japão, na Austrália, no Canadá e no Bahrein desde o
-   dia 1 (30/09/2025), mas o blog da AWS anuncia o acesso nesses países só depois (31/10/2025,
-   24/11/2025, 24/02/2026). Duas leituras possíveis: (a) o blog anuncia um tipo diferente (Geo
-   no país), enquanto o Global já existia; (b) o `Yes` da página antiga listava regiões que
-   recebem tráfego do roteamento global, e não regiões de onde um cliente pode chamar o
-   modelo. Se for (b), a definição A superestima o acesso dos modelos recentes. Os outros 2
-   conflitos são a documentação adiantando-se ao anúncio em 4 a 9 dias.
+3. **O CSV registra 10 divergências entre datas de anúncios e a documentação.** Oito
+   são do Sonnet 4.5, sete no Japão, Austrália, Canadá e Bahrein e um em Auckland.
+   A auditoria posterior confirmou a correspondência do `Yes` com as regiões de
+   origem do perfil Global nas duas comparações históricas.
 4. A mediana da defasagem (ponto médio) é 6 dias no total, mas 77–119 dias para os modelos
    de 2024 e 0 para o Sonnet 4.5. Isso é resultado, não precisão, e só vale com a ressalva
    do item 3.
@@ -167,9 +212,7 @@ Achados para o veredito (etapa 5):
 ### Etapa 5 (03/10/2026)
 
 Veredito em `docs/piloto/VEREDITO.md`. **O piloto terminou.** Recomendação: manter a
-pergunta regional como principal (Bedrock como espinha dorsal), desde que (1) se feche o
-construto do `Yes` antigo (região de origem ou de destino do roteamento global) com as
-capturas de `inference-profiles-support.html` de out–nov/2025; (2) se usem métodos para
-censura intervalar, com os modelos de 2024 também numa análise de sensibilidade; (3) se
-repita a etapa 3 num modelo do Vertex antes de prometer as três plataformas. A decisão de
-escopo da semana 8 é do grupo.
+pergunta regional como principal (Bedrock como espinha dorsal), condicionada à validação
+do `Yes` antigo, ao uso de métodos para censura intervalar com sensibilidade à coorte de
+2024 e a um piloto do Vertex antes de uma expansão de plataforma. A auditoria acima
+registra o alcance da primeira verificação. A decisão de escopo é do grupo.

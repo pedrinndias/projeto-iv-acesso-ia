@@ -263,13 +263,13 @@ def eventos_blog():
     return eventos
 
 
-def eventos_doc_history():
+def eventos_doc_history() -> list[list[str]]:
     arquivos = sorted(BRUTO.glob("aws_bedrock_doc-history_*.html"))
     if not arquivos:
         raise SystemExit("doc-history bruto nao encontrado; rode a etapa 1")
     t = arquivos[-1].read_text(encoding="utf-8", errors="replace")
     url = "https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html"
-    eventos = []
+    eventos: list[list[str]] = []
     for tr in re.findall(r"<tr>(.*?)</tr>", t, flags=re.S):
         cel = [texto(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, flags=re.S)]
         if len(cel) < 3 or "claude" not in " ".join(cel).lower():
@@ -279,10 +279,25 @@ def eventos_doc_history():
         except ValueError:
             continue
         corpo = cel[0] + ": " + cel[1]
+        # No anúncio de batch, a cláusula do Titan lista regiões de outro modelo.
+        trecho_claude = corpo.partition(" and Amazon Titan Text Embeddings V2 in ")[0]
         for m in modelos_em(cel[0], cel[1], dia) or []:
-            nat = "disponibilidade" if re.match(r"New model|Region expansion$", cel[0]) else "recurso"
-            eventos.append([dia, m, nat, ";".join(regioes_em(corpo)), tipo_em(corpo),
-                            url + " (doc-history; datas exigem 2a fonte)", corpo[:200]])
+            nat = (
+                "disponibilidade"
+                if re.match(r"New model|Region expansion$", cel[0])
+                else "recurso"
+            )
+            eventos.append(
+                [
+                    dia,
+                    m,
+                    nat,
+                    ";".join(regioes_em(trecho_claude)),
+                    tipo_em(corpo),
+                    url + " (doc-history; datas exigem 2a fonte)",
+                    corpo[:200],
+                ]
+            )
     return eventos
 
 
