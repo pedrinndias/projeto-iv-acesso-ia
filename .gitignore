@@ -32,3 +32,5 @@ Exercícios/**/Exercicio_PCD_IV*.pdf
 # Pacotes .zip para o Overleaf: derivados do .tex, regeraveis, e ficam
 # desatualizados assim que o .tex muda.
 Exercícios/**/overleaf-*.zip
+# Exceção (27/11/2026): trabalho-final/demandas/ e o ZIP da Entrega 1 ficam
+# versionados para a continuidade do grupo. Ver trabalho-final/demandas/README.md.

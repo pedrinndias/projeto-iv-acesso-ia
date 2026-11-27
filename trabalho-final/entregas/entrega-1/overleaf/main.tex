@@ -1,0 +1,352 @@
+%==============================================================================
+%  PROJETO DE CIÊNCIA DE DADOS IV
+%  Entrega 1 --- Problema de pesquisa e revisão bibliográfica
+%
+%  COMO USAR ESTE TEMPLATE
+%  -----------------------
+%  1. Preencha os dados do grupo no bloco "DADOS DO GRUPO", logo abaixo.
+%  2. Escreva o conteúdo nas seções marcadas com  % >>> ESCREVA AQUI
+%  3. Cadastre as referências no arquivo  referencias.bib
+%  4. Compile (botão Recompile). O Overleaf já compila quantas vezes for
+%     preciso para as citações aparecerem.
+%
+%  Linhas que começam com %  são comentários: não aparecem no PDF.
+%==============================================================================
+\documentclass[12pt,a4paper]{article}
+
+%------------------------------------------------------------------------------
+%  Pacotes
+%------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,top=3cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+
+%  Citações e referências no padrão ABNT (autor-data).
+%  O comando \cite{chave} produz, por exemplo: (SILVA; COSTA, 2024)
+\usepackage[alf]{abntex2cite}
+
+\definecolor{pucverde}{HTML}{00913F}
+
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+%==============================================================================
+%  DADOS DO GRUPO --- PREENCHA ESTE BLOCO
+%==============================================================================
+\newcommand{\TITULOPROJETO}{Desigualdade geográfica no acesso a modelos de IA generativa comercial}
+
+\newcommand{\INTEGRANTEUM}{Pedro Dias Soares}
+\newcommand{\INTEGRANTEDOIS}{Eduardo Velloso Landeiro}
+\newcommand{\INTEGRANTETRES}{\textit{Composição do grupo a confirmar}}
+
+\newcommand{\TEMADOGRUPO}{Desigualdade geográfica no acesso à IA generativa comercial}
+
+%  Cole aqui o link de LEITURA do projeto no Overleaf.
+%  (Share > Link sharing > "Anyone with this link can view" > copie o link)
+%  Se o endereço contiver #, escreva \# entre as chaves abaixo.
+\newcommand{\LINKPROJETO}{}
+\newcommand{\MOSTRARLINKPROJETO}{%
+  \if\relax\detokenize\expandafter{\LINKPROJETO}\relax
+    \emph{Pendente de inserção e teste sem login}%
+  \else
+    \expandafter\url\expandafter{\LINKPROJETO}%
+  \fi
+}
+
+%==============================================================================
+\begin{document}
+\hypersetup{pageanchor=false}
+
+%------------------------------------------------------------------------------
+%  CAPA
+%------------------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+
+\IfFileExists{puclogo.pdf}%
+  {\includegraphics[page=1,height=2.6cm]{puclogo.pdf}}%
+  {}
+
+\vspace{0.6cm}
+{\large Pontifícia Universidade Católica de Minas Gerais\par}
+{\normalsize Instituto de Ciências Exatas e Informática\par}
+{\normalsize Curso de Ciência de Dados e Inteligência Artificial\par}
+
+\vspace{2.5cm}
+{\color{pucverde}\rule{0.6\linewidth}{1pt}}
+
+\vspace{0.8cm}
+{\LARGE\bfseries \TITULOPROJETO \par}
+
+\vspace{0.6cm}
+{\large Entrega 1 --- Problema de pesquisa e revisão bibliográfica\par}
+
+\vspace{0.4cm}
+{\color{pucverde}\rule{0.6\linewidth}{1pt}}
+
+\vspace{2.5cm}
+{\large
+\INTEGRANTEUM\\[4pt]
+\INTEGRANTEDOIS\\[4pt]
+\INTEGRANTETRES\par}
+
+\vspace{1.5cm}
+{\normalsize\textbf{Tema:} \TEMADOGRUPO\par}
+
+\vfill
+{\small\textbf{Base editável para preenchimento pelo grupo}\par}
+{\small\textbf{Projeto LaTeX:} \MOSTRARLINKPROJETO\par}
+
+\vspace{0.6cm}
+{\normalsize Belo Horizonte\\ 2026\par}
+
+\end{center}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+%------------------------------------------------------------------------------
+\section{Introdução}
+%------------------------------------------------------------------------------
+% >>> ESCREVA AQUI: de 2 a 4 parágrafos situando o tema.
+%
+% O que entra nesta seção:
+%   - do que se trata o assunto;
+%   - por que ele é relevante;
+%   - qual o contexto em que o problema aparece.
+%
+% O que NÃO entra: a pergunta de pesquisa (ela vem na Seção 2) nem a
+% discussão dos trabalhos encontrados (ela vem na Seção 3).
+%
+% Para citar um trabalho, use \cite{chave}, onde "chave" é o identificador
+% que está no arquivo referencias.bib. Exemplos:
+%   Segundo \citeonline{silva2024exemplo}, o problema ...   ->  Silva e Costa (2024)
+%   O problema é recorrente na área \cite{silva2024exemplo}. ->  (SILVA; COSTA, 2024)
+
+Escreva aqui a introdução.
+
+%------------------------------------------------------------------------------
+\section{Problema de pesquisa}
+%------------------------------------------------------------------------------
+
+\subsection{Problema}
+% >>> ESCREVA AQUI: um parágrafo enunciando a dificuldade ou lacuna.
+%
+% O problema aponta uma tensão, mas ainda não é uma pergunta. Exemplo:
+% "Modelos treinados em bases estrangeiras podem não funcionar em dados
+%  brasileiros, e não se sabe o tamanho dessa perda de desempenho."
+
+Escreva aqui o problema.
+
+\subsection{Pergunta de pesquisa}
+% >>> ESCREVA AQUI: UMA frase, terminando em ponto de interrogação.
+%
+% Teste antes de escrever: qual seria uma resposta possível? Se você consegue
+% imaginar duas ou três respostas diferentes e plausíveis, é pergunta.
+% Se a única resposta que ocorre é "depende", ainda é tema.
+
+Escreva aqui a pergunta, terminando com ponto de interrogação?
+
+\subsection{Objetivo geral}
+% >>> ESCREVA AQUI: uma frase, começando com verbo no infinitivo,
+% correspondendo diretamente à pergunta acima.
+
+Escreva aqui o objetivo geral.
+
+\subsection{Objetivos específicos}
+% >>> ESCREVA AQUI: de 3 a 5 itens.
+%
+% Para cada um, pergunte: "como eu saberei que terminei este?"
+% Se não houver resposta objetiva, troque o verbo.
+%
+% Verbos que funcionam:     levantar, caracterizar, implementar, comparar,
+%                           avaliar, medir, identificar, classificar
+% Verbos problemáticos:     compreender, estudar, explorar, conhecer, abordar
+
+\begin{enumerate}
+  \item Primeiro objetivo específico.
+  \item Segundo objetivo específico.
+  \item Terceiro objetivo específico.
+\end{enumerate}
+
+\subsection{Justificativa}
+% >>> ESCREVA AQUI: até 5 linhas.
+%
+% Apoie-se em pelo menos uma destas fontes:
+%   - a lacuna na literatura (o que a Seção 3 vai mostrar);
+%   - a consequência prática (alguém decidiria diferente sabendo a resposta);
+%   - o risco de errar (aplicar o método errado tem custo mensurável).
+%
+% Teste: se o texto serviria para qualquer outro trabalho da área, reescreva.
+
+Escreva aqui a justificativa.
+
+\subsection{Delimitação de escopo}
+% >>> ESCREVA AQUI: no mínimo 3 itens do que o trabalho NÃO vai fazer.
+
+Este trabalho não vai tratar de:
+
+\begin{itemize}
+  \item Primeiro item fora do escopo.
+  \item Segundo item fora do escopo.
+  \item Terceiro item fora do escopo.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\section{Revisão bibliográfica}
+%------------------------------------------------------------------------------
+% >>> ESCREVA AQUI: de 2 a 3 páginas.
+%
+% A REGRA DO PARÁGRAFO
+% Cada parágrafo defende UMA afirmação; os trabalhos citados são a evidência
+% dela. A afirmação vai na primeira frase; os autores entram depois.
+%
+% Assim NÃO:
+%   "Silva e Costa (2024) propuseram uma arquitetura baseada em LSTM e
+%    obtiveram F1 de 0,87. Já Oliveira (2022) aplicou gradient boosting..."
+%   (isso é uma lista com conectivos)
+%
+% Assim SIM:
+%   "A escolha da métrica domina a comparação entre métodos nesta tarefa.
+%    Três dos trabalhos analisados relatam vantagem de modelos profundos sob
+%    acurácia, mas dois deles invertem a conclusão quando reportam PR-AUC
+%    \cite{silva2024exemplo,oliveira2022exemplo}. Isso sugere que diferenças
+%    publicadas podem refletir a escolha de métrica tanto quanto a capacidade
+%    do modelo."
+%
+% ESTRUTURA
+% Organize por DIMENSÃO do problema (os aspectos em que os trabalhos
+% divergem), não por ordem cronológica nem um parágrafo por artigo.
+% As dimensões saem da matriz de síntese: são as colunas em que os
+% trabalhos mais discordam entre si.
+%
+% O ÚLTIMO PARÁGRAFO
+% Enuncia a lacuna. Ela deve ser CONSEQUÊNCIA do que veio antes.
+% Teste: cubra o último parágrafo. A lacuna ainda é previsível? Se não,
+% ela foi colada ali.
+
+Escreva aqui a revisão bibliográfica.
+
+%------------------------------------------------------------------------------
+%  REFERÊNCIAS --- geradas automaticamente do arquivo referencias.bib
+%------------------------------------------------------------------------------
+\bibliography{referencias}
+
+%------------------------------------------------------------------------------
+\appendix
+%------------------------------------------------------------------------------
+
+\section{Protocolo de busca}
+% >>> PREENCHA a tabela com as buscas que vocês fizeram.
+% Mínimo de duas bases, sendo pelo menos uma biblioteca digital científica
+% (ACM DL, IEEE Xplore, SBC OpenLib) ou base indexadora (Scopus, Web of Science).
+
+\vspace{6pt}
+{\footnotesize
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.1cm}p{1.8cm}Yp{2.0cm}p{1.1cm}@{}}
+\toprule
+\textbf{Base} & \textbf{Data} & \textbf{Expressão de busca} & \textbf{Campos} & \textbf{Total} \\
+\midrule
+ & & & & \\[10pt]
+\midrule
+ & & & & \\[10pt]
+\midrule
+ & & & & \\[10pt]
+\bottomrule
+\end{tabularx}}
+
+\vspace{12pt}
+\subsection*{Critérios de inclusão}
+% >>> LISTE os critérios. Bom critério é verificável olhando o artigo.
+\begin{itemize}
+  \item Primeiro critério de inclusão.
+  \item Segundo critério de inclusão.
+\end{itemize}
+
+\subsection*{Critérios de exclusão}
+\begin{itemize}
+  \item Primeiro critério de exclusão.
+  \item Segundo critério de exclusão.
+\end{itemize}
+
+\newpage
+\section{Matriz de síntese}
+% >>> COPIE o bloco abaixo uma vez para CADA trabalho incluído (6 a 8 no total).
+%
+% Campo que o artigo não permite preencher recebe a marca [não informado].
+% Essa marca é um achado, não uma falha de leitura.
+%
+% Coloque as INICIAIS de quem preencheu cada trabalho.
+
+\vspace{6pt}
+{\footnotesize
+\noindent\textbf{Trabalho 1} \hfill \textit{Preenchido por:} \underline{\hspace{2.5cm}}
+
+\vspace{2pt}
+{\renewcommand{\arraystretch}{2.0}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.4cm}Y@{}}
+\toprule
+\textbf{Referência} & \\
+\textbf{Problema} & \\
+\textbf{Dados} & \\
+\textbf{Método} & \\
+\textbf{Baseline} & \\
+\textbf{Métrica} & \\
+\textbf{Resultado} & \\
+\textbf{Limitação} & \\
+\bottomrule
+\end{tabularx}}
+
+\vspace{14pt}
+\noindent\textbf{Trabalho 2} \hfill \textit{Preenchido por:} \underline{\hspace{2.5cm}}
+
+\vspace{2pt}
+{\renewcommand{\arraystretch}{2.0}
+\noindent\begin{tabularx}{\linewidth}{@{}p{2.4cm}Y@{}}
+\toprule
+\textbf{Referência} & \\
+\textbf{Problema} & \\
+\textbf{Dados} & \\
+\textbf{Método} & \\
+\textbf{Baseline} & \\
+\textbf{Métrica} & \\
+\textbf{Resultado} & \\
+\textbf{Limitação} & \\
+\bottomrule
+\end{tabularx}}
+}
+
+\newpage
+\section{Nota de autoria}
+
+% >>> PREENCHA com os nomes reais.
+% Lembre: quem confere não escreve, e quem escreve não confere o próprio texto.
+
+\begin{description}
+  \item[Matriz de síntese preenchida por:] \hfill \\
+        Nome (trabalhos 1 a 3), Nome (4 a 6), Nome (7 e 8)
+
+  \item[Texto da revisão bibliográfica redigido por:] \hfill \\
+        Nome
+
+  \item[Conferência de fidelidade] --- cada afirmação do texto foi checada
+        contra a fonte citada --- feita por: \hfill \\
+        Nome
+
+  \item[Conferência de argumento] --- verificação de que cada parágrafo defende
+        uma ideia e de que a lacuna decorre do texto --- feita por: \hfill \\
+        Nome
+\end{description}
+
+\end{document}

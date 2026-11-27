@@ -24,6 +24,10 @@ O documento completo está em [`docs/Ficha-Inicial-Projeto-IV.md`](docs/Ficha-In
 
 ## Situação atual
 
+O [trabalho final](trabalho-final/) reúne as [demandas da disciplina](trabalho-final/demandas/README.md) e as [entregas produzidas](trabalho-final/entregas/README.md), incluindo a preparação da Entrega 1 e a análise de variação regional do piloto.
+
+**Para continuar o trabalho, comece pela [passagem de 27/11/2026](trabalho-final/PASSAGEM.md)**, que aponta a [auditoria da Entrega 1](trabalho-final/auditoria/2026-11-27-auditoria-entrega-1.pdf) e as decisões pendentes.
+
 | Etapa | Situação |
 |---|---|
 | Tema | Concluída |

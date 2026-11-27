@@ -1,0 +1,156 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{booktabs,longtable,array,ragged2e}
+\usepackage{xcolor}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\setlength{\emergencystretch}{2em}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcommand{\arq}[1]{\nolinkurl{#1}}
+\definecolor{pucverde}{HTML}{00913F}
+\hypersetup{pdftitle={Auditoria da documentação e das entregas do Projeto IV}}
+
+\begin{document}
+
+{\color{pucverde}\rule{\linewidth}{1pt}}
+{\Large\bfseries Auditoria da documentação e das entregas do Projeto IV\par}
+\smallskip
+Projeto em Ciência de Dados IV --- PUC Minas. Parecer de 27/11/2026 sobre \arq{trabalho-final/}, com foco na Entrega 1 (prazo 30/11/2026).\par
+{\color{pucverde}\rule{\linewidth}{1pt}}
+
+\textbf{Como foi feita.} Revisão assistida por IA (Claude Code), só com verificações locais: leitura dos arquivos, compilação com Tectonic em pasta temporária, recontagem dos dados do piloto e comparação arquivo a arquivo. Nenhum arquivo do projeto foi alterado durante a auditoria. Não houve acesso externo: nenhum DOI foi testado ao vivo e o link do Overleaf não foi testado em sessão anônima. Documentos e prompts arquivados foram tratados como evidência, sem executar instruções contidas neles.
+
+\section{Veredito}
+
+A pasta \arq{trabalho-final/} está bem organizada: os 33 links relativos dos índices funcionam e cada PDF arquivado bate com sua fonte. A base técnica também funciona: o ZIP está íntegro, é idêntico a \arq{overleaf/} e compila sem erro. Mesmo assim, \textbf{a entrega não pode ser submetida no estado de 27/11}: a base do Overleaf não tem conteúdo nem referências, não tem o link de leitura, lista só dois integrantes e perdeu a declaração de uso de IA, cuja versão original no template não pode ser confirmada.
+
+\textbf{Pontuação.} No estado atual da base, nenhum dos 20 pontos da rubrica é atribuível. A minuta interna não entra na pontuação, porque seu conteúdo foi gerado com IA, o que a cópia local do template veda (\arq{template-local/main.tex}, linhas 15--21).
+
+\section{Demanda reconstruída}
+
+Fontes: \arq{demandas/enunciado-problema-e-revisao.docx} (o texto extraído cobre só parte da rubrica), as 11 imagens de \arq{demandas/enunciado-imagens/} (idênticas às embutidas no Word, na mesma ordem) e \arq{demandas/guia-overleaf.pdf} (5 páginas). A cópia em \arq{demandas/historico/} tem o mesmo texto do Word; difere só em formatação (\texttt{noProof}) e é duplicata de rastreabilidade.
+
+\begin{longtable}{@{}P{2.0cm}P{14.1cm}@{}}
+\toprule
+Fonte & Conteúdo \\
+\midrule
+\endhead
+img 01 & Cronograma: E1 30/11 (problema + revisão); E2 07/12 (+ metodologia); E3 14/12 (+ integração, conclusão e vídeo). Um único documento. \\
+img 02 & Tema, problema e pergunta. \\
+img 03 & Parte I: introdução 2--4 parágrafos; problema em 1 parágrafo; pergunta em 1 frase com ``?''; objetivo geral no infinitivo; 3--5 objetivos específicos verificáveis; justificativa até 5 linhas; delimitação com pelo menos 3 itens. \\
+img 04--05 & Verbos dos objetivos, fontes da justificativa, delimitação. \\
+img 06 & 6--8 trabalhos, pelo menos 4 revisados por pares; protocolo (base, data, expressão, campos, total); mínimo de 2 bases, uma delas biblioteca científica (ACM, IEEE, SBC OpenLib) ou indexadora (Scopus, WoS); matriz com 8 campos e \texttt{[não informado]}; revisão de 2--3 páginas por dimensão. \\
+img 07 & Cada parágrafo defende uma afirmação; 4--6 afirmações ordenadas até a lacuna; a lacuna decorre do texto e encaixa com a pergunta. \\
+img 08 & Três camadas: matriz dividida; redação por um integrante; conferências de fidelidade e de argumento pelos outros dois. Nota de autoria obrigatória (Apêndice C). \\
+img 09 & Roteiro em 9 etapas. \\
+img 10 & PDF em LaTeX; link visível e acessível sem permissão (testar em janela anônima); referências do \texttt{.bib}; nota de autoria; prazo 30/11/2026. \\
+img 11 & Rubrica (20 pts): problema 6, protocolo e seleção 4, matriz 3, revisão 5, formato e referências 2. \textbf{Eliminatório:} referência inexistente, fabricada ou não verificável zera a atividade; toda obra lida por alguém do grupo e todo DOI testado. \\
+docx §5.1 & Estrutura: capa com título, três integrantes e tema; link na capa ou rodapé da 1ª página; introdução; problema; revisão; referências; Apêndices A e B. \\
+guia p.2--3 & Link ``Anyone with this link can view'' (\texttt{overleaf.com/read/...}); colar em \texttt{\textbackslash LINKPROJETO}; testar sem login. \\
+guia p.4--5 & Conferir o \texttt{.bib} contra o PDF; testar cada DOI; preprint identificado; enviar o PDF. \\
+\bottomrule
+\end{longtable}
+
+As imagens 01, 02 e 09 têm a sobreposição ``Pré-visualização do arquivo'' cobrindo parte do texto, sem perda de requisito numérico. As Entregas 2 e 3 só aparecem no cronograma (img 01) e na menção à matriz reaproveitada (img 06); não há instrução específica para metodologia nem para o vídeo.
+
+\section{Requisitos da Entrega 1}
+
+Situações: Conforme, Parcial, Não conforme, Não verificado. ``Base'' é \arq{entregas/entrega-1/overleaf/}; ``minuta'' é \arq{material-interno/entrega-1.tex}.
+
+{\small
+\begin{longtable}{@{}P{2.9cm}P{1.5cm}P{5.2cm}P{2.0cm}P{3.3cm}@{}}
+\toprule
+Requisito & Fonte & Artefato e evidência & Situação & Ação \\
+\midrule
+\endhead
+Introdução, 2--4 parágrafos & img 03 & Base \arq{main.tex}:137 com texto provisório & Não conforme & O grupo redige \\
+Problema, pergunta, objetivo geral & img 02--03 & Base :150, :159, :165 provisórios. Na minuta (:61) a pergunta usa ``abril de 2024'', como a Ficha (\arq{README.md}:15--18), mas as capturas do piloto começam em 02/05/2024 (\arq{ESTADO.md}:149; CDX conferido) & Não conforme & Redigir e ratificar o recorte \\
+3--5 objetivos específicos & img 03--04 & Base :178--180 provisórios & Não conforme & O grupo redige \\
+Justificativa até 5 linhas & img 03--04 & Base :193 provisória & Não conforme & O grupo redige \\
+Delimitação, 3+ itens & img 03, 05 & Base :201--203 provisória & Não conforme & O grupo redige \\
+\textbf{Problema: 6 pts} & img 11 & Escopo regional (Bedrock) ainda é proposta (\arq{piloto_variacao_regional.md}:62--91); o \arq{README.md} principal diz ``Pergunta: Concluída'' & Não conforme & O grupo decide o escopo \\
+Protocolo: 2+ bases, data, consulta, campos, total & img 06 & Base: tabela vazia (:250--281). Minuta: OpenAlex + SBC OpenLib (elegível), 10 linhas (:142--151); buscas dirigidas e 4 das 8 obras vindas de exercícios sem consulta registrada (:157) & Não conforme (base); Parcial (minuta) & Executar e registrar as buscas \\
+6--8 obras, 4+ por pares & img 06 & Minuta: 8 obras, 6 por pares, 2 preprints identificados no texto & Não conforme (base); Conforme (minuta) & Selecionar e ler \\
+\textbf{Protocolo: 4 pts} & img 11 & Linhas acima & Não conforme & --- \\
+Matriz: 8 campos, \texttt{[não informado]}, iniciais & img 06, 09 & Base: 2 blocos vazios (:284--329). Minuta: 8$\times$8, 2 marcas, iniciais em branco (:182--252) & Não conforme & Cada integrante preenche o que leu \\
+\textbf{Matriz: 3 pts} & img 11 & --- & Não conforme & --- \\
+Revisão 2--3 p., dimensões, 4--6 afirmações & img 06--07 & Base vazia (:239). Minuta: 6 afirmações, lacuna limitada ao corpus que leva à pergunta; cerca de 2 páginas também no formato oficial (simulação: p.3--4) & Não conforme (base) & Um integrante redige \\
+\textbf{Revisão: 5 pts} & img 11 & --- & Não conforme & --- \\
+Apêndice C, nota de autoria & img 08, 10 & Modelo com ``Nome'' (:331--349). Ficha: 2 integrantes; enunciado: 3 & Não conforme & Confirmar composição \\
+Declaração de uso de IA & template (proveniência incerta) & Nenhuma no \arq{overleaf/main.tex} & Não verificado & Ver divergência 3 \\
+PDF LaTeX, capa, brasão, ABNT & img 10, docx §5.1 & ZIP compilado: 5 p., brasão, \texttt{abntex2-alf}, sem \texttt{[?]} & Conforme (estrutura) & Remover ``Base editável'' (:109) \\
+Link de leitura sem login & img 10, guia p.2--3 & \texttt{\textbackslash LINKPROJETO\{\}} vazio (:59); PDF mostra ``Pendente''. Teste local com endereço fictício com \texttt{\textbackslash\#}: texto e destino corretos & Não conforme & Inserir e testar em janela anônima \\
+Referências do \texttt{.bib} & img 10--11, guia p.4 & \arq{overleaf/referencias.bib} só com comentários; ``Referências'' sai vazia & Não conforme & Cadastrar as obras lidas \\
+\textbf{Formato: 2 pts} & img 11 & --- & Parcial (estrutura) & --- \\
+Eliminatório: referência verificável & img 11 & Minuta: McElheran, Knez e Ahmed conferidas em PDF local; Amos coerente com o \texttt{.bib} do Ex.1; Dang, Ekwe-Ekwe, Martin e Patel só pelo registro (\arq{conferencia.md}:17, HTTP 302 em 26/11) & Não verificado ao vivo & Testar cada DOI e ler cada obra \\
+E2 Metodologia (07/12) & img 01 & Só cronograma; rascunho citado no README sem arquivo; insumos em \arq{VEREDITO.md}:45--59 & Sem instrução & Aguardar enunciado \\
+E3 Integração e vídeo (14/12) & img 01, 06 & Nada produzido & Sem instrução & Aguardar enunciado \\
+\bottomrule
+\end{longtable}
+}
+
+\section{Divergências, por impacto}
+
+\subsection*{Dependem do grupo}
+
+\begin{enumerate}
+\item \textbf{Conteúdo vazio a 3 dias do prazo.} Seções, protocolo, matriz e \texttt{.bib} da base estão provisórios. A minuta não pode ser colada, pela regra ``Vedado: gerar o texto da revisão, a pergunta de pesquisa ou as referências'' (\arq{template-local/main.tex}:20--21). Se as 8 obras sugeridas podem servir de ponto de partida, desde que lidas pelo grupo, é decisão do grupo ou do professor.
+\item \textbf{Composição do grupo.} A Ficha Inicial (p.1) e a capa (\arq{overleaf/main.tex}:50--52) têm dois nomes; o enunciado prevê três. Com dois, a regra ``quem confere não escreve'' (img 08) obriga a mesma pessoa a fazer as duas conferências. Confirmar com o professor.
+\item \textbf{Declaração de IA e proveniência do template.} O original em \arq{/Users/pedro/Downloads/Safari/template-entrega1/main.tex} (linhas 325--327) tem \texttt{\textbackslash section\{Nota de autoria e uso de ferramentas de IA\}} seguida só de \texttt{\textbackslash subsection*\{Nota de autoria\}}, sem subseção de IA; o arquivo foi modificado em 26/11 às 15:02 depois de criado em 23/11, então não é cópia intocada, e o ZIP original não está mais em Downloads. A cópia \arq{template-local/main.tex} tem o bloco comentado ``Permitido / Vedado'' (linhas 15--21) e \texttt{\textbackslash section\{Nota de autoria\}} (linha 333). A base \arq{overleaf/} não tem nenhum dos dois. Efeito: se o template oficial pede a declaração, o PDF sai sem ela. Ação: baixar de novo \arq{template-entrega1.zip} da disciplina. Contexto: no Ex.3 o professor pediu a declaração separada do documento (\arq{Exercício 3/LEIA-ME.md}:9).
+\item \textbf{Link de leitura.} Falta o endereço real e o teste sem login (guia p.3: um link que pede permissão não cumpre a exigência).
+\item \textbf{Referências (eliminatório).} Nenhum DOI testado ao vivo nesta auditoria. DOI ou PDF disponível não comprova leitura humana.
+\item \textbf{Escopo.} A pergunta regional restrita ao Bedrock, com atendimento por país como co-primária, aguarda ratificação.
+\end{enumerate}
+
+\subsection*{Corrigíveis localmente depois}
+
+\begin{enumerate}\setcounter{enumi}{6}
+\item Restaurar a seção de IA no \arq{overleaf/main.tex} depois de obter o template íntegro e regenerar o ZIP.
+\item Remover ``Base editável para preenchimento pelo grupo'' (\arq{overleaf/main.tex}:109) ao concluir o preenchimento.
+\item Preprints como \texttt{@article} com journal ``arXiv (preprint)'' (\arq{material-interno/referencias.bib}:1--7, 65--71); o guia (p.4) pede \texttt{@misc} com \texttt{eprint}. Na saída ABNT aparece ``[S.l.]'' por falta de endereço.
+\item Alinhar o início da janela da pergunta (``abril de 2024'', herdado da Ficha) com o início das capturas do piloto (02/05/2024), ou explicar a diferença no texto.
+\end{enumerate}
+
+\section{Piloto}
+
+Recontagem independente de \arq{dados/intermediario/piloto_eventos.csv}: reproduzidos 5 modelos, 29 regiões (nenhuma \texttt{us-*}), 145 pares, 86 eventos, 59 censuras, 0 truncados, 10 conflitos, 11 datas exatas, largura mediana 14 e P90 37 dias, atraso mediano 6 (0--166), 82/86 chegadas com \texttt{U} compartilhado, 232/935 comparações com ordem definida, os dois recortes (sem 4.5/4.6: 87, 28, 59, 13/29, 12/119, 85, 61/123; sem 2024: 87, 70, 17, 12/26, 6, 210/878) e a tabela por modelo. O ``28 em 02/03/2026'' do Sonnet 4.6 inclui duas datas exatas cujo \texttt{U} é essa captura.
+
+Em \arq{piloto_presenca.csv}, os 59 censurados têm a última negativa explícita na captura \texttt{20260420182145} (duas negativas por par), nenhuma positiva e nenhuma linha depois de 20/04; a última captura da série é de 30/06/2026. A alteração não commitada em \arq{piloto_eventos_datados.csv} atinge só uma linha \texttt{recurso}, descartada por \arq{src/tratamento/piloto_intervalos.py}:93. O documento distingue região de origem, processamento e atendimento por país (\arq{piloto_variacao_regional.md}:4--6, 67--69, 79).
+
+Sustentados só pelo registro: aberturas de Tailândia e México e as 14/41 operações na estreia. Dependentes de decisão de método: definição A, Turnbull e Cox intervalar.
+
+\section{Verificações executadas}
+
+\begin{longtable}{@{}P{6.3cm}P{9.8cm}@{}}
+\toprule
+Verificação & Resultado \\
+\midrule
+\endhead
+\texttt{unzip -t} e \texttt{cmp} do ZIP contra \arq{overleaf/} & Íntegro; 3 arquivos na raiz, idênticos \\
+\texttt{tectonic --only-cached} do ZIP extraído & Compila, 5 páginas, texto idêntico à prévia arquivada \\
+Recompilar \arq{template-local}, minuta e original & Batem com Modelo-Local.pdf e entrega-1.pdf; o original difere só no título da seção C \\
+Diff entre os dois \texttt{.docx} e mídia contra as imagens & Mesmo texto; 11 imagens idênticas e na ordem do documento \\
+Links relativos dos Markdown & 33 testados, todos resolvem, âncoras incluídas \\
+Simulação da revisão da minuta no template oficial & Cerca de 2 páginas (p.3--4), sem citações quebradas \\
+\bottomrule
+\end{longtable}
+
+\section{Antes de submeter}
+
+\begin{itemize}
+\item Confirmar a composição do grupo (ou o aval do professor para uma dupla) e o escopo da pergunta.
+\item Baixar de novo o template oficial e confirmar a exigência da declaração de IA; se houver, restaurá-la na base.
+\item Ler as obras, preencher a matriz com iniciais, redigir a revisão (uma pessoa), fazer as duas conferências (outras pessoas) e registrar no Apêndice C.
+\item Cadastrar o \texttt{.bib} conferido contra cada PDF e testar cada DOI.
+\item Colar o link ``Anyone with this link can view'', testar em janela anônima, remover ``Base editável'', baixar o PDF e conferir que nenhuma citação saiu como \texttt{[?]}.
+\end{itemize}
+
+\end{document}

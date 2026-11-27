@@ -1,0 +1,282 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[shorthands=off,brazilian]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{booktabs,tabularx,longtable,array,ragged2e,pdflscape}
+\usepackage[authoryear,round]{natbib}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.25em}
+\setlength{\emergencystretch}{1em}
+\setlength{\bibsep}{0.45em}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcommand{\naoinformado}{[não informado]}
+\newcommand{\iniciais}{\par\smallskip Iniciais \rule{0.9cm}{0.35pt}}
+\newcommand{\linkprojeto}{\emph{Pendente de confirmação pelo grupo}}
+\hypersetup{pageanchor=false,pdftitle={Primeira disponibilidade regional de modelos Claude no Amazon Bedrock}}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\large Pontifícia Universidade Católica de Minas Gerais\par}
+Ciência de Dados e Inteligência Artificial\par
+Projeto em Ciência de Dados IV\par
+Professor Rodrigo Richard Gomes\par
+\vspace{3.8cm}
+{\LARGE\bfseries Primeira disponibilidade regional\\[0.2em]
+de modelos Claude no Amazon Bedrock\par}
+\vspace{1.1cm}
+{\large Desigualdade geográfica no acesso à IA generativa comercial\par}
+\vspace{1.4cm}
+{\large Pedro Dias Soares\\Eduardo Velloso Landeiro\par}
+Composição do grupo a confirmar conforme o enunciado.\par
+\vfill
+\textbf{Minuta para validação do grupo}\par
+Entrega 1 \textbar{} 30 de novembro de 2026\par
+\vspace{0.75cm}
+\textbf{Link do projeto LaTeX}\\\linkprojeto
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section{Introdução}
+
+Plataformas de nuvem oferecem modelos de inteligência artificial generativa por interfaces que aplicativos podem chamar sem manter infraestrutura própria de inferência. O Amazon Bedrock é um exemplo desse tipo de serviço gerenciado. Seu catálogo reúne modelos e capacidades aos quais clientes podem ter acesso sob condições distintas \citep[seções 3.2.1 e 4.6]{patel2024}.
+
+A disponibilidade depende da relação entre produto e região. Em serviços de nuvem, a presença de infraestrutura e a cobertura de um produto são informações distintas \citep[seção III-E]{ekwe2024}. No Bedrock, a região de origem da chamada também pode diferir da região que executa a inferência.\footnote{Documentação técnica consultada para a definição operacional: \href{https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html}{Inferência entre regiões no Amazon Bedrock}.} Este projeto investiga a primeira disponibilidade documentada para chamadas a partir da região. Essa medida permite comparar a expansão da oferta por região de origem.
+
+\section{Problema de pesquisa}
+
+Os estudos consultados usam medidas como latência, adoção, capacidade computacional e cobertura de serviços. Essas medidas situam o problema, mas os trabalhos selecionados deixam em aberto quando cada um dos modelos Claude estudados passou a estar disponível a partir das regiões do Bedrock. A comparação histórica depende de ligar o lançamento de cada modelo a evidências regionais que podem ser espaçadas ou incompletas.
+
+\subsection{Pergunta de pesquisa}
+
+Como varia, entre as regiões do Amazon Bedrock fora dos Estados Unidos, o intervalo entre o lançamento de cada modelo Claude estudado e sua primeira disponibilidade documentada para chamadas a partir da região, de abril de 2024 a junho de 2026?
+
+\clearpage
+\subsection{Objetivo geral}
+
+Caracterizar a variação regional do tempo até a primeira disponibilidade documentada dos modelos Claude estudados no Amazon Bedrock fora dos Estados Unidos, a partir do lançamento de cada modelo.
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt}
+  \item Identificar a data de lançamento dos cinco modelos estudados, com fonte de anúncio e de estreia no Bedrock por modelo.
+  \item Classificar os pares modelo--região em uma tabela com data, intervalo ou censura à direita, registrando evidências e conflitos.
+  \item Comparar os atrasos entre regiões para cada modelo, indicando quantas comparações permitem ordenar as chegadas e como a cobertura muda entre coortes.
+\end{enumerate}
+
+\subsection{Justificativa}
+
+Uma equipe que planeja usar o Bedrock em uma região específica precisa distinguir o lançamento de um modelo da data em que pôde chamá-lo a partir daquela região. Uma série histórica com evidências rastreáveis ajuda a medir a frequência e a magnitude dessa diferença e a explicitar o grau de incerteza por região.
+
+\subsection{Delimitação}
+
+O recorte cobre cinco versões Claude Sonnet e 29 regiões de origem fora dos EUA no Amazon Bedrock. O marco inicial é o anúncio de lançamento de cada modelo pela Anthropic, que coincide com a estreia no Bedrock nos cinco casos. Considera-se acesso documentado pela região de origem nas modalidades \emph{In-Region}, \emph{Geo} ou \emph{Global}, inclusive quando a documentação indicar suporte \emph{Legacy}.
+
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt}
+  \item Excluem-se outras plataformas e outros fornecedores de modelos.
+  \item Atendimento comercial por país, adoção e volume de uso ficam fora da medida.
+  \item Local físico de processamento, latência, custo e efeitos causais ficam fora da comparação.
+\end{itemize}
+
+\clearpage
+\section{Revisão bibliográfica}
+
+\textbf{A geografia da nuvem condiciona a experiência de acesso.}
+A concentração de instalações altera a distância que as solicitações percorrem e a latência percebida por usuários em diferentes locais. Em uma campanha com 195 regiões de nove provedores, \citet[seções 3--5]{dang2021} associaram parte importante das diferenças de latência à localização dos centros de dados e mostraram que o tipo de sonda e a conexão de última milha influenciam a medição. \citet[seções 3--5]{martin2023} examinaram a expansão de centros de borda e observaram que reduções na latência podem coexistir com desigualdade entre as pessoas que estão mais próximas e as que estão mais distantes da infraestrutura. A comparação evidencia duas unidades possíveis de observação: a posição dos usuários e a dos pontos de serviço. Nos dois estudos, o desfecho é tempo de rede. Em um estudo sobre oferta, a unidade de observação passa a ser a região na qual o provedor documenta a capacidade de chamar determinado modelo.
+
+\textbf{O catálogo regional é uma dimensão própria da oferta em nuvem.}
+Ao comparar dez serviços públicos de funções sob demanda, \citet[seções II e III-E]{ekwe2024} encontraram diferenças na cobertura geográfica e registraram que um serviço apoiado na infraestrutura de outro provedor pode operar em apenas parte de suas regiões. O preprint de \citet[seção 4.6, tabela 11]{patel2024} compara serviços de IA generativa acessíveis por API e identifica diferenças nas opções oferecidas por plataforma, incluindo o Bedrock. A primeira comparação mapeia a cobertura de serviços, enquanto a segunda descreve o portfólio em nível de plataforma. Para observar a oferta de um modelo ao longo do tempo, é preciso cruzar esses dois níveis. A presença de uma região na infraestrutura e a presença de um modelo no catálogo geral deixam em aberto a combinação entre ambos. Por isso, a data de abertura da região, a chegada do Bedrock e a primeira evidência de acesso ao modelo são três registros separados.
+
+\textbf{Diferenças na adoção orientam a motivação, mas medem decisões de usuários.}
+Na amostra de referência de aproximadamente 447 mil firmas dos Estados Unidos, \citet[seções 3.1 e 3.3]{mcelheran2024} estimaram que 5,8\% reportavam uso, em 2017, de ao menos uma das cinco tecnologias ligadas à IA estudadas. A pesquisa permitiu comparar a adoção entre empresas e descrever sua distribuição geográfica. Em outra escala, \citet[seções 4 e 5]{knez2023} relacionou a densidade de uso de tecnologias históricas a custos relativos de implementação entre países. O próprio autor aponta que o modelo agregado tem alcance limitado para trajetórias de tecnologias ou países específicos. Esses trabalhos ajudam a motivar a medição de desigualdades, mas seus percentuais e curvas têm como referência empresas ou países. Um intervalo em dias entre lançamento e oferta para uma chamada regional diz respeito à disponibilidade documentada do produto, que é uma condição anterior à observação de uso.
+
+\clearpage
+\textbf{A desigualdade de recursos de pesquisa constitui outra dimensão.}
+No preprint de \citet[resumo e seção \emph{Limitations}]{ahmed2020}, a participação em conferências de computação é usada para examinar a concentração da pesquisa. Após 2012, a presença de firmas e universidades de elite cresceu nos eventos de IA estudados. A interpretação dos autores relaciona esse padrão ao acesso desigual a computação, com evidências construídas a partir de publicações e vínculos institucionais. Em conjunto com os resultados de \citet{mcelheran2024}, o trabalho mostra como conclusões sobre desigualdade dependem do objeto contado: publicações, empresas usuárias ou condições de oferta. No Bedrock, pode haver acesso por um perfil que encaminha chamadas a outra região. Registrar a região de origem do perfil torna possível comparar a oferta regional sem deduzir a localização do hardware a partir de uma chamada que o catálogo habilita.
+
+\textbf{Uma série histórica precisa preservar os limites da observação.}
+O corpus longitudinal de \citet[seções 4 e 5, tabela 1]{amos2021} mostra como capturas do Wayback Machine permitem recuperar estados anteriores de páginas e como falhas de arquivamento criam lacunas na coleta. Estudos de nuvem baseados em catálogos, como o de \citet[seções III e VI]{ekwe2024}, também dependem do que estava documentado na coleta. Em uma reconstrução de datas, uma captura sem o item tem valor diferente de uma captura que registra explicitamente a indisponibilidade. A última negativa e a primeira positiva, quando comparáveis, delimitam o momento da chegada. Quando a evidência termina numa negativa, o acompanhamento permanece censurado à direita naquela data. No piloto deste projeto, há 86 eventos observados e 59 pares cuja última negativa explícita ocorreu em 20/04/2026. A janela do estudo vai até 30/06/2026 e os limites observados nesses pares terminam em abril.
+
+\textbf{A lacuna observada está na datação da oferta por par modelo--região.}
+Entre os oito trabalhos selecionados, encontram-se mapas de infraestrutura e latência, inventários de produtos, medidas de adoção e exemplos de recuperação de dados da web. O corpus deixa em aberto uma série que combine lançamento, origem da chamada e primeira disponibilidade documentada dos modelos Claude no Bedrock para o período estudado. Um quadro atual de regiões responderia onde há suporte no momento da consulta. A combinação de anúncios e registros históricos permite examinar quando a oferta apareceu, quais chegadas podem ser ordenadas e quais continuam limitadas pela documentação. Essa lacuna delimita a contribuição proposta: comparar a variação do intervalo até o primeiro acesso documentado entre regiões de origem fora dos Estados Unidos para os cinco modelos, mantendo explícita a incerteza de cada evidência.
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{referencias}
+
+\clearpage
+\appendix
+\section{Protocolo de busca e critérios}
+\begingroup
+\small
+
+\noindent\textbf{Inclusão.} Obras de 2019 a 26/11/2026, em português ou inglês, com texto integral e identificação bibliográfica recuperáveis. Incluíram-se comparações geográficas de cobertura ou acesso à nuvem, inventários de IA generativa gerenciada, estudos de difusão ou desigualdade em IA e tecnologias adjacentes e estudos que documentam a recuperação longitudinal de páginas públicas.
+
+\medskip
+\noindent\textbf{Exclusão.} Agruparam-se duplicatas e versões pela obra. Excluíram-se aplicações de modelos sem resultado sobre oferta ou acesso, estudos de desempenho sem comparação geográfica pertinente, resultados fora do intervalo e textos integrais inacessíveis. Entre os elegíveis, priorizaram-se evidências diretamente aplicáveis e de tipos complementares.
+
+\medskip
+\noindent\textbf{Consultas executadas.} Usou-se o parâmetro \texttt{search} na \href{https://api.openalex.org/works}{API do OpenAlex (OA)}, com filtro de publicação de 01/01/2019 a 26/11/2026. Na \href{https://sol.sbc.org.br/busca/index.php/integrada/results}{SBC OpenLib (SOL)} usou-se a busca integrada (\texttt{query}), sem filtros. Os totais correspondem à data da consulta, inclusive no registro histórico.
+
+\medskip
+{\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.16}
+\noindent\begin{tabularx}{\textwidth}{@{}l l Y P{2.65cm} r@{}}
+\toprule
+Base & Data & Expressão exata & Campos/filtros & Total \\
+\midrule
+OA & 26/11/2026 & \texttt{"cloud regions" AND latency} & Busca geral, datas acima & 1.196 \\
+OA & 26/11/2026 & \texttt{"generative AI" AND "cloud platforms"} & Busca geral, datas acima & 7.331 \\
+OA & 26/11/2026 & \texttt{"regional availability" AND "foundation models"} & Busca geral, datas acima & 23 \\
+OA & 26/11/2026 & \texttt{"functions-as-a-service" AND "public" AND "providers"} & Busca geral, datas acima & 10.541 \\
+OA & 26/11/2026 & \texttt{"cloud" AND "short RTTs"} & Busca geral, datas acima & 113 \\
+OA & 26/11/2026 & \texttt{"cloud edge data centers" AND "digital divide"} & Busca geral, datas acima & 10 \\
+SOL & 26/11/2026 & Claude Bedrock & Busca integrada & 0 \\
+SOL & 26/11/2026 & computação em nuvem disponibilidade região & Busca integrada & 1 \\
+SOL & 26/11/2026 & modelos fundacionais & Busca integrada & 5 \\
+SOL & 17/09/2026 & computação em nuvem disponibilidade região & Integrada, histórico & 1 \\
+\bottomrule
+\end{tabularx}
+}
+
+\medskip
+\noindent\textbf{Triagem.} Examinaram-se até 15 títulos por consulta em OA, na ordem de relevância da API, e todos os resultados novos da SOL. As buscas dirigidas recuperaram Dang et al., Ekwe-Ekwe e Amos, Martin e Dogar e Patel et al. O resultado de orquestração da SOL é de 2017. Os demais tratavam de aplicações ou avaliação de modelos. Os exercícios anteriores forneceram Ahmed e Wahed, Amos et al., Knez e McElheran et al. A leitura assistida dos textos integrais resultou em oito obras, seis em veículos revisados por pares e dois preprints identificados. A síntese tem alcance restrito ao corpus selecionado.
+\par\endgroup
+
+\begin{landscape}
+\section{Matriz de síntese}
+
+As iniciais identificam quem efetivamente preencheu cada linha. Campos a validar estão em branco para o grupo. Os localizadores na coluna de resultados guiam a conferência dos achados.
+
+{\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}P{2.5cm}P{2.7cm}P{3.65cm}P{2.7cm}P{2.35cm}P{2.35cm}P{3.7cm}P{2.95cm}@{}}
+\toprule
+Referência & Problema & Dados & Método & Baseline & Métrica & Resultado & Limitação declarada \\
+\midrule
+\endfirsthead
+\toprule
+Referência & Problema & Dados & Método & Baseline & Métrica & Resultado & Limitação declarada \\
+\midrule
+\endhead
+\midrule
+\multicolumn{8}{r}{\footnotesize Continua na página seguinte}\\
+\endfoot
+\bottomrule
+\endlastfoot
+01. Ahmed e Wahed (2020), preprint\iniciais &
+Concentração da participação em pesquisa de IA &
+171.394 trabalhos de 57 conferências de computação &
+Controle sintético generalizado e análise de textos &
+Contrafactual estimado com conferências de outros subcampos &
+Participação em publicações por tipo de instituição &
+Cresceu a participação de firmas e universidades de elite nos eventos de IA após 2012 (resumo) &
+Amostra restrita aos principais eventos e possível sobrestimação tardia nas firmas.\\
+\addlinespace
+02. Amos et al. (2021)\iniciais &
+Recuperar séries de políticas de privacidade &
+Wayback Machine e listas Alexa. Corpus final de 1.071.488 políticas em mais de 130 mil sites &
+Coleta de capturas, detecção de links, extração e filtros &
+\naoinformado &
+Total recuperado e perdas por etapa &
+As ausências no arquivo limitaram a recuperação. A tabela 1 distingue falhas de coleta (\S\,4) &
+Escopo restrito a políticas em inglês e a páginas recuperáveis.\\
+\addlinespace
+03. Dang et al. (2021)\iniciais &
+Variação geográfica da latência de acesso à nuvem &
+115 mil sondas sem fio Speedchecker, 195 regiões de nove provedores, seis meses &
+Medições de conectividade e de rotas, comparadas por região e tipo de conexão &
+Campanha anterior RIPE Atlas para as mesmas regiões &
+RTT e rotas de rede &
+Distância e última milha influenciam a latência. A plataforma de medição altera os resultados (\S\S\,3--5) &
+A localização e a conectividade das sondas RIPE Atlas limitam a extrapolação a usuários típicos.\\
+\addlinespace
+04. Ekwe-Ekwe e Amos (2024)\iniciais &
+Caracterizar serviços públicos de funções sob demanda &
+Dez ofertas públicas identificadas por buscas, com informações de provedores &
+Inventário comparativo de história, recursos, regiões e preços &
+Comparação entre as dez ofertas &
+Número de localizações e catálogo de recursos &
+Cobertura varia entre serviços. Netlify está em um subconjunto das regiões AWS (\S\,III-E) &
+Os autores apontam a necessidade de avaliações empíricas adicionais (\S\,VI).\\
+\addlinespace
+05. Knez (2023)\iniciais &
+Relacionar difusão tecnológica e custos de adoção &
+CHAT e Penn World Table. 36 tecnologias históricas &
+Modelo macroeconômico dinâmico ajustado por mínimos quadrados não lineares &
+Densidade média global como referência da densidade relativa &
+Densidade relativa e variabilidade explicada &
+O ajuste explica cerca de metade da variabilidade da densidade tecnológica (resumo e \S\,4) &
+O modelo abstrai especificidades de tecnologias e países (\S\,5).\\
+\addlinespace
+06. Martin e Dogar (2023)\iniciais &
+Avaliar melhoria e desigualdade de latência com infraestrutura de borda &
+Sondas RIPE Atlas, regiões e pontos de borda. Renda censitária dos EUA e luzes noturnas no recorte global &
+Medições de RTT, cenários de expansão e curvas de concentração &
+Regiões de nuvem como referência, comparadas à borda &
+RTT mínimo, limiares de acesso e índice de concentração &
+A borda pode reduzir latência e ampliar a diferença relativa entre usuários próximos e distantes (resumo e \S\S\,3--5) &
+O serviço usado como aproximação não cobre todos os locais previstos no cenário de expansão.\\
+\addlinespace
+07. McElheran et al. (2024)\iniciais &
+Caracterizar a adoção inicial de IA entre empresas &
+ABS 2018 e dados vinculados dos EUA. Cerca de 447 mil firmas na amostra de referência &
+Estatísticas ponderadas e modelos de associação em corte transversal &
+Comparações descritivas por porte, atividade e geografia &
+Uso em produção de uma ou mais das cinco tecnologias &
+5,8\% das firmas da amostra de referência usavam alguma dessas tecnologias em 2017 (\S\S\,3.1 e 3.3) &
+Sobrevivência das firmas, restrições na subamostra jovem e alcance causal limitado (\S\,6).\\
+\addlinespace
+08. Patel et al. (2024), preprint\iniciais &
+Mapear plataformas e ferramentas para IA generativa &
+Literatura e documentação pública. Comparação entre seis provedores &
+Revisão de escopo e quadros comparativos de serviços &
+Comparação entre plataformas &
+Categorias de serviços e capacidades ofertadas &
+A tabela 11 reúne serviços acessíveis por API, incluindo Bedrock (\S\,4.6) &
+\naoinformado.\\
+\end{longtable}
+}
+\end{landscape}
+
+\clearpage
+\section{Nota de autoria}
+
+\noindent\textbf{Composição do grupo.} A Ficha Inicial entregue registra Pedro Dias Soares e Eduardo Velloso Landeiro. Confirmar a composição vigente diante da previsão de três integrantes no enunciado.
+
+\medskip
+\noindent\textbf{Matriz de síntese.} Preenchimento e leitura integral a confirmar pelo grupo. Registrar as iniciais nas linhas do Apêndice B e indicar abaixo as obras assumidas por cada integrante.
+
+\begin{itemize}
+  \item Integrante \rule{5.7cm}{0.4pt} \quad Trabalhos \rule{2.5cm}{0.4pt}
+  \item Integrante \rule{5.7cm}{0.4pt} \quad Trabalhos \rule{2.5cm}{0.4pt}
+  \item Integrante \rule{5.7cm}{0.4pt} \quad Trabalhos \rule{2.5cm}{0.4pt}
+\end{itemize}
+
+\noindent\textbf{Redação integral da Parte II.} Integrante \rule{5.5cm}{0.4pt}
+
+\medskip
+\noindent\textbf{Conferência de fidelidade às fontes.} Integrante \rule{4.5cm}{0.4pt}
+
+\medskip
+\noindent\textbf{Conferência da argumentação.} Integrante \rule{5.7cm}{0.4pt}
+
+\medskip
+\noindent A revisão bibliográfica nesta minuta é uma proposta assistida. A redação e as duas conferências exigidas pelo enunciado são atribuições de integrantes distintos e serão registradas após a execução de cada atividade.
+
+\end{document}

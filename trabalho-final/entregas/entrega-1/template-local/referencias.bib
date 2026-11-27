@@ -1,0 +1,69 @@
+% =============================================================================
+%  ARQUIVO DE REFERÊNCIAS
+%
+%  Cada bloco abaixo é uma referência. A palavra logo depois da chave { é o
+%  IDENTIFICADOR -- é ele que você usa no texto, assim:
+%
+%       \cite{silva2024exemplo}
+%
+%  COMO OBTER UMA REFERÊNCIA PRONTA
+%  Na página do artigo, procure um botão "Cite", "Export" ou "BibTeX" e copie
+%  o bloco gerado para cá.
+%      ACM Digital Library ..... "Cite This Paper" > BibTeX
+%      IEEE Xplore ............. "Cite This" > BibTeX
+%      Scopus .................. "Export" > BibTeX
+%      Google Acadêmico ........ aspas abaixo do resultado > BibTeX
+%      SBC OpenLib ............. link "BibTeX" na página do artigo
+%
+%  ATENÇÃO: a exportação automática quase sempre vem com erro. Confira
+%  entrada por entrada contra o PDF do artigo:
+%      - a acentuação está íntegra?
+%      - o nome do evento ou periódico está completo, sem truncamento?
+%      - ano, volume, número e páginas conferem?
+%      - há DOI, e ele funciona quando colado no navegador?
+%
+%  SIGLAS E NOMES PRÓPRIOS no título precisam de chaves extras para não serem
+%  rebaixados para minúsculas. Exemplo:
+%      title = {Uso de {LSTM} para previsão de demanda no {Brasil}}
+%
+%  CUIDADO IMPORTANTE
+%  Neste arquivo, o símbolo % NÃO comenta de verdade: o BibTeX ainda enxerga
+%  qualquer arroba que apareça na linha e tenta lê-la como uma referência.
+%  Por isso, NUNCA deixe uma entrada "comentada" com % na frente. Para tirar
+%  uma referência do arquivo, APAGUE o bloco inteiro.
+%
+%  Outros tipos de entrada (livro, preprint, dissertação) estão no documento
+%  de instruções, prontos para copiar.
+%
+%  As duas entradas abaixo são EXEMPLOS. Apague-as e ponha as suas.
+% =============================================================================
+
+
+% --- Exemplo 1: artigo publicado em anais de evento --------------------------
+% É o tipo mais comum em Computação. Use o tipo "inproceedings".
+
+@inproceedings{silva2024exemplo,
+  author    = {Silva, Ana Maria and Costa, Bruno},
+  title     = {Detecção de fraude em transações com redes neurais recorrentes},
+  booktitle = {Anais do XXXIX Simpósio Brasileiro de Banco de Dados},
+  year      = {2024},
+  pages     = {112--123},
+  address   = {Porto Alegre},
+  publisher = {SBC},
+  doi       = {10.5753/sbbd.2024.00000}
+}
+
+
+% --- Exemplo 2: artigo publicado em periódico --------------------------------
+% Use o tipo "article". Note os campos journal, volume e number.
+
+@article{oliveira2022exemplo,
+  author  = {Oliveira, Carlos Eduardo and Pereira, Daniela},
+  title   = {Avaliação de métricas em cenários de forte desbalanceamento},
+  journal = {Journal of the Brazilian Computer Society},
+  year    = {2022},
+  volume  = {28},
+  number  = {1},
+  pages   = {45--58},
+  doi     = {10.1186/s13173-022-00000-0}
+}
